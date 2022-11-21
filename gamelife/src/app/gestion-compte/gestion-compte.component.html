@@ -1,0 +1,29 @@
+<div class="container">
+    <div>
+        <div>Gestion du compte</div>
+        <div style="display: table-row;">
+            <form [formGroup]="userFormGroup" (ngSubmit)="handleUpdateUser()">
+                <label>Nom</label>
+                <input type="text" formControlName="nom"><br><br>
+                <label>Prenom</label>
+                <input type="text" formControlName="prenom"><br><br>
+                <label>Email</label>
+                <input type="text" formControlName="email"><br><br>
+                <label>Adresse</label>
+                <input type="text" formControlName="numRue">
+                <input type="text" formControlName="rue">
+                <input type="text" formControlName="ville">
+                <input type="text" formControlName="cp">
+                <label>Numéros de Siren</label>
+                <input type="text" formControlName="numSiren">
+                <br><button type="submit">Confirmer</button>
+            </form>
+            <form [formGroup]="userFormGroup" (ngSubmit)="handleUpdatePassword()">
+                <label>Mot de passe : </label><br>
+                <input type="password" formControlName="oldPwd" placeholder="Mot de passe actuel">
+                <input type="password" formControlName="newPwd1" placeholder="Nouveau mot de passe">
+                <input type="password" formControlName="newPwd2" placeholder="Confirmenr mot de passe">
+            </form>
+        </div>
+    </div>
+</div>
