@@ -1,4 +1,4 @@
-export interface LoginEntity{
+export interface LoginModel {
 
   email : string;
   password : string;

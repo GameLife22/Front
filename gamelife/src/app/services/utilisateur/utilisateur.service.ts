@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {LoginEntity} from "../../entity/loginEntity";
+import {LoginModel} from "../../model/login.model";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilisateurService {
 
-   server = 'http://localhost:8080/auth/signin';
+
 
 
   constructor(private http: HttpClient) {
   }
 
-  login(email: string, password: string): Observable<LoginEntity> {
-    return this.http.post<LoginEntity>(this.server ,
+  login(email: string, password: string): Observable<LoginModel> {
+    return this.http.post<LoginModel>(environment.baseUrl+'auth/signin' ,
       {
       "login" : email,
       "pwd" : password
