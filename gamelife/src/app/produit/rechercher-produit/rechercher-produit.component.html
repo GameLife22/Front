@@ -1,0 +1,17 @@
+<mat-form-field appearance="outline">
+    <input matInput type="search" #searchBox (keyup)="search(searchBox.value)" placeholder="Chercher un jeu vidéo" />
+</mat-form-field>
+<div id="container" *ngFor="let produit of produits | async" (click)="goToDetail(produit)">
+    <mat-card>
+        <img mat-card-image src="" alt="">
+        <mat-card-header>
+            <mat-card-title>{{ produit.nom }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>{{ produit.prix.toFixed(2) }}€</mat-card-content>
+        <mat-card-actions>
+            <a (click)="goToDetail(produit)">
+                <button mat-button>>>> VOIR PLUS</button>
+            </a>
+        </mat-card-actions>
+    </mat-card>
+</div>
