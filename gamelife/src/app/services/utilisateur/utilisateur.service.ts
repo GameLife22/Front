@@ -27,36 +27,36 @@ export class UtilisateurService {
     );
   }
 
-  updateUser(nom: string, prenom: string, email: string, num_rue: number, rue: string, ville: string, cp: number, num_siren: string | null): Observable<UpdateCompteModel> {
-    return this.http.post<UpdateCompteModel>(environment.baseUrl + 'gestion-compte',
+  updateUser(id: number, nom: string, prenom: string, email: string, num_rue: number, rue: string, ville: string, codePostal: number, num_siren: string | null): Observable<UpdateCompteModel> {
+    return this.http.post<UpdateCompteModel>(environment.baseUrl + 'gestioncomtpe/infos',
       {
+        "id": id,
         "nom": nom,
         "prenom": prenom,
         "email": email,
-        "num_rue": num_rue,
+        "numRue": num_rue,
         "rue": rue,
         "ville": ville,
-        "cp": cp,
-        "num_siren": num_siren
+        "codePostal": codePostal,
+        "numSiren": num_siren
       }
     );
   }
 
-  updatePassword(email: string, oldPwd: string, newPwd: string): Observable<UpdatePwdModel> {
-    return this.http.post<UpdatePwdModel>(environment.baseUrl + 'gestion-compte',
+  updatePassword(id: number, new_mdp: string): Observable<UpdatePwdModel> {
+    return this.http.post<UpdatePwdModel>(environment.baseUrl + 'gestioncomtpe/mdp',
       {
-        "email": email,
-        "oldPwd": oldPwd,
-        "newPwd": newPwd
+        "id": id,
+        "new_mdp": new_mdp
       }
     );
   }
 
-  updateEtat(email: string, etat: string): Observable<UpdateEtatModel> {
-    return this.http.post<UpdateEtatModel>(environment.baseUrl + 'gestion-compte',
+  updateEtat(id: number, etat: string): Observable<UpdateEtatModel> {
+    return this.http.post<UpdateEtatModel>(environment.baseUrl + 'gestioncomtpe/etat',
       {
-        "email": email,
-        "etat": etat,
+        "id": id,
+        "new_etat": etat,
       }
     );
   }

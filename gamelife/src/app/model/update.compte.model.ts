@@ -1,4 +1,5 @@
 export interface UpdateCompteModel {
+    id : number;
     nom : string;
     prenom : string;
     email : string;

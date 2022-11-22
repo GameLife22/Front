@@ -1,6 +1,6 @@
 export interface UpdateEtatModel {
 
-    email : string;
-    etat : string;
+    id : number;
+    new_etat : string;
   
   }
