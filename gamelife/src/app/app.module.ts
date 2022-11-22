@@ -10,12 +10,15 @@ import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    RechercherProduitComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
     NoopAnimationsModule,
     MatFormFieldModule,
     MatRadioModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
