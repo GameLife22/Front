@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ProduitDetailComponent } from './produit/produit-detail/produit-detail.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
@@ -17,6 +18,7 @@ import { MatCardModule } from "@angular/material/card";
   declarations: [
     AppComponent,
     LoginComponent,
+    ProduitDetailComponent,
     InscriptionComponent,
     RechercherProduitComponent
   ],
