@@ -27,7 +27,10 @@ export class LoginComponent implements OnInit {
   handleLogin(){
     let email = this.userFormGroup.value.email
     let password = this.userFormGroup.value.password
-    this.loginService.login(email,password).subscribe()
+    this.loginService.login(email,password)
+  }
+  handleRedirectionToInscription(){
+    document.location.href = "../inscription"
   }
 
 }

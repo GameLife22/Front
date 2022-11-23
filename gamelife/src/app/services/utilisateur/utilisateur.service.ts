@@ -15,14 +15,28 @@ export class UtilisateurService {
   constructor(private http: HttpClient) {
   }
 
-  login(email: string, password: string): Observable<LoginModel> {
-    return this.http.post<LoginModel>(environment.baseUrl+'auth/signin' ,
+  login(email: string, password: string){
+    let contentHeader = new HttpHeaders({ "Content-Type":"application/json" });
+    this.http.post(environment.baseUrl+'auth/signin' ,
       {
-      "login" : email,
-      "pwd" : password
-      }
-    );
-  }
+        "login" : email,
+        "pwd" : password
+      },
+      { headers: contentHeader, observe: 'response' })
+      .subscribe(
+        (resp) => {
+          let token = resp.headers.get('Authorization')
+          if (typeof token === "string") {
+            sessionStorage.setItem('JWT_TOKEN', token)
+          }},
+        (resp)=>{
+          console.log(resp.message)
+        }
+
+      );
+  };
+
+
 
 
 }

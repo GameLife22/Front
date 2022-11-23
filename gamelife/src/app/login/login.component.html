@@ -1,22 +1,35 @@
 <div class="container">
-  <div>
+
+  <div class="pt-3">
     <h1>IDENTIFIEZ-VOUS</h1>
   </div>
 
   <mat-card class="login-card">
     <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
       <mat-card-header class="header-card">
-          <h2>DÉJÁ CLIENT ?</h2>
+        <h2>DÉJÁ CLIENT ?</h2>
       </mat-card-header >
       <mat-card-content>
         <div>
-          <mat-form-field appearance="fill"  >
-            <mat-label>Votre email</mat-label>
+          <mat-form-field appearance="outline"  >
+            <mat-label >Votre email</mat-label>
             <input matInput type="text" formControlName="email" >
           </mat-form-field>
+          <div *ngIf="userFormGroup.invalid && (userFormGroup.dirty || userFormGroup.touched)" class="alert alert-danger">
+
+            <div *ngIf="userFormGroup.errors?.['required']">
+              Name is required.
+            </div>
+            <div *ngIf="userFormGroup.errors?.['minlength']">
+              Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="userFormGroup.errors?.['forbiddenName']">
+              Name cannot be Bob.
+            </div>
+          </div>
         </div>
         <div>
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="outline">
             <mat-label>Votre mot de passe</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -27,27 +40,33 @@
 
       </mat-card-content>
       <mat-card-actions>
-        <div>
+        <div class="mdp-oubli-link">
           <a routerLink="/GestionMdp">Vous avez oublié votre mot de passe ?</a>
         </div>
 
         <div>
-          <button mat-button type="submit">CONNEXION</button>
+          <button mat-button class="button-connexion" type="submit">CONNEXION</button>
         </div>
       </mat-card-actions>
     </form>
   </mat-card>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div>
-        <h2>NOUVEAU CLIENT ?</h2>
-      </div>
-    </mat-card-header>
-    <mat-card-actions>
-      <div>
-        <button> <a routerLink="/Inscription">CRÉEZ UN COMPTE</a></button>
-      </div>
-    </mat-card-actions>
+  <div class="seperator"></div>
+  <mat-card class="nvclient-card" >
+    <form [formGroup]="userFormGroup" (ngSubmit)="handleRedirectionToInscription()">
+
+      <mat-card-header>
+        <div>
+          <h2>NOUVEAU CLIENT ?</h2>
+        </div>
+      </mat-card-header>
+
+      <mat-card-actions>
+        <div>
+          <button mat-button class="button-inscription" type="submit" > CRÉEZ UN COMPTE</button>
+        </div>
+      </mat-card-actions>
+
+    </form>
   </mat-card>
 </div>
 
