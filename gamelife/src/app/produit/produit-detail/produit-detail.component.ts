@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { produit } from 'src/app/model/produit';
-import { ProduitServiceService } from 'src/app/services/produit/produit-service.service';
+import { ProduitModel } from 'src/app/model/produit.model';
+import { ProduitService } from 'src/app/services/produit/produit.service';
 
 @Component({
   selector: 'app-produit-detail',
@@ -10,9 +9,9 @@ import { ProduitServiceService } from 'src/app/services/produit/produit-service.
 })
 export class ProduitDetailComponent implements OnInit {
 
-  produits?: produit[];
+  produits?: ProduitModel[];
 
-  constructor(private produitService: ProduitServiceService) { }
+  constructor(private produitService: ProduitService) { }
 
   ngOnInit(): void {
     this.showAllProduitDetail();

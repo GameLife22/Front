@@ -9,8 +9,9 @@ import { environment } from 'src/environments/environment';
 })
 export class ProduitService {
 
+  private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
-
+ 
 
   /**
    * Cette méthode permet de récupérer une liste de jeux vidéos à partir d'un mot clés (nom du jeu vidéo)
@@ -19,7 +20,14 @@ export class ProduitService {
    * @author: fabien
    */
   public getProductsByName(name: string): Observable<ProduitModel[]>  {
-    return this.http.get<ProduitModel[]>(environment.baseUrl+`produit/search?nom=${name}`)
+    return this.http.get<ProduitModel[]>(this.baseUrl+`produit/search?nom=${name}`)
+  }
+
+
+  public getAllProduit(): Observable<ProduitModel[]>{
+
+    return this.http.get<ProduitModel[]>(this.baseUrl + "produit/all");
+    
   }
 
 }
