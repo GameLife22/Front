@@ -15,6 +15,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
 import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     MatButtonModule,
     MatIconModule,
+    MatSelectModule,
 
   ],
   providers: [],
