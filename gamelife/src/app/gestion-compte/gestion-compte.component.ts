@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilisateurService } from "../services/utilisateur/utilisateur.service";
+import { IsRevendeurModel } from '../model/is.revendeur.model';
+import { __await } from 'tslib';
 
 
 @Component({
@@ -9,15 +11,19 @@ import { UtilisateurService } from "../services/utilisateur/utilisateur.service"
   styleUrls: ['./gestion-compte.component.scss']
 })
 export class GestionCompteComponent implements OnInit {
-
+  showHide: boolean = false;
   userFormGroup: FormGroup;
   mdpFormGroup: FormGroup;
   etatFormGroup: FormGroup;
+  estRevendeurModel: boolean;
 
   constructor(private fb: FormBuilder,
     private GestionCompteService: UtilisateurService) { }
 
   ngOnInit(): void {
+
+    this.handleIsRevendeur();
+
     this.userFormGroup = this.fb.group(
       {
         nom: this.fb.control(""),
@@ -59,7 +65,7 @@ export class GestionCompteComponent implements OnInit {
     let ville: string = this.userFormGroup.value.ville
     let codePostal: number = this.userFormGroup.value.codePostal
     let numSiren: string | null = this.userFormGroup.value.numSiren
-    this.GestionCompteService.updateUser(id, nom, prenom, email, numRue, rue, ville, codePostal, numSiren).subscribe()
+    this.GestionCompteService.updateUser(id, nom, prenom, email, numRue, rue, ville, codePostal, numSiren)
   }
 
 
@@ -75,20 +81,31 @@ export class GestionCompteComponent implements OnInit {
 
     if (new_mdp1 == new_mdp2) {
       let new_mdp = new_mdp1
-      if (new_mdp != oldPwd) {
+      if (new_mdp != oldPwd) { // attention récupérer l'ancien mot de passe
         this.GestionCompteService.updatePassword(id, new_mdp).subscribe()
       }
     }
   }
 
   handleUpdateEtat() {
+    /* a faire :
+        récupérer l'id dans le token
+    */
+    let id: number = 4; // a absolument changer
+    let new_etat: string = "desactive";
+    this.GestionCompteService.updateEtat(id, new_etat).subscribe();
+  }
 
+  handleIsRevendeur(){
     /* a faire :
         récupérer l'id dans le token
     */
     let id: number = 4 // a absolument changer
-    let new_etat: string = "desactive"
-    this.GestionCompteService.updateEtat(id, new_etat).subscribe()
+    this.GestionCompteService.isRevendeur(id).subscribe({
+      next: (res)=>  {
+        this.estRevendeurModel = res;
+      }
+    }
+    )
   }
 }
-

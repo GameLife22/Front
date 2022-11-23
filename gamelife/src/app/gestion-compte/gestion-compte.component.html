@@ -14,11 +14,16 @@
                 <input type="text" formControlName="rue" placeholder="nom de ma rue">
                 <input type="text" formControlName="ville" placeholder="nom de ma ville">
                 <input type="text" formControlName="codePostal" placeholder="Code postal">
-                <label>Numéros de Siren  </label>
-                <input type="text" formControlName="numSiren">
+                <div *ngIf="estRevendeurModel">
+                    <label>Numéros de Siren  </label>
+                    <input type="text" formControlName="numSiren">
+                </div>
                 <br><button type="submit">Confirmer</button>
             </form>
-            <form [formGroup]="mdpFormGroup" (ngSubmit)="handleUpdatePassword()">
+            <br>
+
+            <button (click)="showHide = true" type="submit">modifier mot de passe ?</button>
+            <form [formGroup]="mdpFormGroup" (ngSubmit)="handleUpdatePassword()" *ngIf="showHide">
                 <label>Mot de passe : </label><br>
                 <input type="password" formControlName="oldPwd" placeholder="Mot de passe actuel">
                 <input type="password" formControlName="newPwd1" placeholder="Nouveau mot de passe">
