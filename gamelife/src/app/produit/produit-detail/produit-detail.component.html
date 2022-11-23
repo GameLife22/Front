@@ -1,0 +1,17 @@
+<div  *ngFor="let prod of produits" class="card-group" >
+
+<div class="card container text-center " style="width: 18rem;">
+    <img class="card-img-top"  [src]="prod.images" alt={{prod.nom}}>
+    <h5 class="card-title text-uppercase"> {{prod.nom}} </h5>
+    <h6 class="card-title text-uppercase"> {{prod.plateforme}} </h6>
+    <div class="card-body">
+      <p class="card-text"> {{prod.details}} </p>
+    </div>
+    <h4 class="card-body" > {{prod.prix}} </h4>
+  
+  </div>
+
+  
+
+
+</div>

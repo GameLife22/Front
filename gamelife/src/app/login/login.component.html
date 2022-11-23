@@ -1,14 +1,53 @@
 <div class="container">
-    <div>
-      <div>Login</div>
+  <div>
+    <h1>IDENTIFIEZ-VOUS</h1>
+  </div>
+
+  <mat-card class="login-card">
+    <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
+      <mat-card-header class="header-card">
+          <h2>DÉJÁ CLIENT ?</h2>
+      </mat-card-header >
+      <mat-card-content>
+        <div>
+          <mat-form-field appearance="fill"  >
+            <mat-label>Votre email</mat-label>
+            <input matInput type="text" formControlName="email" >
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Votre mot de passe</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <div>
+          <a routerLink="/GestionMdp">Vous avez oublié votre mot de passe ?</a>
+        </div>
+
+        <div>
+          <button mat-button type="submit">CONNEXION</button>
+        </div>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+  <mat-card class="example-card">
+    <mat-card-header>
       <div>
-        <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
-          <label>Email</label>
-          <input type="text" formControlName="email" >
-          <label>Password</label>
-          <input type="password" formControlName="password" >
-          <button type="submit">Login</button>
-        </form>
+        <h2>NOUVEAU CLIENT ?</h2>
       </div>
-    </div>
+    </mat-card-header>
+    <mat-card-actions>
+      <div>
+        <button> <a routerLink="/Inscription">CRÉEZ UN COMPTE</a></button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
 </div>
+
