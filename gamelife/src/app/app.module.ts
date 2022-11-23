@@ -16,6 +16,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
 import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
+import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     ProduitDetailComponent,
     InscriptionComponent,
-    RechercherProduitComponent
+    RechercherProduitComponent,
+    GestionCompteComponent
 
   ],
   imports: [

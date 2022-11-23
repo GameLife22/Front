@@ -4,12 +4,14 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { LoginComponent } from './login/login.component';
 import { ProduitDetailComponent } from './produit/produit-detail/produit-detail.component';
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
+import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component";
 
 const routes: Routes = [
   { path : "login", component : LoginComponent},
   { path : "inscription", component : InscriptionComponent},
   { path: "produit/all", component : ProduitDetailComponent},
-  { path : "produit", component: RechercherProduitComponent}
+  { path : "produit", component: RechercherProduitComponent},
+  { path : "gestioncompte", component: GestionCompteComponent}
 ];
 
 @NgModule({

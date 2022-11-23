@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilisateurService } from "../services/utilisateur/utilisateur.service";
 import { IsRevendeurModel } from '../model/is.revendeur.model';
 import { __await } from 'tslib';
+import {UpdateCompteModel} from "../model/update.compte.model";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -65,7 +67,8 @@ export class GestionCompteComponent implements OnInit {
     let ville: string = this.userFormGroup.value.ville
     let codePostal: number = this.userFormGroup.value.codePostal
     let numSiren: string | null = this.userFormGroup.value.numSiren
-    this.GestionCompteService.updateUser(id, nom, prenom, email, numRue, rue, ville, codePostal, numSiren)
+    let observable : Observable<UpdateCompteModel> = this.GestionCompteService.updateUser(id, nom, prenom, email, numRue, rue, ville, codePostal, numSiren)
+    observable.subscribe(value => console.log(value));
   }
 
 

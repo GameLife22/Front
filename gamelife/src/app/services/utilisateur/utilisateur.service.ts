@@ -28,7 +28,7 @@ export class UtilisateurService {
     );
   }
 
-  updateUser(id: number, nom: string, prenom: string, email: string, num_rue: number, rue: string, ville: string, codePostal: number, num_siren: string | null) {
+  updateUser(id: number, nom: string, prenom: string, email: string, num_rue: number, rue: string, ville: string, codePostal: number, num_siren: string | null) : Observable<UpdateCompteModel>{
     let contentHeader = new HttpHeaders({ "Content-Type":"application/json" });
     return this.http.post<UpdateCompteModel>(environment.baseUrl + 'gestioncomtpe/infos',
       {
@@ -41,16 +41,7 @@ export class UtilisateurService {
         "ville": ville,
         "codePostal": codePostal,
         "numSiren": num_siren
-      },
-      { headers: contentHeader, observe: 'response' })
-      .subscribe(
-        (resp) => {
-        },
-        (resp)=>{
-          console.log(resp.error.message)
-        }
-
-      );
+      });
   }
 
 
