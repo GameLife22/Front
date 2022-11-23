@@ -8,9 +8,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatRadioModule} from "@angular/material/radio";
-import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import { ProduitDetailComponent } from './produit/produit-detail/produit-detail.component';
@@ -38,7 +35,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatRadioModule,
     MatInputModule,
     MatCardModule,
-    AppRoutingModule
+    AppRoutingModule,
     MatButtonModule,
     MatIconModule,
 
