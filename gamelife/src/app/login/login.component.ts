@@ -9,7 +9,8 @@ import {UtilisateurService} from "../services/utilisateur/utilisateur.service";
 })
 export class LoginComponent implements OnInit {
 
-  userFormGroup : FormGroup; 
+  userFormGroup : FormGroup;
+  hide = true;
 
   constructor(private fb : FormBuilder,
               private loginService : UtilisateurService) { }
