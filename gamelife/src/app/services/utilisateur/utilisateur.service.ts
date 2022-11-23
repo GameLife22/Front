@@ -25,8 +25,8 @@ export class UtilisateurService {
     );
   }
 
-    inscription(nom: string, prenom: string, email: string, password: string, numRue: Int16Array, rue: string, ville: string, codePostal: Int16Array, siren: Int16Array, role: string | null): Observable<InscriptionModel> {
-    return this.http.post<InscriptionModel>(environment.baseUrl+'inscription/env1' ,
+    inscription(nom: string, prenom: string, email: string, password: string, numRue: Int16Array, rue: string, ville: string, codePostal: Int16Array, siren: Int16Array, role: string | null): Observable<string> {
+    return this.http.post(environment.baseUrl+'inscription/env1' ,
       {
       "nom":nom,
       "prenom":prenom,
@@ -39,6 +39,9 @@ export class UtilisateurService {
       "num_siren":siren,
       "etat":"active",
       "code_postal":codePostal
+      },
+      {
+        responseType: 'text',
       }
     );
   }
