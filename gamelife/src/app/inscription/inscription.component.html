@@ -1,0 +1,64 @@
+<div class="container">
+    <div>Inscription</div>
+    <div>
+        <label>Vous êtes : </label>
+        <mat-radio-group [formControl]="roleControl">
+          <mat-radio-button value="acheteur" aria-checked="true">Acheteur</mat-radio-button>
+          <mat-radio-button value="vendeur">Vendeur</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+    <div>
+        <form [formGroup]="inscriptionForm">
+            <div>
+                <mat-form-field appearance="fill">
+                    <input matInput placeholder="Nom" formControlName="nom" required>
+                </mat-form-field>
+            </div>
+            
+            <div>
+                <mat-form-field appearance="fill">
+                    <input matInput placeholder="Prenom" formControlName="prenom" required>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <input matInput placeholder="Email" formControlName="email" required>
+                </mat-form-field> 
+            </div>
+            
+            <div>
+                <mat-form-field appearance="fill">
+                    <input matInput type="password" placeholder="Password" formControlName="pwd" required>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <input matInput placeholder="N° rue" [value]="0" formControlName="numRue" required>
+                </mat-form-field>
+            </div>
+            
+            <div>
+                <mat-form-field appearance="fill">
+                    <input matInput placeholder="Rue" formControlName="rue" required>
+                </mat-form-field>
+            </div>
+        
+            <div>
+                <mat-form-field appearance="fill">
+                    <input matInput placeholder="Ville" formControlName="ville" required>
+                </mat-form-field> 
+            </div>    
+        
+            <div *ngIf="getSirenValue()">
+                <mat-form-field appearance="fill">
+                    <input matInput placeholder="Siren" formControlName="siren" required>
+                </mat-form-field> 
+            </div>
+
+            
+        </form>
+    </div>
+</div>
