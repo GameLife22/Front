@@ -15,6 +15,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
 import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
+import {TokenInterceptor, TokenInterceptorProvider} from "./helpers/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatIconModule,
 
   ],
-  providers: [],
+  providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

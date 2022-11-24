@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {LoginModel} from "../../model/login.model";
 import {environment} from "../../../environments/environment";
+import {TokenService} from "../token/token.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilisateurService {
 
-
-
-
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private tokenService : TokenService) {
   }
 
   login(email: string, password: string){
@@ -25,10 +22,12 @@ export class UtilisateurService {
       { headers: contentHeader, observe: 'response' })
       .subscribe(
         (resp) => {
+          this.tokenService.clearToken()
           let token = resp.headers.get('Authorization')
           if (typeof token === "string") {
-            sessionStorage.setItem('JWT_TOKEN', token)
-          }},
+            this.tokenService.saveToken(token)
+          }
+          },
         (resp)=>{
           console.log(resp.message)
         }
