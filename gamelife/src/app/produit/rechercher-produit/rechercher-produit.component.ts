@@ -12,15 +12,15 @@ import { ProduitService } from 'src/app/services/produit/produit.service';
 export class RechercherProduitComponent implements OnInit {
 
   searchTerms = new Subject<string>();
-  produits: Observable<ProduitModel | any>
+  products: Observable<ProduitModel | any>
 
-  constructor(private router: Router, private service: ProduitService) { }
+  constructor(private router: Router, private searchService: ProduitService) { }
 
   ngOnInit(): void {
-    this.produits = this.searchTerms.pipe(
+    this.products = this.searchTerms.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap((term: string) => this.service.getProductsByName(term))
+      switchMap((term: string) => (term.length == 0) ? ([]) : this.searchService.getProductsByName(term))
     );
   }
 
