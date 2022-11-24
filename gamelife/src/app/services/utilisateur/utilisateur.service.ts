@@ -22,7 +22,6 @@ export class UtilisateurService {
       { headers: contentHeader, observe: 'response' })
       .subscribe(
         (resp) => {
-          this.tokenService.clearToken()
           let token = resp.headers.get('Authorization')
           if (typeof token === "string") {
             this.tokenService.saveToken(token)
