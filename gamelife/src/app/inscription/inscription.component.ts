@@ -10,7 +10,7 @@ import { UtilisateurService } from '../services/utilisateur/utilisateur.service'
 export class InscriptionComponent implements OnInit {
 
   inscriptionForm : FormGroup;
-  roleControl = new FormControl('acheteur');
+  roleControl = new FormControl('ROLE_ACHETEUR');
 
   options = this.fb.group({
     role : this.roleControl,
@@ -34,7 +34,7 @@ export class InscriptionComponent implements OnInit {
     )
   }
   getSirenValue(): boolean{
-    let result = this.roleControl.value === "vendeur";
+    let result = this.roleControl.value === "ROLE_REVENDEUR";
     if(result){
       this.inscriptionForm.controls["siren"].addValidators([Validators.minLength(9)]);
     }else {
@@ -52,7 +52,7 @@ export class InscriptionComponent implements OnInit {
   handleInscription(){
     let role = this.roleControl;
     let siren
-    if(role.value === "vendeur"){
+    if(role.value === "ROLE_REVENDEUR"){
       siren = this.inscriptionForm.value.siren;
     }
     let nom = this.inscriptionForm.value.nom;
