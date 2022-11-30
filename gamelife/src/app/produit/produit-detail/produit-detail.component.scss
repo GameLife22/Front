@@ -1,4 +1,18 @@
-body{
-    background: #ABABAB;
+body {
+    background: red;
 }
 
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
