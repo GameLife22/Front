@@ -14,6 +14,7 @@ import { RechercherProduitComponent } from './produit/rechercher-produit/recherc
 import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
