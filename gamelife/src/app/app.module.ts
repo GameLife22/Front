@@ -5,9 +5,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatRadioModule} from "@angular/material/radio";
-import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import { ProduitDetailComponent } from './produit/produit-detail/produit-detail.component';
@@ -16,6 +13,17 @@ import { RechercherProduitComponent } from './produit/rechercher-produit/recherc
 import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
 import {MatSelectModule} from "@angular/material/select";
+import { FicheProduitComponent } from './produit/fiche-produit/fiche-produit.component';
+import { FooterComponent } from './partage/footer/footer.component';
+import { HeaderComponent } from './partage/header/header.component';
+import { HomeComponent } from './home/home.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatInputModule} from "@angular/material/input";
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +31,11 @@ import {MatSelectModule} from "@angular/material/select";
     LoginComponent,
     ProduitDetailComponent,
     InscriptionComponent,
-    RechercherProduitComponent
+    RechercherProduitComponent,
+    FicheProduitComponent,
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +52,8 @@ import {MatSelectModule} from "@angular/material/select";
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
+    Ng2SearchPipeModule,
+    FormsModule
 
   ],
   providers: [],

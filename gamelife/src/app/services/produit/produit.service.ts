@@ -10,14 +10,15 @@ import { environment } from 'src/environments/environment';
 export class ProduitService {
 
   private baseUrl = environment.baseUrl;
+  
   constructor(private http: HttpClient) { }
  
 
   /**
-   * Cette méthode permet de récupérer une liste de jeux vidéos à partir d'un mot clés (nom du jeu vidéo)
-   * @param name : nom du jeu vidéo recherché
-   * @returns : une liste de jeux vidéos
-   * @author: fabien
+   * Cette méthode permet de récupérer une liste de jeux vidéos à partir de son nom
+   * @param name: nom du jeu vidéo
+   * @returns: une liste de jeux vidéos
+   * @author: Fabien
    */
   public getProductsByName(name: string): Observable<ProduitModel[]>  {
     return this.http.get<ProduitModel[]>(this.baseUrl+`produit/search?nom=${name}`)
@@ -28,6 +29,16 @@ export class ProduitService {
 
     return this.http.get<ProduitModel[]>(this.baseUrl + "produit/all");
     
+  }
+
+  /**
+   * Cette méthode permet de récupérer un jeu vidéo à partir de son id
+   * @param id: identifiant unique du jeu vidéo
+   * @returns: un jeu video
+   * @author: Fabien
+   */
+  public getProductById(id: string): Observable<ProduitModel> {
+    return this.http.get<ProduitModel>(this.baseUrl + `produit/${id}`);
   }
 
 }

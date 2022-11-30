@@ -5,10 +5,11 @@
 
     id?: number;
     categorie?: string;
-    details?: string;
+    texteDescriptif?: string;
+    detail?: string;
     nom?: string;
     plateforme?: string;
-    prix?: number;
-    images?: string;
+    prix: number;
+    images: string[];
 
 }

@@ -69,7 +69,7 @@ export class InscriptionComponent implements OnInit {
 
     this.service.inscription(nom,prenom,email,pwd,numRue,rue,ville,codePostal,siren,role.value).subscribe()
 
-    //this.router.navigate([])
+    this.router.navigate([''])
 
 
 
