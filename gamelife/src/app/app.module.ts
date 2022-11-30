@@ -15,6 +15,12 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
 import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
+import { FicheProduitComponent } from './produit/fiche-produit/fiche-produit.component';
+import { FooterComponent } from './partage/footer/footer.component';
+import { HeaderComponent } from './partage/header/header.component';
+import { HomeComponent } from './home/home.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,11 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     ProduitDetailComponent,
     InscriptionComponent,
-    RechercherProduitComponent
+    RechercherProduitComponent,
+    FicheProduitComponent,
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +48,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     MatButtonModule,
     MatIconModule,
+    Ng2SearchPipeModule,
+    FormsModule
 
   ],
   providers: [],
