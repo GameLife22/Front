@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div id="wrapper">
+    <div id="wrapper1" class="card">
+        <div id="mini-wrapper">
+            <div id="mini-wrapper1">
+                <img src="{{ picture }}" alt="">
+            </div>
+            <div id="mini-wrapper2">
+                <div id="wrapper-title" class="wrapper"><h2 id="name">{{ game.nom }} ({{ game.plateforme }})</h2></div>
+                <div id="wrapper-description" class="wrapper"><p id="description">{{ game.texteDescriptif }}</p></div>
+                <div id="wrapper-price" class="wrapper"><p id="price">{{ game.prix.toFixed(2) }}€</p></div>
+                <div id="wrapper-button" class="wrapper"><button type="button">AJOUTER AU PANIER</button></div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper2" class="card">
+        <div id="mini-wrapper3">
+            <h3><u>DESCRIPTION</u></h3>
+        </div>
+        <div id="mini-wrapper4">
+            <p id="detail">{{ game.detail }}</p>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,14 +1,26 @@
 input:placeholder-shown {
     font-style: italic;
+    color: #ABABAB;
+}
+
+button {
+    background-color: #C7C7C7;
+    color: white;
+    font-weight: bold;
 }
 
 #container {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
 }
+
+#mini-container1 {
+    display: flex;
+}
+
+/*
+
 
 #container1 {
     display: flex;
@@ -30,3 +42,4 @@ input:placeholder-shown {
 input {
     border-radius: 30px;
 }
+*/

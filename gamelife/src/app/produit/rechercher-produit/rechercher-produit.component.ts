@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
 import { ProduitModel } from 'src/app/model/produit.model';
@@ -11,25 +12,35 @@ import { ProduitService } from 'src/app/services/produit/produit.service';
 })
 export class RechercherProduitComponent implements OnInit {
 
-  searchTerms = new Subject<string>();
-  products: Observable<ProduitModel | any>
+  games: ProduitModel[] | any;
+  searchFormGroup!: FormGroup; 
+  
 
-  constructor(private router: Router, private searchService: ProduitService) { }
+  constructor(private router : Router, private productService : ProduitService, private fb : FormBuilder) { }
 
   ngOnInit(): void {
-    this.products = this.searchTerms.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap((term: string) => (term.length == 0) ? ([]) : this.searchService.getProductsByName(term))
-    );
+    this.searchFormGroup = this.fb.group({
+      keyword : this.fb.control(null)
+    });
+    this.handleSearchProducts();
   }
 
-  public search(term: string) {
-    this.searchTerms.next(term);
+  public handleSearchProducts() {
+    let keyword = this.searchFormGroup.value.keyword;
+    this.productService.getProductsByName(keyword).pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    ).subscribe({
+      next: (data) =>  {
+        this.games = data
+        console.log(this.games)
+      }
+    });
   }
 
-  public goToDetail(produit: ProduitModel) {
-    const link = ['/produit', produit.id]
+  public goToProductSheet(product : ProduitModel) {
+    const link = ['/produit', product.id]
     this.router.navigate(link);
   }
+
 }
