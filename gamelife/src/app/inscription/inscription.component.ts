@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-inscription',
@@ -16,7 +17,8 @@ export class InscriptionComponent implements OnInit {
     role : this.roleControl,
   });
   constructor(private fb : FormBuilder,
-              private service : UtilisateurService) { }
+              private service : UtilisateurService,
+              private router : Router) { }
 
   ngOnInit(): void {
     this.inscriptionForm = this.fb.group(
@@ -66,6 +68,8 @@ export class InscriptionComponent implements OnInit {
 
 
     this.service.inscription(nom,prenom,email,pwd,numRue,rue,ville,codePostal,siren,role.value).subscribe()
+
+    //this.router.navigate([])
 
 
 

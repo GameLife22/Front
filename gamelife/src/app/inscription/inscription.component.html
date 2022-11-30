@@ -84,7 +84,7 @@
               <mat-error *ngIf="inscriptionForm.controls['siren'].invalid">Siren invalide</mat-error>
             </mat-form-field>
           </div>
-          <button mat-stroked-button type="submit" color="primary">S'inscrire</button>
+          <button mat-stroked-button type="submit" [disabled]="!inscriptionForm.valid" color="primary">S'inscrire</button>
 
         </form>
       </div>
