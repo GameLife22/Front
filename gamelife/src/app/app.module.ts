@@ -19,9 +19,9 @@ import { FicheProduitComponent } from './produit/fiche-produit/fiche-produit.com
 import { FooterComponent } from './partage/footer/footer.component';
 import { HeaderComponent } from './partage/header/header.component';
 import { HomeComponent } from './home/home.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
-
+import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 
 
 @NgModule({
@@ -35,6 +35,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
+    InternalServerComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,6 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     MatButtonModule,
     MatIconModule,
-    Ng2SearchPipeModule,
     FormsModule
 
   ],
