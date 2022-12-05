@@ -1,0 +1,110 @@
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#wrapper1 {
+    height: 40vh;
+    width: 40vw;
+    margin-bottom: 5%;
+    border-radius: 0px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+#wrapper2 {
+    height: 40vh;
+    width: 40vw;
+    margin-bottom: 5%;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+#mini-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#mini-wrapper1 {
+    height: 30vh;
+    width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+#mini-wrapper2 {
+    height: 30vh;
+    width: 35vw;
+}
+
+#mini-wrapper3 {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+}
+
+#mini-wrapper4 {
+    letter-spacing: 1px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#wrapper-title, #wrapper-button  {
+    height: 10vh;
+}
+
+#wrapper-description, #wrapper-price  {
+    height: 5vh;
+}
+
+#name {
+    font-size: 20px;
+}
+
+#description {
+    font-size: 18px;
+}
+
+#price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1633A4;
+}
+
+#detail {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+img {
+    width: 90%;
+}
+
+
+h3 {
+    color: #1633A4;
+    font-weight: bold;
+}
+
+button, button:hover, button:active, button:visited {
+    background-color: #1633A4 !important;
+    color: white;
+    font-weight: bold;
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+}
