@@ -8,6 +8,7 @@ import { UpdateEtatModel } from 'src/app/model/update.etat.model';
 import { UpdateCompteModel } from 'src/app/model/update.compte.model';
 import { IsRevendeurModel } from 'src/app/model/is.revendeur.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -43,7 +44,6 @@ export class UtilisateurService {
         "numSiren": num_siren
       });
   }
-
 
 
   updatePassword(id: number, new_mdp: string): Observable<UpdatePwdModel> {
