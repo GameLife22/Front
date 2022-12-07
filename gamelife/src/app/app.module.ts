@@ -37,8 +37,7 @@ import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component"
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-
-    GestionCompteComponent
+    GestionCompteComponent,
     InternalServerComponent,
     NotFoundComponent,
   ],
@@ -57,7 +56,7 @@ import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component"
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
-    FormsModulen,
+    FormsModule,
     MatSelectModule
 
   ],
