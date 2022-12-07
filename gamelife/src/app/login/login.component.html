@@ -15,17 +15,15 @@
             <mat-label >Votre email</mat-label>
             <input matInput type="text" formControlName="email" >
           </mat-form-field>
-          <div *ngIf="userFormGroup.invalid && (userFormGroup.dirty || userFormGroup.touched)" class="alert alert-danger">
+          <div *ngIf="userFormGroup.controls['email'].invalid && (userFormGroup.controls['email'].dirty || userFormGroup.controls['email'].touched)" class="alert alert-danger">
+            <div *ngIf="userFormGroup.controls['email'].errors?.['email']">
 
-            <div *ngIf="userFormGroup.errors?.['required']">
-              Name is required.
             </div>
-            <div *ngIf="userFormGroup.errors?.['minlength']">
-              Name must be at least 4 characters long.
+
+            <div *ngIf="userFormGroup.controls['email'].errors?.['required']">
+              email is required.
             </div>
-            <div *ngIf="userFormGroup.errors?.['forbiddenName']">
-              Name cannot be Bob.
-            </div>
+
           </div>
         </div>
         <div>
@@ -36,6 +34,9 @@
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
+          <div *ngIf="userFormGroup.controls['password'].invalid && (userFormGroup.controls['password'].dirty || userFormGroup.controls['password'].touched)" class="alert alert-danger">
+            <!--{{getErrorMessage('password',userFormGroup.controls['password'].errors)}}!-->
+          </div>
         </div>
 
       </mat-card-content>
@@ -45,7 +46,8 @@
         </div>
 
         <div>
-          <button mat-button class="button-connexion" type="submit">CONNEXION</button>
+          <!-- [disabled]="userFormGroup.invalid" !-->
+          <button mat-button  class="button-connexion" type="submit">CONNEXION</button>
         </div>
       </mat-card-actions>
     </form>

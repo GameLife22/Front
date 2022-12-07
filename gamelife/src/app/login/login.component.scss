@@ -33,6 +33,11 @@ mat-card-header{
   color: white;
 }
 
+.button-connexion:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
 /***********************/
 .seperator{
   margin-top: 20px;
