@@ -1,7 +1,6 @@
-import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProduitModel } from 'src/app/model/produit.model';
 import { ErrorHandlerService } from 'src/app/partage/services/error-handler.service';
 import { ProduitService } from 'src/app/services/produit/produit.service';
