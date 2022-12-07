@@ -1,25 +1,40 @@
-//.example-container mat-form-field + mat-form-field {
-//  margin-left: 8px;
-//}
-//
-//.example-container mat-form-field {
-//  width: 220px;
-//}
-//
-//.example-container form {
-//  margin-bottom: 20px;
-//}
-//
-//.example-container form > * {
-//  margin: 12px 0;
-//}
-////
-////.example-container .mat-radio-button {
-////  margin: 0 12px;
-////}
-//
-//.example-form-fields {
-//  display: flex;
-//  align-items: flex-start;
-//}
-//
+.container{
+  text-align: center;
+  background-color: darkblue;
+  height: auto;
+  width:  40vw;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding-bottom: 50px;
+}
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container mat-form-field {
+  width: 220px;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin: 12px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+.example-form-fields {
+  display: flex;
+  align-items: flex-start;
+}
+
+.inscription-card {
+  margin: auto;
+  max-width: 500px;
+  text-align: center;
+  padding: 5px;
+}

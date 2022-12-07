@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilisateurService } from "../services/utilisateur/utilisateur.service";
-import { IsRevendeurModel } from '../model/is.revendeur.model';
-import { __await } from 'tslib';
 import {UpdateCompteModel} from "../model/update.compte.model";
 import {Observable} from "rxjs";
-
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-gestion-compte',
@@ -14,13 +12,15 @@ import {Observable} from "rxjs";
 })
 export class GestionCompteComponent implements OnInit {
   showHide: boolean = false;
+  suppCompt: boolean = false;
   userFormGroup: FormGroup;
   mdpFormGroup: FormGroup;
   etatFormGroup: FormGroup;
   estRevendeurModel: boolean;
 
   constructor(private fb: FormBuilder,
-    private GestionCompteService: UtilisateurService) { }
+    private GestionCompteService: UtilisateurService,
+    private router : Router ) { }
 
   ngOnInit(): void {
 
@@ -28,13 +28,13 @@ export class GestionCompteComponent implements OnInit {
 
     this.userFormGroup = this.fb.group(
       {
-        nom: this.fb.control(""),
-        prenom: this.fb.control(""),
-        email: this.fb.control("", [Validators.email]),
-        numRue: this.fb.control(""),
-        rue: this.fb.control(""),
-        ville: this.fb.control(""),
-        codePostal: this.fb.control(""),
+        nom: this.fb.control("Robinson"),
+        prenom: this.fb.control("Pierre"),
+        email: this.fb.control("acheteur002@outlook.fr", [Validators.email]),
+        numRue: this.fb.control("3"),
+        rue: this.fb.control("rue dupont"),
+        ville: this.fb.control("lille"),
+        codePostal: this.fb.control("59000"),
         numSiren: this.fb.control("")
 
       }
@@ -52,6 +52,14 @@ export class GestionCompteComponent implements OnInit {
     )
   }
 
+
+  getErrorMessage() {
+    if (this.userFormGroup.controls['email'].hasError('required')) {
+      return 'Champ requis';
+    }
+
+    return this.userFormGroup.controls['email'].hasError('email') ? 'Email invalide' : '';
+  }
 
   handleUpdateUser() {
 
@@ -97,6 +105,7 @@ export class GestionCompteComponent implements OnInit {
     let id: number = 4; // a absolument changer
     let new_etat: string = "desactive";
     this.GestionCompteService.updateEtat(id, new_etat).subscribe();
+    this.router.navigate(['']);
   }
 
   handleIsRevendeur(){

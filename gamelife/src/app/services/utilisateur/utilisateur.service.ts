@@ -29,6 +29,28 @@ export class UtilisateurService {
     );
   }
 
+    inscription(nom: string, prenom: string, email: string, password: string, numRue: Int16Array, rue: string, ville: string, codePostal: Int16Array, siren: Int16Array, role: string | null): Observable<string> {
+    return this.http.post(environment.baseUrl+'inscription/env1' ,
+      {
+      "nom":nom,
+      "prenom":prenom,
+      "mdp":password,
+      "email":email,
+      "ville":ville,
+      "num_rue":numRue,
+      "rue":rue,
+      "role":role,
+      "num_siren":siren,
+      "etat":"active",
+      "code_postal":codePostal
+      },
+      {
+        responseType: 'text',
+      }
+    );
+  }
+
+
   updateUser(id: number, nom: string, prenom: string, email: string, num_rue: number, rue: string, ville: string, codePostal: number, num_siren: string | null) : Observable<UpdateCompteModel>{
     let contentHeader = new HttpHeaders({ "Content-Type":"application/json" });
     return this.http.post<UpdateCompteModel>(environment.baseUrl + 'gestioncomtpe/infos',
