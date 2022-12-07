@@ -24,7 +24,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatInputModule} from "@angular/material/input";
 
-
+import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +37,8 @@ import {MatInputModule} from "@angular/material/input";
     FooterComponent,
     HeaderComponent,
     HomeComponent,
+
+    GestionCompteComponent
     InternalServerComponent,
     NotFoundComponent,
   ],
@@ -54,7 +56,8 @@ import {MatInputModule} from "@angular/material/input";
     AppRoutingModule,
     MatButtonModule,
     MatIconModule,
-    FormsModule,
+    MatSelectModule,
+    FormsModulen,
     MatSelectModule
 
   ],
