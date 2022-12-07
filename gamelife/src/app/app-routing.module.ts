@@ -18,10 +18,9 @@ const routes: Routes = [
   { path : "inscription", component : InscriptionComponent},
   { path: "produit/all", component : ProduitDetailComponent},
   { path : "produit/:id", component : FicheProduitComponent},
-
   { path : "produit", component: RechercherProduitComponent},
-  { path : "gestioncompte", component: GestionCompteComponent}
-   { path: '404', component: NotFoundComponent },
+  { path : "gestioncompte", component: GestionCompteComponent},
+  { path: '404', component: NotFoundComponent },
   { path: '500', component: InternalServerComponent }, 
   { path: '**', redirectTo: '/404', pathMatch: 'full' }
 ];
