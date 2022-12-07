@@ -12,6 +12,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
 import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
+import {TokenInterceptor, TokenInterceptorProvider} from "./helpers/token.interceptor";
 import {MatSelectModule} from "@angular/material/select";
 import { FicheProduitComponent } from './produit/fiche-produit/fiche-produit.component';
 import { FooterComponent } from './partage/footer/footer.component';
@@ -23,8 +24,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatInputModule} from "@angular/material/input";
-
-
+import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +37,8 @@ import {MatInputModule} from "@angular/material/input";
     FooterComponent,
     HeaderComponent,
     HomeComponent,
+
+    GestionCompteComponent
     InternalServerComponent,
     NotFoundComponent,
   ],
@@ -54,11 +56,12 @@ import {MatInputModule} from "@angular/material/input";
     AppRoutingModule,
     MatButtonModule,
     MatIconModule,
-    FormsModule,
+    MatSelectModule,
+    FormsModulen,
     MatSelectModule
 
   ],
-  providers: [],
+  providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {UtilisateurService} from "../services/utilisateur/utilisateur.service";
 
 @Component({
@@ -27,7 +27,21 @@ export class LoginComponent implements OnInit {
   handleLogin(){
     let email = this.userFormGroup.value.email
     let password = this.userFormGroup.value.password
-    this.loginService.login(email,password).subscribe()
+    this.loginService.login(email,password)
+  }
+  handleRedirectionToInscription(){
+    document.location.href = "../inscription"
+  }
+
+  getErrorMessage(field : string , error : ValidationErrors){
+    if (error['required']){
+      return field + "is required"
+    }
+    else if(error['minLength']){
+      return field.length+"\t"+field + "\t"+error['minLength']['requiredLength'] + " characters"
+    }
+    else
+      return  ""
   }
 
 }
