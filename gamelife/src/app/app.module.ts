@@ -18,6 +18,8 @@ import { FooterComponent } from './partage/footer/footer.component';
 import { HeaderComponent } from './partage/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatInputModule} from "@angular/material/input";
@@ -35,8 +37,10 @@ import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component"
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    GestionCompteComponent
 
+    GestionCompteComponent
+    InternalServerComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,8 @@ import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component"
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
-    FormsModule
+    FormsModulen,
+    MatSelectModule
 
   ],
   providers: [],
