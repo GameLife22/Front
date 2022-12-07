@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {TokenService} from "../token/token.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { LoginModel } from "../../model/login.model";
@@ -14,20 +15,34 @@ import { IsRevendeurModel } from 'src/app/model/is.revendeur.model';
 })
 export class UtilisateurService {
 
-
-
-
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private tokenService : TokenService) {
   }
 
-  login(email: string, password: string): Observable<LoginModel> {
-    return this.http.post<LoginModel>(environment.baseUrl + 'auth/signin',
+
+  login(email: string, password: string){
+    let contentHeader = new HttpHeaders({ "Content-Type":"application/json" });
+    this.http.post(environment.baseUrl+'auth/signin' ,
       {
-        "login": email,
-        "pwd": password
-      }
-    );
-  }
+        "login" : email,
+        "pwd" : password
+      },
+      { headers: contentHeader, observe: 'response' })
+      .subscribe(
+        (resp) => {
+          let token = resp.headers.get('Authorization')
+          if (typeof token === "string") {
+            this.tokenService.saveToken(token)
+          }
+          },
+        (resp)=>{
+          console.log(resp.message)
+        }
+
+      );
+  };
+
+
 
     inscription(nom: string, prenom: string, email: string, password: string, numRue: Int16Array, rue: string, ville: string, codePostal: Int16Array, siren: Int16Array, role: string | null): Observable<string> {
     return this.http.post(environment.baseUrl+'inscription/env1' ,
