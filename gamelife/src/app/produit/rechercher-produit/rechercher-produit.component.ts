@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
 import { ProduitModel } from 'src/app/model/produit.model';
@@ -11,25 +12,55 @@ import { ProduitService } from 'src/app/services/produit/produit.service';
 })
 export class RechercherProduitComponent implements OnInit {
 
-  searchTerms = new Subject<string>();
-  produits: Observable<ProduitModel | any>
+  games: ProduitModel[] | any;
+  searchFormGroup!: FormGroup; 
+  
 
-  constructor(private router: Router, private service: ProduitService) { }
+  constructor(private router : Router, private productService : ProduitService, private fb : FormBuilder) { }
 
+  /**
+   * Cette méthode permet au chargement du composant de récupérer 
+   * les entrées effectuée sur la barre de recherche et
+   * d'appeler la méthode pour gérer la recheche de produit
+   * @author: Fabien
+   */
   ngOnInit(): void {
-    this.produits = this.searchTerms.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap((term: string) => this.service.getProductsByName(term))
-    );
+    this.searchFormGroup = this.fb.group({
+      keyword : this.fb.control(null)
+    });
+    this.handleSearchProducts();
   }
 
-  public search(term: string) {
-    this.searchTerms.next(term);
+  /**
+   * Cette méthode permet de gérer la recherche de produit,
+   * elle récupére le(s) jeu(x) vidéo(s) selon le terme recherché
+   * @author: Fabien
+   */
+  handleSearchProducts() {
+    let keyword = this.searchFormGroup.value.keyword;
+    this.productService.getProductsByName(keyword).pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    ).subscribe({
+      next: (data) =>  {
+        this.games = data
+      },
+      error: (message) => {
+        
+      }
+    });
   }
 
-  public goToDetail(produit: ProduitModel) {
-    const link = ['/produit', produit.id]
-    this.router.navigate(link);
+  /**
+   * Cette méthode permet de rediriger vers une fiche produit
+   * @param product: un jeu vidéo
+   * @author: Fabien
+   */
+  goToProductSheet(product : ProduitModel) {
+    const link = ['/produit', product.id]
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>    
+    this.router.navigate(link)
+    )
   }
+
 }

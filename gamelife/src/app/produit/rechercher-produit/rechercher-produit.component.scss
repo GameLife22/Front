@@ -1,16 +1,20 @@
 input:placeholder-shown {
     font-style: italic;
+    color: #ABABAB;
 }
 
-::ng-deep .mat-form-field-outline-start {
-    border-radius: 30px !important;
-    min-width: 20vw !important;
-}
-  
-::ng-deep .mat-form-field-outline-end {
-    border-radius: 30px !important;
+button, button:hover {
+    background-color: #C7C7C7;
+    color: white;
+    font-weight: bold;
 }
 
-.mat-form-field-appearance-outline .mat-form-field-outline {
-    background-color: white;
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#mini-container1 {
+    display: flex;
 }

@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule} from '@angular/material/form-field'
-import { MatRadioModule} from '@angular/material/radio'
-import { MatInputModule} from '@angular/material/input'
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -16,6 +13,18 @@ import { RechercherProduitComponent } from './produit/rechercher-produit/recherc
 import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
 import {TokenInterceptor, TokenInterceptorProvider} from "./helpers/token.interceptor";
+import {MatSelectModule} from "@angular/material/select";
+import { FicheProduitComponent } from './produit/fiche-produit/fiche-produit.component';
+import { FooterComponent } from './partage/footer/footer.component';
+import { HeaderComponent } from './partage/header/header.component';
+import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
+import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatInputModule} from "@angular/material/input";
+import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +32,15 @@ import {TokenInterceptor, TokenInterceptorProvider} from "./helpers/token.interc
     LoginComponent,
     ProduitDetailComponent,
     InscriptionComponent,
-    RechercherProduitComponent
+    RechercherProduitComponent,
+    FicheProduitComponent,
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent,
+
+    GestionCompteComponent
+    InternalServerComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +56,9 @@ import {TokenInterceptor, TokenInterceptorProvider} from "./helpers/token.interc
     AppRoutingModule,
     MatButtonModule,
     MatIconModule,
+    MatSelectModule,
+    FormsModulen,
+    MatSelectModule
 
   ],
   providers: [TokenInterceptorProvider],
