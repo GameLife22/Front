@@ -17,13 +17,12 @@ import { FicheProduitComponent } from './produit/fiche-produit/fiche-produit.com
 import { FooterComponent } from './partage/footer/footer.component';
 import { HeaderComponent } from './partage/header/header.component';
 import { HomeComponent } from './home/home.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatInputModule} from "@angular/material/input";
 
-
+import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component";
 
 @NgModule({
   declarations: [
@@ -36,6 +35,8 @@ import {MatInputModule} from "@angular/material/input";
     FooterComponent,
     HeaderComponent,
     HomeComponent,
+    GestionCompteComponent
+
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,6 @@ import {MatInputModule} from "@angular/material/input";
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
-    Ng2SearchPipeModule,
     FormsModule
 
   ],
