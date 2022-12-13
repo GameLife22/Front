@@ -42,8 +42,16 @@
 
           <div class="col">
             <mat-form-field appearance="outline" style="width: 93.5%">
-              <input matInput type="password" placeholder="Password" formControlName="pwd" required>
+              <input matInput type="password" placeholder="Mot de passe" formControlName="pwd" required>
+              <mat-hint>Doit contenir au moins : 1 majuscule, 1 chiffre, 8 caractères</mat-hint>
               <mat-error *ngIf="inscriptionForm.controls['pwd'].invalid">Mot de passe invalide</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col">
+            <mat-form-field appearance="outline" style="width: 93.5%">
+              <input matInput type="password" placeholder="Valider le mot de passe" formControlName="pwdVal" required>
+              <mat-error *ngIf="inscriptionForm.controls['pwdVal'].invalid">Mot de passe différent</mat-error>
             </mat-form-field>
           </div>
 
@@ -89,5 +97,7 @@
         </form>
       </div>
     </mat-card>
+  <!--<button (click)="checkSiret()" mat-stroked-button type="submit" color="primary">Siret </button>-->
+
 
 </div>
