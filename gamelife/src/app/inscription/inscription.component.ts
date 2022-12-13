@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators
+} from '@angular/forms';
 import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 import {Router} from "@angular/router";
 
@@ -26,6 +34,7 @@ export class InscriptionComponent implements OnInit {
         nom : this.fb.control("",[Validators.required]),
         prenom : this.fb.control("",[Validators.required]),
         pwd : this.fb.control("",[Validators.required,Validators.pattern("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")]),
+        pwdVal : this.fb.control("",[Validators.required,this.matchValidator('pwd')]),
         email : this.fb.control("",[Validators.required,Validators.email]),
         numRue : this.fb.control("",[Validators.required,Validators.min(1)]),
         rue : this.fb.control("",[Validators.required]),
@@ -43,6 +52,17 @@ export class InscriptionComponent implements OnInit {
       this.inscriptionForm.controls["siren"].clearValidators();
     }
     return result;
+  }
+  checkSiret():void{
+    this.service.getSiret(35386190900391).subscribe({
+      next:(result) =>{
+        console.log(result)
+      },
+      error:(err) =>{
+        console.log(err)
+      }
+    });
+
   }
   getErrorMessage() {
     if (this.inscriptionForm.controls['email'].hasError('required')) {
@@ -73,6 +93,19 @@ export class InscriptionComponent implements OnInit {
 
 
 
+  }
+
+  matchValidator( matchTo : string, reverse?: boolean): ValidatorFn{
+    return (control: AbstractControl) : ValidationErrors | null => {
+      if (control.parent && reverse){
+        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
+        if(c){
+          c.updateValueAndValidity();
+        }
+        return null;
+      }
+      return !!control.parent && !!control.parent.value && control.value === (control.parent?.controls as any)[matchTo].value ? null : {matching : true};
+    };
   }
 
 

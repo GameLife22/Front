@@ -1,0 +1,32 @@
+body {
+  //margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.container{
+
+  position: center;
+  align-content: center;
+  text-align: center;
+
+  width: 100vw;
+  //height: 100vh;
+}
+.form-paiment{
+  width: 50vw;
+  text-align: center;
+  background-color: darkblue;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto
+;
+}
+.widget-paypal{
+  background-color: whitesmoke;
+}
+.fill{
+  color: darkblue;
+}
+

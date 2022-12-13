@@ -1,9 +1,14 @@
+#container {
+  width: 100%;
+}
 #container1 {
     background-color: #1633A4;
     height: 10vh;
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
+
 }
 
 #container2 {
@@ -13,6 +18,7 @@
     justify-content: space-around;
     align-items: center;
     margin-bottom:  10vh;
+    width: 100%;
 }
 
 #subcontainer1 {
