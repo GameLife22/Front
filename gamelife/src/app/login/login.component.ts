@@ -18,8 +18,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.userFormGroup = this.fb.group(
       {
-        email : this.fb.control("",[Validators.required,Validators.email]),
-        password : this.fb.control("",[Validators.required,Validators.minLength(10)])
+        email : this.fb.control("",[
+          Validators.required,
+          Validators.email]),
+        password : this.fb.control("",[
+          Validators.required,
+          Validators.pattern("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")])
 
       }
     )
