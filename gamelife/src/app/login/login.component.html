@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="pt-3">
+  <div class="pt-2">
     <h1>IDENTIFIEZ-VOUS</h1>
   </div>
 
@@ -17,11 +17,11 @@
           </mat-form-field>
           <div *ngIf="userFormGroup.controls['email'].invalid && (userFormGroup.controls['email'].dirty || userFormGroup.controls['email'].touched)" class="alert alert-danger">
             <div *ngIf="userFormGroup.controls['email'].errors?.['email']">
-
+              Email non valide
             </div>
 
             <div *ngIf="userFormGroup.controls['email'].errors?.['required']">
-              email is required.
+              Email is required.
             </div>
 
           </div>
@@ -35,7 +35,12 @@
             </button>
           </mat-form-field>
           <div *ngIf="userFormGroup.controls['password'].invalid && (userFormGroup.controls['password'].dirty || userFormGroup.controls['password'].touched)" class="alert alert-danger">
-            <!--{{getErrorMessage('password',userFormGroup.controls['password'].errors)}}!-->
+            <div *ngIf="userFormGroup.controls['password'].errors?.['required']">
+              Password is required.
+            </div>
+            <div *ngIf="userFormGroup.controls['password'].errors?.['pattern']">
+              Mot de passe non conforme.
+            </div>
           </div>
         </div>
 
@@ -53,6 +58,7 @@
     </form>
   </mat-card>
   <div class="seperator"></div>
+
   <mat-card class="nvclient-card" >
     <form [formGroup]="userFormGroup" (ngSubmit)="handleRedirectionToInscription()">
 
@@ -69,6 +75,9 @@
       </mat-card-actions>
 
     </form>
+
   </mat-card>
+  <div class="seperator"></div>
+
 </div>
 

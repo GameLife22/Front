@@ -25,6 +25,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatInputModule} from "@angular/material/input";
 import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component";
+import { PaimentComponent } from './paiment/paiment.component';
+import {NgxPayPalModule} from "ngx-paypal";
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component"
     GestionCompteComponent,
     InternalServerComponent,
     NotFoundComponent,
+    PaimentComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component"
     MatIconModule,
     MatSelectModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxPayPalModule
 
   ],
   providers: [TokenInterceptorProvider],
