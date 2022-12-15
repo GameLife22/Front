@@ -1,0 +1,32 @@
+body {
+    background: red;
+}
+
+.example-card {
+    max-width: 350px;
+}
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20vh;
+     margin-top: 8vh;
+}
+
+.titleGame{
+    text-align: center; 
+    margin-top: 8vh;
+    font-family: revert;
+    font-size: xx-large;
+    font-weight: bolder; 
+}
+
+mat-card:hover { 
+    transform: scale(1.1); 
+    transition: 1s ease-out 100ms; 
+}

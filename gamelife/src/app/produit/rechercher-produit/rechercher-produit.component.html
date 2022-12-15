@@ -1,19 +1,22 @@
 <div id="container">
   <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchProducts()">
-    <div class="input-group mb-3">
+    <div  class="input-group mb-3">
       <input type="text" style="width: 500px;" formControlName="keyword" type="text" class="form-control rounded-0" placeholder="Chercher un jeu vidéo ...">
-      <div class="input-group-append">
-        <button class="btn btn-light rounded-0" type="submit">RECHERCHER</button>
+      <div  class="input-group-append">
+        <button  class="btn btn-light rounded-0" type="submit">RECHERCHER</button>
       </div>
     </div>
   </form>
-  <div *ngIf="games != null" id="container2" class="input-group mb-3 w-50">
-    <div *ngFor="let game of games" id="mini-container" class="card" style="width: 10rem;">
-        <div class="card-body">
-          <a (click)="goToProductSheet(game)" class="btn btn-primary">VOIR PLUS</a>
-        </div>
-    </div>
+  
 </div>
+
+<div  *ngIf="games != null" id="container2" class="input-group mb-3 w-50">
+  <div *ngFor="let game of games" id="mini-container" class="card" style="width: 10rem;">
+      <div  class="card-body">
+        <p style="text-transform: uppercase;" >{{game.nom}}</p>
+        <a (click)="goToProductSheet(game)" class="btn btn-primary">VOIR PLUS</a>
+      </div>
+  </div>
 </div>
 
 
