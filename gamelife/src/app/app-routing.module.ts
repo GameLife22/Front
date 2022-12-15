@@ -10,18 +10,20 @@ import { RechercherProduitComponent } from './produit/rechercher-produit/recherc
 import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component";
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+import {PaimentComponent} from "./paiment/paiment.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'accueil' },
   { path: 'accueil', component: HomeComponent },
   { path : "login", component : LoginComponent},
   { path : "inscription", component : InscriptionComponent},
+  {path : "paiment", component: PaimentComponent},
   { path: "produit/all", component : ProduitDetailComponent},
   { path : "produit/:id", component : FicheProduitComponent},
   { path : "produit", component: RechercherProduitComponent},
   { path : "gestioncompte", component: GestionCompteComponent},
   { path: '404', component: NotFoundComponent },
-  { path: '500', component: InternalServerComponent }, 
+  { path: '500', component: InternalServerComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full' }
 ];
 
