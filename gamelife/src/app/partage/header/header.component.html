@@ -1,15 +1,13 @@
 <div id="container">
   <div *ngIf="!!token" class="container1">
-    <div class="logo"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
-    <div class="recherche" id="collapsedSearchBar"><app-rechercher-produit></app-rechercher-produit></div>
-    <div class="rechercheLogo"><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsedSearchBar" aria-controls="collapsedSearchBar" aria-expanded="false"> <mat-icon>search</mat-icon></button></div>
+    <div class="logo pt-3"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
+    <div class="recherche"><app-rechercher-produit></app-rechercher-produit></div>
     <div class="lien"><a [routerLink]="['/gestioncompte']">COMPTE</a></div>
     <div class="lien"><a [routerLink]="['/panier']">PANIER</a></div>
   </div>
   <div *ngIf="!!!token" class="container1">
-    <div class="logo"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
+    <div class="logo pt-3"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
     <div class="recherche"><app-rechercher-produit></app-rechercher-produit></div>
-    <div class="lien"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">search</mat-icon></div>
     <div class="lien"><a [routerLink]="['/inscription']">INSCRIPTION</a></div>
     <div class="lien"><a [routerLink]="['/login']">CONNEXION</a></div>
   </div>
