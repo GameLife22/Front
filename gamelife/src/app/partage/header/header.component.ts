@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  token = sessionStorage.getItem("JWT_TOKEN");
+
   constructor() { }
 
   ngOnInit(): void {

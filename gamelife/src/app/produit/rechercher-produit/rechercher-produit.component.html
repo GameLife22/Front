@@ -1,9 +1,9 @@
-<div id="container">
-  <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchProducts()">
+<div class="container">
+  <form class="from-inline" [formGroup]="searchFormGroup" (ngSubmit)="handleSearchProducts()">
     <div class="input-group mb-3">
-      <input type="text" style="width: 500px;" formControlName="keyword" type="text" class="form-control rounded-0" placeholder="Chercher un jeu vidéo ...">
+      <input class="form-control mr-sm-2"  formControlName="keyword" type="text" class="form-control rounded-0" placeholder="Chercher un jeu vidéo ...">
       <div class="input-group-append">
-        <button class="btn btn-light rounded-0" type="submit">RECHERCHER</button>
+        <button class="btn btn-light rounded-0" type="submit"><mat-icon>search</mat-icon></button>
       </div>
     </div>
   </form>
