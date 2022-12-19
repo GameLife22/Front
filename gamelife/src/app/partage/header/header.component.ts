@@ -9,9 +9,14 @@ export class HeaderComponent implements OnInit {
 
   token = sessionStorage.getItem("JWT_TOKEN");
 
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+  deconnexion(): void{
+    sessionStorage.removeItem("JWT_TOKEN");
+    window.location.reload();
   }
 
 }
