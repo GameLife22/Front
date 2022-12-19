@@ -1,9 +1,15 @@
 <div id="container">
-  <div id="container1">
-    <div id="subcontainer1"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
-    <div id="subcontainer2"><app-rechercher-produit></app-rechercher-produit></div>
-    <div id="subcontainer3"><a [routerLink]="['/gestioncompte']">COMPTE</a></div>
-    <div id="subcontainer4"><a [routerLink]="['/panier']">PANIER</a></div>
+  <div *ngIf="!!token" class="container1">
+    <div class="logo pt-3"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
+    <div class="recherche"><app-rechercher-produit></app-rechercher-produit></div>
+    <div class="lien"><a [routerLink]="['/gestioncompte']">COMPTE</a></div>
+    <div class="lien"><a [routerLink]="['/panier']">PANIER</a></div>
+  </div>
+  <div *ngIf="!!!token" class="container1">
+    <div class="logo pt-3"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
+    <div class="recherche"><app-rechercher-produit></app-rechercher-produit></div>
+    <div class="lien"><a [routerLink]="['/inscription']">INSCRIPTION</a></div>
+    <div class="lien"><a [routerLink]="['/login']">CONNEXION</a></div>
   </div>
   <div id="container2">
     <div><a [routerLink]="['/']">Catégories</a></div>

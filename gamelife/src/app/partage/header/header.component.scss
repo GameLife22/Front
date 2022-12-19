@@ -1,7 +1,7 @@
 #container {
   width: 100%;
 }
-#container1 {
+.container1 {
     background-color: #1633A4;
     height: 10vh;
     display: flex;
@@ -21,25 +21,19 @@
     width: 100%;
 }
 
-#subcontainer1 {
+.logo {
     display: flex;
     justify-content: center;
     width: 25vw;
 }
 
-#subcontainer2 {
-    display: flex;
-    justify-content: center;
+.recherche {
+    //display: flex;
+    //justify-content: center;
     width: 50vw;
 }
 
-#subcontainer3 {
-    display: flex;
-    justify-content: center;
-    width: 12.5vw;
-}
-
-#subcontainer4 {
+.lien {
     display: flex;
     justify-content: center;
     width: 12.5vw;
@@ -54,4 +48,7 @@ a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+mat-icon {
+  color: white;
 }

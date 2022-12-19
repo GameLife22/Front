@@ -1,10 +1,8 @@
-<div id="container">
-  <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchProducts()">
-    <div class="input-group mb-3">
-      <input type="text" style="width: 500px;" formControlName="keyword" type="text" class="form-control rounded-0" placeholder="Chercher un jeu vidéo ...">
-      <div class="input-group-append">
-        <button class="btn btn-light rounded-0" type="submit">RECHERCHER</button>
-      </div>
+
+  <form class="from-inline" [formGroup]="searchFormGroup" (ngSubmit)="handleSearchProducts()">
+    <div class="search">
+      <input class="form-control"  formControlName="keyword" type="text" class="form-control rounded-0" placeholder="Chercher un jeu vidéo ...">
+      <button class="btn btn-primary" type="submit"><mat-icon class="pt-1">search</mat-icon></button>
     </div>
   </form>
   <div *ngIf="games != null" id="container2" class="input-group mb-3 w-50">
@@ -14,7 +12,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 
 <!--

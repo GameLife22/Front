@@ -108,11 +108,9 @@ export class UtilisateurService {
     })
   }
   getSiret(siret: number){
-      return this.http.get(`https://api.insee.fr/entreprises/sirene/V3/siret=${siret}`,{
-        headers : new HttpHeaders({
-          'Authorization':'790346ad-3db8-3f1c-b5b6-eaa1635a7aff',
+      return this.http.post(environment.baseUrl + 'inscription/siret',{
+        "siret" : siret
         })
-      });
   }
 }
 

@@ -27,6 +27,7 @@ import {MatInputModule} from "@angular/material/input";
 import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component";
 import { PaimentComponent } from './paiment/paiment.component';
 import {NgxPayPalModule} from "ngx-paypal";
+import {AngularSvgIconModule} from "angular-svg-icon";
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import {NgxPayPalModule} from "ngx-paypal";
     MatSelectModule,
     FormsModule,
     MatSelectModule,
-    NgxPayPalModule
+    NgxPayPalModule,
+    AngularSvgIconModule,
 
   ],
   providers: [TokenInterceptorProvider],
