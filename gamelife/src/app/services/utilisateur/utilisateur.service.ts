@@ -56,7 +56,7 @@ export class UtilisateurService {
       "rue":rue,
       "role":role,
       "num_siren":siren,
-      "etat":"active",
+      "etat":1,
       "code_postal":codePostal
       },
       {
