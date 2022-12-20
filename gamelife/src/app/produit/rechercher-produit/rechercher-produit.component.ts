@@ -13,13 +13,13 @@ import { ProduitService } from 'src/app/services/produit/produit.service';
 export class RechercherProduitComponent implements OnInit {
 
   games: ProduitModel[] | any;
-  searchFormGroup!: FormGroup; 
-  
+  searchFormGroup!: FormGroup;
+
 
   constructor(private router : Router, private productService : ProduitService, private fb : FormBuilder) { }
 
   /**
-   * Cette méthode permet au chargement du composant de récupérer 
+   * Cette méthode permet au chargement du composant de récupérer
    * les entrées effectuée sur la barre de recherche et
    * d'appeler la méthode pour gérer la recheche de produit
    * @author: Fabien
@@ -38,15 +38,12 @@ export class RechercherProduitComponent implements OnInit {
    */
   handleSearchProducts() {
     let keyword = this.searchFormGroup.value.keyword;
-    this.productService.getProductsByName(keyword).pipe(
-      debounceTime(500),
-      distinctUntilChanged()
-    ).subscribe({
+    this.productService.getProductsByName(keyword).subscribe({
       next: (data) =>  {
         this.games = data
       },
       error: (message) => {
-        
+
       }
     });
   }
@@ -58,7 +55,7 @@ export class RechercherProduitComponent implements OnInit {
    */
   goToProductSheet(product : ProduitModel) {
     const link = ['/produit', product.id]
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>    
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
     this.router.navigate(link)
     )
   }
