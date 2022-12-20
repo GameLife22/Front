@@ -83,16 +83,17 @@ export class UtilisateurService {
   }
 
 
-  updatePassword(id: number, new_mdp: string): Observable<UpdatePwdModel> {
+  updatePassword(id: number, new_mdp: string, old_mdp: string): Observable<UpdatePwdModel> {
     return this.http.post<UpdatePwdModel>(environment.baseUrl + 'gestioncomtpe/mdp',
       {
         "id": id,
-        "new_mdp": new_mdp
+        "new_mdp": new_mdp,
+        "old_mdp": old_mdp
       }
     );
   }
 
-  updateEtat(id: number, etat: string): Observable<UpdateEtatModel> {
+  updateEtat(id: number, etat: number): Observable<UpdateEtatModel> {
     return this.http.post<UpdateEtatModel>(environment.baseUrl + 'gestioncomtpe/etat',
       {
         "id": id,
