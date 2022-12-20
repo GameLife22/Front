@@ -13,8 +13,10 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./gestion-compte.component.scss']
 })
 export class GestionCompteComponent implements OnInit {
-  id: number = 4; // permet de selectioner un utilisateur en
-                  // attendant la recupération via le token
+
+  token = sessionStorage.getItem("JWT_TOKEN");
+  id: number
+  decriptToken:any
   errorEmail: UpdateCompteModel | undefined;
   errorPassword: UpdateCompteModel | undefined;
   showHide: boolean = false;
@@ -31,19 +33,23 @@ export class GestionCompteComponent implements OnInit {
   ngOnInit(): void {
 
     this.handleIsRevendeur();
+    if (this.token != null){
+      this.decriptToken = this.getDecodedAccessToken(this.token);
+      console.log(this.decriptToken)
+    }
 
-    this.getDecodedAccessToken()
+    this.id = this.decriptToken.user.id;
 
     this.userFormGroup = this.fb.group(
       {
-        nom: this.fb.control("Robinson"),
-        prenom: this.fb.control("Pierre"),
-        email: this.fb.control("acheteur001@outlook.fr", [Validators.email]),
-        numRue: this.fb.control("3"),
-        rue: this.fb.control("rue dupont"),
-        ville: this.fb.control("lille"),
-        codePostal: this.fb.control("59000"),
-        numSiren: this.fb.control("")
+        nom: this.fb.control(this.decriptToken.user.nom),
+        prenom: this.fb.control(this.decriptToken.user.prenom),
+        email: this.fb.control(this.decriptToken.user.email, [Validators.email]),
+        numRue: this.fb.control(this.decriptToken.user.num_rue),
+        rue: this.fb.control(this.decriptToken.user.rue),
+        ville: this.fb.control(this.decriptToken.user.ville),
+        codePostal: this.fb.control(this.decriptToken.user.code_postal),
+        numSiren: this.fb.control(this.decriptToken.user.num_siren)
 
       }
     )
@@ -89,7 +95,6 @@ export class GestionCompteComponent implements OnInit {
     /* a faire :
         récupérer l'id dans le token
     */
-    let id: number = 4 // a absolument changer
     let nom: string = this.userFormGroup.value.nom
     let prenom: string = this.userFormGroup.value.prenom
     let email: string = this.userFormGroup.value.email
@@ -98,7 +103,7 @@ export class GestionCompteComponent implements OnInit {
     let ville: string = this.userFormGroup.value.ville
     let codePostal: number = this.userFormGroup.value.codePostal
     let numSiren: string | null = this.userFormGroup.value.numSiren
-    let observable : Observable<UpdateCompteModel> = this.GestionCompteService.updateUser(id, nom, prenom, email, numRue, rue, ville, codePostal, numSiren)
+    let observable : Observable<UpdateCompteModel> = this.GestionCompteService.updateUser(this.id, nom, prenom, email, numRue, rue, ville, codePostal, numSiren)
     observable.subscribe(
       (response)=>{
 
@@ -112,10 +117,6 @@ export class GestionCompteComponent implements OnInit {
 
   handleUpdatePassword() {
     this.errorPassword = undefined;
-    /* a faire :
-        récupérer l'id dans le token
-    */
-    let id: number = 4 // a absolument changer
     let oldPwd: string = this.mdpFormGroup.value.oldPwd
     let newPwd1: string = this.mdpFormGroup.value.newPwd1
     let newPwd2: string = this.mdpFormGroup.value.newPwd2
@@ -123,7 +124,7 @@ export class GestionCompteComponent implements OnInit {
     if (newPwd1 == newPwd2) {
       let new_mdp = newPwd1
       if (new_mdp != oldPwd) {
-        this.GestionCompteService.updatePassword(id, new_mdp, oldPwd).subscribe(
+        this.GestionCompteService.updatePassword(this.id, new_mdp, oldPwd).subscribe(
           (response)=>{
             this.showHide = false
             this.mdpFormGroup.get('oldPwd')?.setValue("");
@@ -141,21 +142,15 @@ export class GestionCompteComponent implements OnInit {
   }
 
   handleUpdateEtat() {
-    /* a faire :
-        récupérer l'id dans le token
-    */
-    let id: number = 4; // a absolument changer
+
     let new_etat: number = 0;
-    this.GestionCompteService.updateEtat(id, new_etat).subscribe();
+    this.GestionCompteService.updateEtat(this.id, new_etat).subscribe();
     this.router.navigate(['']);
   }
 
   handleIsRevendeur(){
-    /* a faire :
-        récupérer l'id dans le token
-    */
-    let id: number = 4 // a absolument changer
-    this.GestionCompteService.isRevendeur(id).subscribe({
+
+    this.GestionCompteService.isRevendeur(this.id).subscribe({
       next: (res)=>  {
         this.estRevendeurModel = res;
       }
