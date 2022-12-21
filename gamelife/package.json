@@ -20,7 +20,11 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "angular-svg-icon": "^14.0.0",
     "bootstrap": "^5.2.3",
+    "jwt-decode": "^3.1.2",
+    "ng2-search-filter": "^0.5.1",
+
     "ngx-paypal": "^10.1.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

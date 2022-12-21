@@ -56,7 +56,7 @@ export class UtilisateurService {
       "rue":rue,
       "role":role,
       "num_siren":siren,
-      "etat":"active",
+      "etat":1,
       "code_postal":codePostal
       },
       {
@@ -83,16 +83,17 @@ export class UtilisateurService {
   }
 
 
-  updatePassword(id: number, new_mdp: string): Observable<UpdatePwdModel> {
+  updatePassword(id: number, new_mdp: string, old_mdp: string): Observable<UpdatePwdModel> {
     return this.http.post<UpdatePwdModel>(environment.baseUrl + 'gestioncomtpe/mdp',
       {
         "id": id,
-        "new_mdp": new_mdp
+        "new_mdp": new_mdp,
+        "old_mdp": old_mdp
       }
     );
   }
 
-  updateEtat(id: number, etat: string): Observable<UpdateEtatModel> {
+  updateEtat(id: number, etat: number): Observable<UpdateEtatModel> {
     return this.http.post<UpdateEtatModel>(environment.baseUrl + 'gestioncomtpe/etat',
       {
         "id": id,
@@ -108,11 +109,9 @@ export class UtilisateurService {
     })
   }
   getSiret(siret: number){
-      return this.http.get(`https://api.insee.fr/entreprises/sirene/V3/siret=${siret}`,{
-        headers : new HttpHeaders({
-          'Authorization':'790346ad-3db8-3f1c-b5b6-eaa1635a7aff',
+      return this.http.post(environment.baseUrl + 'inscription/siret',{
+        "siret" : siret
         })
-      });
   }
 }
 
