@@ -9,7 +9,8 @@ import { ProduitService } from 'src/app/services/produit/produit.service';
 })
 export class HomeComponent implements OnInit {
 
-  produits?: ProduitModel[];
+  produits: ProduitModel[] | any ;
+
   constructor(private produitService: ProduitService) { }
 
   ngOnInit(): void {
@@ -20,8 +21,8 @@ export class HomeComponent implements OnInit {
     this.produitService.getAllProduit()
       .subscribe({
         next: (res) => {
-         // console.log(res, "res");
           this.produits = res;
+          console.log(this.produits, "this.produit");
         },
         error: (e) => console.error(e, "error ici")
       });
