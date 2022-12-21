@@ -14,6 +14,7 @@ import jwt_decode from 'jwt-decode';
 })
 export class GestionCompteComponent implements OnInit {
 
+  userModel: UpdateCompteModel
   token = sessionStorage.getItem("JWT_TOKEN");
   id: number
   decriptToken:any
@@ -32,27 +33,28 @@ export class GestionCompteComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.handleIsRevendeur();
+
     if (this.token != null){
       this.decriptToken = this.getDecodedAccessToken(this.token);
-      console.log(this.decriptToken)
+      this.id = this.decriptToken.user.id;
+      this.findUser(this.id);
+      this.handleIsRevendeur();
+
+      this.userFormGroup = this.fb.group(
+        {
+          nom: this.fb.control(""),
+          prenom: this.fb.control(""),
+          email: this.fb.control("", [Validators.email]),
+          numRue: this.fb.control(""),
+          rue: this.fb.control(""),
+          ville: this.fb.control(""),
+          codePostal: this.fb.control(""),
+          numSiret: this.fb.control("")
+
+        }
+      )
+
     }
-
-    this.id = this.decriptToken.user.id;
-
-    this.userFormGroup = this.fb.group(
-      {
-        nom: this.fb.control(this.decriptToken.user.nom),
-        prenom: this.fb.control(this.decriptToken.user.prenom),
-        email: this.fb.control(this.decriptToken.user.email, [Validators.email]),
-        numRue: this.fb.control(this.decriptToken.user.num_rue),
-        rue: this.fb.control(this.decriptToken.user.rue),
-        ville: this.fb.control(this.decriptToken.user.ville),
-        codePostal: this.fb.control(this.decriptToken.user.code_postal),
-        numSiren: this.fb.control(this.decriptToken.user.num_siren)
-
-      }
-    )
     this.mdpFormGroup = this.fb.group(
       {
         oldPwd: this.fb.control(""),
@@ -90,11 +92,26 @@ export class GestionCompteComponent implements OnInit {
     }
   }
 
+  findUser(id : number){
+    this.GestionCompteService.getUser(this.id).subscribe((response)=>{
+      this.userModel = response
+      this.userFormGroup.setValue({
+        "nom" : response.nom,
+        "prenom" : response.prenom,
+        "email" : response.email,
+        "numRue" : response.num_rue,
+        "rue" : response.rue,
+        "ville" : response.ville,
+        "codePostal" : response.code_postal,
+        "numSiret" : response.num_siret
+      })
+      console.log(response);
+    })
+
+  }
+
   handleUpdateUser() {
     this.errorEmail = undefined;
-    /* a faire :
-        récupérer l'id dans le token
-    */
     let nom: string = this.userFormGroup.value.nom
     let prenom: string = this.userFormGroup.value.prenom
     let email: string = this.userFormGroup.value.email
@@ -106,7 +123,6 @@ export class GestionCompteComponent implements OnInit {
     let observable : Observable<UpdateCompteModel> = this.GestionCompteService.updateUser(this.id, nom, prenom, email, numRue, rue, ville, codePostal, numSiren)
     observable.subscribe(
       (response)=>{
-
     },(value)=> {
         console.log(value)
         this.errorEmail = value.error.message;
@@ -137,6 +153,7 @@ export class GestionCompteComponent implements OnInit {
             this.mdpFormGroup.get('newPwd1')?.setValue("");
             this.mdpFormGroup.get('newPwd2')?.setValue("");
           });
+        window.location.reload();
       }
     }
   }
