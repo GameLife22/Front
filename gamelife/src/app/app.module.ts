@@ -28,6 +28,8 @@ import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component"
 import { PaimentComponent } from './paiment/paiment.component';
 import {NgxPayPalModule} from "ngx-paypal";
 import {AngularSvgIconModule} from "angular-svg-icon";
+import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
+import { ResetMotDePasseComponent } from './reset-mot-de-passe/reset-mot-de-passe.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import {AngularSvgIconModule} from "angular-svg-icon";
     InternalServerComponent,
     NotFoundComponent,
     PaimentComponent,
+    MotDePasseOublieComponent,
+    ResetMotDePasseComponent,
   ],
   imports: [
     BrowserModule,

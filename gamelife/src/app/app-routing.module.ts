@@ -7,10 +7,12 @@ import { FicheProduitComponent } from './produit/fiche-produit/fiche-produit.com
 import { ProduitDetailComponent } from './produit/produit-detail/produit-detail.component';
 
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
-import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component";
+import { GestionCompteComponent } from "./gestion-compte/gestion-compte.component";
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
-import {PaimentComponent} from "./paiment/paiment.component";
+import { PaimentComponent } from "./paiment/paiment.component";
+import { MotDePasseOublieComponent } from "./mot-de-passe-oublie/mot-de-passe-oublie.component";
+import { ResetMotDePasseComponent } from "./reset-mot-de-passe/reset-mot-de-passe.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'accueil' },
@@ -22,6 +24,9 @@ const routes: Routes = [
   { path : "produit/:id", component : FicheProduitComponent},
   { path : "produit", component: RechercherProduitComponent},
   { path : "gestioncompte", component: GestionCompteComponent},
+  { path : "motdepasseoublie" , component : MotDePasseOublieComponent},
+  { path : "resetmotdepasse" , component : ResetMotDePasseComponent},
+
   { path: '404', component: NotFoundComponent },
   { path: '500', component: InternalServerComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full' }
