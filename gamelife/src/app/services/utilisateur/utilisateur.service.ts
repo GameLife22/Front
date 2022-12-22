@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import {TokenService} from "../token/token.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { LoginModel } from "../../model/login.model";
 import { environment } from "../../../environments/environment";
 import { UpdatePwdModel } from 'src/app/model/update.pwd.model';
 import { UpdateEtatModel } from 'src/app/model/update.etat.model';
 import { UpdateCompteModel } from 'src/app/model/update.compte.model';
-import { IsRevendeurModel } from 'src/app/model/is.revendeur.model';
+import {Router} from "@angular/router";
+import {AbstractControl, ValidationErrors, ValidatorFn} from "@angular/forms";
 
 
 @Injectable({
@@ -16,7 +16,8 @@ import { IsRevendeurModel } from 'src/app/model/is.revendeur.model';
 export class UtilisateurService {
 
   constructor(private http: HttpClient,
-              private tokenService : TokenService) {
+              private tokenService : TokenService,
+              private router : Router) {
   }
 
 
@@ -34,6 +35,8 @@ export class UtilisateurService {
           if (typeof token === "string") {
             this.tokenService.saveToken(token)
           }
+          this.router.navigate(['/gestioncompte'])
+          window.location.reload();
           },
         (resp)=>{
           console.log(resp.message)
@@ -113,5 +116,19 @@ export class UtilisateurService {
         "siret" : siret
         })
   }
+
+  matchValidator( matchTo : string, reverse?: boolean): ValidatorFn{
+    return (control: AbstractControl) : ValidationErrors | null => {
+      if (control.parent && reverse){
+        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
+        if(c){
+          c.updateValueAndValidity();
+        }
+        return null;
+      }
+      return !!control.parent && !!control.parent.value && control.value === (control.parent?.controls as any)[matchTo].value ? null : {matching : true};
+    };
+  }
+
 }
 
