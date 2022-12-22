@@ -7,6 +7,7 @@ import { UpdatePwdModel } from 'src/app/model/update.pwd.model';
 import { UpdateEtatModel } from 'src/app/model/update.etat.model';
 import { UpdateCompteModel } from 'src/app/model/update.compte.model';
 import {Router} from "@angular/router";
+import {AbstractControl, ValidationErrors, ValidatorFn} from "@angular/forms";
 
 
 @Injectable({
@@ -114,5 +115,19 @@ export class UtilisateurService {
         "siret" : siret
         })
   }
+
+  matchValidator( matchTo : string, reverse?: boolean): ValidatorFn{
+    return (control: AbstractControl) : ValidationErrors | null => {
+      if (control.parent && reverse){
+        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
+        if(c){
+          c.updateValueAndValidity();
+        }
+        return null;
+      }
+      return !!control.parent && !!control.parent.value && control.value === (control.parent?.controls as any)[matchTo].value ? null : {matching : true};
+    };
+  }
+
 }
 

@@ -34,7 +34,7 @@ export class InscriptionComponent implements OnInit {
         nom : this.fb.control("",[Validators.required]),
         prenom : this.fb.control("",[Validators.required]),
         pwd : this.fb.control("",[Validators.required,Validators.pattern("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")]),
-        pwdVal : this.fb.control("",[Validators.required,this.matchValidator('pwd')]),
+        pwdVal : this.fb.control("",[Validators.required,this.service.matchValidator('pwd')]),
         email : this.fb.control("",[Validators.required,Validators.email]),
         numRue : this.fb.control("",[Validators.required,Validators.min(1)]),
         rue : this.fb.control("",[Validators.required]),
@@ -94,19 +94,4 @@ export class InscriptionComponent implements OnInit {
 
 
   }
-
-  matchValidator( matchTo : string, reverse?: boolean): ValidatorFn{
-    return (control: AbstractControl) : ValidationErrors | null => {
-      if (control.parent && reverse){
-        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
-        if(c){
-          c.updateValueAndValidity();
-        }
-        return null;
-      }
-      return !!control.parent && !!control.parent.value && control.value === (control.parent?.controls as any)[matchTo].value ? null : {matching : true};
-    };
-  }
-
-
 }

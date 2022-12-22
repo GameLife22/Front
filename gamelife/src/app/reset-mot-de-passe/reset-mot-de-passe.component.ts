@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AbstractControl, FormBuilder, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {MotDePasseOublieService} from "../services/mot-de-passe-oublie/mot-de-passe-oublie.service";
+import {InscriptionComponent} from "../inscription/inscription.component";
+import {UtilisateurService} from "../services/utilisateur/utilisateur.service";
 
 @Component({
   selector: 'app-reset-mot-de-passe',
@@ -17,7 +19,8 @@ export class ResetMotDePasseComponent implements OnInit {
   constructor(private fb : FormBuilder,
               private activatedRoute : ActivatedRoute,
               private mdpOublieService : MotDePasseOublieService,
-              private router  : Router) { }
+              private router  : Router,
+              private utilisateurService : UtilisateurService) { }
 
   ngOnInit(): void {
 
@@ -37,7 +40,7 @@ export class ResetMotDePasseComponent implements OnInit {
           Validators.pattern("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")]),
         password_conf : this.fb.control("", [
           Validators.required,
-          this.matchValidator('password')])
+          this.utilisateurService.matchValidator('password')])
       })
   }
 
@@ -51,17 +54,6 @@ export class ResetMotDePasseComponent implements OnInit {
     })
   }
 
-  matchValidator( matchTo : string, reverse?: boolean): ValidatorFn{
-    return (control: AbstractControl) : ValidationErrors | null => {
-      if (control.parent && reverse){
-        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
-        if(c){
-          c.updateValueAndValidity();
-        }
-        return null;
-      }
-      return !!control.parent && !!control.parent.value && control.value === (control.parent?.controls as any)[matchTo].value ? null : {matching : true};
-    };
-  }
+
 
 }
