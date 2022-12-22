@@ -8,6 +8,7 @@ import { UpdatePwdModel } from 'src/app/model/update.pwd.model';
 import { UpdateEtatModel } from 'src/app/model/update.etat.model';
 import { UpdateCompteModel } from 'src/app/model/update.compte.model';
 import { IsRevendeurModel } from 'src/app/model/is.revendeur.model';
+import {UtilisateurModel} from "../../model/utilisateur.model";
 
 
 @Injectable({
@@ -112,6 +113,12 @@ export class UtilisateurService {
       return this.http.post(environment.baseUrl + 'inscription/siret',{
         "siret" : siret
         })
+  }
+  getUserById(id : number) : Observable<UtilisateurModel>{
+      console.log("id : "+id);
+      return this.http.post<UtilisateurModel>(environment.baseUrl + 'utilisateur/infos',{
+        "id" : id
+      })
   }
 }
 

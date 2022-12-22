@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import jwt_decode from 'jwt-decode';
+import {UtilisateurService} from "../../services/utilisateur/utilisateur.service";
 
 @Component({
   selector: 'app-header',
@@ -9,17 +10,28 @@ import jwt_decode from 'jwt-decode';
 export class HeaderComponent implements OnInit {
 
   token : any = sessionStorage.getItem("JWT_TOKEN");
-  nom = this.getDecodedAccessToken(this.token).nom;
-  prenom = this.getDecodedAccessToken(this.token).prenom;
+  tokenDec = this.getDecodedAccessToken(this.token);
+  nom : string;
+  prenom : string;
 
 
-  constructor() { }
+  constructor(private service : UtilisateurService) {}
 
   ngOnInit(): void {
+    if(!!this.token){
+      this.infos()
+    }
   }
   deconnexion(): void{
     sessionStorage.removeItem("JWT_TOKEN");
     window.location.reload();
+  }
+  infos():void{
+    this.service.getUserById(this.tokenDec.user.id).subscribe(resp => {
+      console.log(resp)
+      this.nom = resp.nom;
+      this.prenom = resp.prenom;
+    })
   }
   getDecodedAccessToken(token: string): any {
     try {
@@ -28,5 +40,6 @@ export class HeaderComponent implements OnInit {
       return null;
     }
   }
+
 
 }
