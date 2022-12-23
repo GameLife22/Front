@@ -36,13 +36,36 @@
     justify-content: center;
     width: 12.5vw;
 }
+.lien:hover {
+  display: flex;
+  justify-content: center;
+  width: 12.5vw;
+  text-decoration: underline white 1px;
+
+}
 .lien-icones{
   display: flex;
   justify-content: center;
   width: 6vw;
 }
+.lien-nom{
+  display: flex;
+  justify-content: center;
+  width: 6vw;
+}
+.lien-nom:hover{
+  display: flex;
+  justify-content: center;
+  width: 6vw;
+  text-decoration: underline white 1px;
+
+}
 .icones{
   transform: scale(1.4);
+}
+.icones:hover{
+  transition: transform .5s ease-in-out;
+  transform: scale(1.6);
 }
 
 h1 {

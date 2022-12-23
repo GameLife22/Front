@@ -11,6 +11,7 @@ import { IsRevendeurModel } from 'src/app/model/is.revendeur.model';
 import {GetUserModel} from "../../model/get.user.model";
 import {Router} from "@angular/router";
 import {AbstractControl, ValidationErrors, ValidatorFn} from "@angular/forms";
+import {UtilisateurModel} from "../../model/utilisateur.model";
 
 
 @Injectable({
@@ -50,8 +51,8 @@ export class UtilisateurService {
 
 
 
-    inscription(nom: string, prenom: string, email: string, password: string, numRue: Int16Array, rue: string, ville: string, codePostal: Int16Array, siren: Int16Array, role: string | null): Observable<string> {
-    return this.http.post(environment.baseUrl+'inscription/env1' ,
+    inscription(nom: string, prenom: string, email: string, password: string, numRue: number, rue: string, ville: string, codePostal: number, siren: number): Observable<string> {
+    return this.http.post(environment.baseUrl+'inscription/inscription' ,
       {
       "nom":nom,
       "prenom":prenom,
@@ -60,15 +61,22 @@ export class UtilisateurService {
       "ville":ville,
       "num_rue":numRue,
       "rue":rue,
-      "role":role,
       "num_siren":siren,
-      "etat":1,
       "code_postal":codePostal
       },
       {
         responseType: 'text',
       }
     );
+  }
+  validationInscription(email : string){
+      return this.http.post(environment.baseUrl + 'inscription/validation',{
+        "login" : email
+      })
+
+  }
+  activerCompte(token : string){
+      return this.http.get(environment.baseUrl + `inscription/activer?token=${token}`)
   }
 
 
@@ -119,6 +127,11 @@ export class UtilisateurService {
         "siret" : siret
         })
   }
+  getUserById(id:number): Observable<UtilisateurModel>{
+      return this.http.post<UtilisateurModel>(environment.baseUrl + 'utilisateur/infos',{
+        "id" : id
+      })
+  }
 
 
   getUser(id : number): Observable<any> {
@@ -143,4 +156,3 @@ export class UtilisateurService {
   }
 
 }
-

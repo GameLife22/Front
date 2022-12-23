@@ -3,7 +3,7 @@
     <div *ngIf="!!token" class="container1">
       <div class="logo pt-3"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
       <div class="recherche"><app-rechercher-produit></app-rechercher-produit></div>
-      <div class="lien-icones ms-5 pt-1"><a [routerLink]="['/gestioncompte']"><mat-icon class="icones">account_circle</mat-icon></a></div>
+      <div class="lien-nom ms-5 pt-1"><a [routerLink]="['/gestioncompte']"> Bonjour, <br>{{this.prenom}} {{this.nom}} </a></div>
       <div class="lien-icones pt-1 "><a [routerLink]="['/panier']"><mat-icon class="icones">shopping_cart</mat-icon></a></div>
       <div class="lien-icones pt-1 " (click)="deconnexion()"><a [routerLink]="['']"><mat-icon class="icones">exit_to_app</mat-icon></a></div>
     </div>
