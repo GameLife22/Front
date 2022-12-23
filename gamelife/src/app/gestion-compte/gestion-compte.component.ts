@@ -36,7 +36,8 @@ export class GestionCompteComponent implements OnInit {
 
     if (this.token != null){
       this.decriptToken = this.getDecodedAccessToken(this.token);
-      this.id = this.decriptToken.user.id;
+      this.id = this.decriptToken.user;
+      console.log(this.id)
       this.findUser(this.id);
       this.handleIsRevendeur();
 
