@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {UtilisateurService} from "../services/utilisateur/utilisateur.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,9 +14,14 @@ export class LoginComponent implements OnInit {
   hide = true;
 
   constructor(private fb : FormBuilder,
-              private loginService : UtilisateurService) { }
+              private loginService : UtilisateurService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("JWT_TOKEN")){
+      this.router.navigate(['/gestioncompte'])
+    }
+
     this.userFormGroup = this.fb.group(
       {
         email : this.fb.control("",[
@@ -34,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(email,password)
   }
   handleRedirectionToInscription(){
-    document.location.href = "../inscription"
+    this.router.navigate(['/inscription']);
   }
 
   getErrorMessage(field : string , error : ValidationErrors){
