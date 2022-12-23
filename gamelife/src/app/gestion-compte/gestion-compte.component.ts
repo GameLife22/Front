@@ -105,7 +105,6 @@ export class GestionCompteComponent implements OnInit {
         "codePostal" : response.code_postal,
         "numSiret" : response.num_siret
       })
-      console.log(response);
     })
 
   }

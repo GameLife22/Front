@@ -9,6 +9,8 @@ import { UpdateEtatModel } from 'src/app/model/update.etat.model';
 import { UpdateCompteModel } from 'src/app/model/update.compte.model';
 import { IsRevendeurModel } from 'src/app/model/is.revendeur.model';
 import {GetUserModel} from "../../model/get.user.model";
+import {Router} from "@angular/router";
+import {AbstractControl, ValidationErrors, ValidatorFn} from "@angular/forms";
 
 
 @Injectable({
@@ -17,7 +19,8 @@ import {GetUserModel} from "../../model/get.user.model";
 export class UtilisateurService {
 
   constructor(private http: HttpClient,
-              private tokenService : TokenService) {
+              private tokenService : TokenService,
+              private router : Router) {
   }
 
 
@@ -35,6 +38,8 @@ export class UtilisateurService {
           if (typeof token === "string") {
             this.tokenService.saveToken(token)
           }
+          this.router.navigate(['/gestioncompte'])
+          window.location.reload();
           },
         (resp)=>{
           console.log(resp.message)
@@ -75,7 +80,7 @@ export class UtilisateurService {
         "nom": nom,
         "prenom": prenom,
         "email": email,
-        "numRue": num_rue,
+        "num_rue": num_rue,
         "rue": rue,
         "ville": ville,
         "codePostal": codePostal,
@@ -123,5 +128,19 @@ export class UtilisateurService {
       }
     );
   }
+
+  matchValidator( matchTo : string, reverse?: boolean): ValidatorFn{
+    return (control: AbstractControl) : ValidationErrors | null => {
+      if (control.parent && reverse){
+        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
+        if(c){
+          c.updateValueAndValidity();
+        }
+        return null;
+      }
+      return !!control.parent && !!control.parent.value && control.value === (control.parent?.controls as any)[matchTo].value ? null : {matching : true};
+    };
+  }
+
 }
 

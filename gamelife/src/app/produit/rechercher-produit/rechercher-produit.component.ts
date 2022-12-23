@@ -26,9 +26,8 @@ export class RechercherProduitComponent implements OnInit {
    */
   ngOnInit(): void {
     this.searchFormGroup = this.fb.group({
-      keyword : this.fb.control(null)
+      keyword : this.fb.control('')
     });
-    this.handleSearchProducts();
   }
 
   /**
