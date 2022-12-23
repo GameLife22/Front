@@ -67,7 +67,7 @@
         <div *ngIf="estRevendeurModel">
           <mat-form-field appearance="outline" style="width: 93.5%">
             <input matInput placeholder="Siren" formControlName="siren" required>
-            <mat-error *ngIf="userFormGroup.controls['siren'].invalid">Siren invalide</mat-error>
+            <mat-error *ngIf="userFormGroup.controls['siret'].invalid">Siren invalide</mat-error>
           </mat-form-field>
         </div>
         <button mat-stroked-button type="submit" color="primary">valider</button>

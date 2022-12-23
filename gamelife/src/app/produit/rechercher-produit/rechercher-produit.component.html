@@ -4,10 +4,9 @@
       <input class="form-control"  formControlName="keyword" type="text" class="form-control rounded-0" placeholder="Chercher un jeu vidéo ...">
       <button class="btn btn-primary" type="submit"><mat-icon class="pt-1">search</mat-icon></button>
     </div>
-    
+
   </form>
-  
-</div>
+
 
 
 <div  *ngIf="games != null" id="container2" class="input-group mb-3 w-50">
@@ -19,22 +18,3 @@
   </div>
 </div>
 
-
-
-<!--
-  <div id="container">
-      <div id="container1" class="input-group mb-3 w-50">
-          <input #searchBox (keyup)="search(searchBox.value)" type="text" class="form-control" placeholder="Chercher un jeu vidéo ...">
-      </div>
-      <div id="container2" class="input-group mb-3 w-50">
-          <div *ngFor="let product of products | async" id="mini-container" class="card" style="width: 10rem;">
-              <img (click)="goToDetail(product)" src="#" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h3 class="card-title">{{ product.nom }}</h3>
-                <p class="card-text">{{ product.prix.toFixed(2) }}€</p>
-                <a (click)="goToDetail(product)" class="btn btn-primary">VOIR PLUS</a>
-              </div>
-          </div>
-      </div>
-  </div>
--->
