@@ -30,6 +30,8 @@ import {NgxPayPalModule} from "ngx-paypal";
 import {AngularSvgIconModule} from "angular-svg-icon";
 import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
 import { ResetMotDePasseComponent } from './reset-mot-de-passe/reset-mot-de-passe.component';
+import { ValidationInscriptionComponent } from './validation-inscription/validation-inscription.component';
+import { ActivationCompteComponent } from './activation-compte/activation-compte.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { ResetMotDePasseComponent } from './reset-mot-de-passe/reset-mot-de-pass
     PaimentComponent,
     MotDePasseOublieComponent,
     ResetMotDePasseComponent,
+    ValidationInscriptionComponent,
+    ActivationCompteComponent,
   ],
   imports: [
     BrowserModule,
