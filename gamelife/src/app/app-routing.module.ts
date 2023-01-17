@@ -13,6 +13,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { PaimentComponent } from "./paiment/paiment.component";
 import { MotDePasseOublieComponent } from "./mot-de-passe-oublie/mot-de-passe-oublie.component";
 import { ResetMotDePasseComponent } from "./reset-mot-de-passe/reset-mot-de-passe.component";
+import {AdminLoginComponent} from "./admin/admin-login/admin-login.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'accueil' },
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path : "gestioncompte", component: GestionCompteComponent},
   { path : "motdepasseoublie" , component : MotDePasseOublieComponent},
   { path : "resetmotdepasse" , component : ResetMotDePasseComponent},
+  { path : "admin/login" , component : AdminLoginComponent},
+
 
   { path: '404', component: NotFoundComponent },
   { path: '500', component: InternalServerComponent },
