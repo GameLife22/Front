@@ -6,12 +6,12 @@ import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import jwt_decode from 'jwt-decode';
 
-
 @Component({
   selector: 'app-gestion-compte',
   templateUrl: './gestion-compte.component.html',
   styleUrls: ['./gestion-compte.component.scss']
 })
+
 export class GestionCompteComponent implements OnInit {
 
   userModel: UpdateCompteModel
@@ -54,8 +54,8 @@ export class GestionCompteComponent implements OnInit {
 
         }
       )
-
     }
+
     this.mdpFormGroup = this.fb.group(
       {
         oldPwd: this.fb.control(""),
@@ -107,7 +107,6 @@ export class GestionCompteComponent implements OnInit {
         "numSiret" : response.num_siret
       })
     })
-
   }
 
   handleUpdateUser() {
