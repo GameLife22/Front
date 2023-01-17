@@ -20,6 +20,7 @@ export class InscriptionComponent implements OnInit {
 
   inscriptionForm : FormGroup;
   roleControl = new FormControl('ROLE_ACHETEUR');
+  token : string;
 
   options = this.fb.group({
     role : this.roleControl,
@@ -87,9 +88,11 @@ export class InscriptionComponent implements OnInit {
     let codePostal = this.inscriptionForm.value.codePostal;
 
 
-    this.service.inscription(nom,prenom,email,pwd,numRue,rue,ville,codePostal,siren,role.value).subscribe()
+    this.service.inscription(nom,prenom,email,pwd,numRue,rue,ville,codePostal,siren).subscribe(res => {
+      this.token = res;
+    })
 
-    this.router.navigate([''])
+    this.router.navigate(["validationinscription"],{queryParams : { email : this.inscriptionForm.value.email}})
 
 
 
