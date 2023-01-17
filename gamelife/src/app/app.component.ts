@@ -8,9 +8,12 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'GameLife';
+
   router: Router;
 
   constructor(private _router: Router){
     this.router = _router;
   }
 }
+
+

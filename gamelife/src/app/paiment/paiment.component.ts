@@ -18,7 +18,7 @@ export class PaimentComponent implements OnInit {
   private initConfig(): void {
     this.payPalConfig = {
       currency: 'EUR',
-      clientId: 'sb', //sb = SandBox pour les tests
+      clientId: 'AQuvnr5WaY3njB9vpxZ-uih-jrgNdBV7i6Izc0CO7z-J-up7RAFBsa92c_mIpvFQrD_zFdy9VovZh3iY', //sb = SandBox pour les tests
       createOrderOnClient: (data) => <ICreateOrderRequest>{
         intent: 'CAPTURE',
         purchase_units: [
