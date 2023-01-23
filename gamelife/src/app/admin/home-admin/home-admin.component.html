@@ -1,0 +1,27 @@
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper"  [ngClass]="status ? 'hide' : 'show'">
+    <div class="sidebar-heading">GameLife Dashboard </div>
+    <div class="list-group list-group-flush">
+      <a  (click)="divAff(1)" class="list-group-item list-group-item-action bg-light">Gestion Utilisateur</a>
+      <a  (click)="divAff(2)" class="list-group-item list-group-item-action bg-light">Overview</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <div class="container-fluid">
+      <app-fiche-produit *ngIf="div == 1"></app-fiche-produit>
+      <app-gestion-compte *ngIf="div == 2"></app-gestion-compte>
+    </div>
+
+  </div>
+  <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->

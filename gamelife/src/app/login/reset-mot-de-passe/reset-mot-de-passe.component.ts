@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AbstractControl, FormBuilder, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
-import {MotDePasseOublieService} from "../services/mot-de-passe-oublie/mot-de-passe-oublie.service";
-import {InscriptionComponent} from "../inscription/inscription.component";
-import {UtilisateurService} from "../services/utilisateur/utilisateur.service";
+import {FormBuilder, Validators} from "@angular/forms";
+import {MotDePasseOublieService} from "../../services/mot-de-passe-oublie/mot-de-passe-oublie.service";
+import {UtilisateurService} from "../../services/utilisateur/utilisateur.service";
 
 @Component({
   selector: 'app-reset-mot-de-passe',
   templateUrl: './reset-mot-de-passe.component.html',
-  styleUrls: ['./reset-mot-de-passe.component.scss']
+  styleUrls: ['/reset-mot-de-passe.component.scss']
 })
 export class ResetMotDePasseComponent implements OnInit {
 
