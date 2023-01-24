@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
   }
   infos():void{
-    this.service.getUserById(this.tokenDec.user.id).subscribe(resp => {
+    this.service.getUserById(this.tokenDec.user).subscribe(resp => {
       console.log(resp)
       this.nom = resp.nom;
       this.prenom = resp.prenom;

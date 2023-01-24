@@ -6,12 +6,12 @@ import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import jwt_decode from 'jwt-decode';
 
-
 @Component({
   selector: 'app-gestion-compte',
   templateUrl: './gestion-compte.component.html',
   styleUrls: ['./gestion-compte.component.scss']
 })
+
 export class GestionCompteComponent implements OnInit {
 
   userModel: UpdateCompteModel
@@ -37,7 +37,6 @@ export class GestionCompteComponent implements OnInit {
     if (this.token != null){
       this.decriptToken = this.getDecodedAccessToken(this.token);
       this.id = this.decriptToken.user;
-      console.log(this.id)
       this.findUser(this.id);
       this.handleIsRevendeur();
 
@@ -50,12 +49,12 @@ export class GestionCompteComponent implements OnInit {
           rue: this.fb.control(""),
           ville: this.fb.control(""),
           codePostal: this.fb.control(""),
-          numSiret: this.fb.control("")
+          numSiren: this.fb.control("")
 
         }
       )
-
     }
+
     this.mdpFormGroup = this.fb.group(
       {
         oldPwd: this.fb.control(""),
@@ -104,10 +103,9 @@ export class GestionCompteComponent implements OnInit {
         "rue" : response.rue,
         "ville" : response.ville,
         "codePostal" : response.code_postal,
-        "numSiret" : response.num_siret
+        "numSiren" : response.num_siret
       })
     })
-
   }
 
   handleUpdateUser() {
@@ -124,7 +122,6 @@ export class GestionCompteComponent implements OnInit {
     observable.subscribe(
       (response)=>{
     },(value)=> {
-        console.log(value)
         this.errorEmail = value.error.message;
         console.log(this.errorEmail);
     });
@@ -136,7 +133,6 @@ export class GestionCompteComponent implements OnInit {
     let oldPwd: string = this.mdpFormGroup.value.oldPwd
     let newPwd1: string = this.mdpFormGroup.value.newPwd1
     let newPwd2: string = this.mdpFormGroup.value.newPwd2
-    console.log(oldPwd, newPwd1, newPwd2);
     if (newPwd1 == newPwd2) {
       let new_mdp = newPwd1
       if (new_mdp != oldPwd) {
@@ -148,7 +144,6 @@ export class GestionCompteComponent implements OnInit {
             this.mdpFormGroup.get('newPwd2')?.setValue("");
           },(value)=> {
             this.errorPassword = value.error.message;
-            console.log(this.errorPassword);
             this.mdpFormGroup.get('oldPwd')?.setValue("");
             this.mdpFormGroup.get('newPwd1')?.setValue("");
             this.mdpFormGroup.get('newPwd2')?.setValue("");
