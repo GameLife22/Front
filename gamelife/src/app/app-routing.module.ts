@@ -17,6 +17,7 @@ import { ResetMotDePasseComponent } from "./reset-mot-de-passe/reset-mot-de-pass
 import {AdminLoginComponent} from "./admin/admin-login/admin-login.component";
 import {ValidationInscriptionComponent} from "./validation-inscription/validation-inscription.component";
 import {ActivationCompteComponent} from "./activation-compte/activation-compte.component";
+import {HomeAdminComponent} from "./admin/home-admin/home-admin.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'accueil' },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path : "admin/login" , component : AdminLoginComponent},
   {path : "validationinscription", component : ValidationInscriptionComponent},
   { path : "activationcompte" , component : ActivationCompteComponent},
+  { path : "admin/home" , component : HomeAdminComponent},
 
 
   { path: '404', component: NotFoundComponent },
