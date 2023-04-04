@@ -16,7 +16,7 @@
   </thead>
   <tbody>
   <ng-container *ngFor="let user of users">
-    <tr  *ngIf="user.etat_compte == '1' && user.id != 1 " class="table-success"    >
+    <tr  *ngIf="user.etat_compte == '1' && user.id != 1"  id="success">
       <th scope="row">{{user.id}}</th>
       <td>{{user.nom}}</td>
       <td>{{user.prenom}}</td>
@@ -31,7 +31,7 @@
       <td class="table-light"><button type="button" class="btn btn-info">Modifier</button></td>
       <td class="table-light"><button type="button" class="btn btn-danger" (click)="changerEtatUser(0,user.id)">Desactiver</button></td>
     </tr>
-    <tr  *ngIf="user.etat_compte != '1' && user.id != 1 "  class="table-danger">
+    <tr  *ngIf="user.etat_compte != '1' && user.id != 1  "  id="danger">
       <th scope="row">{{user.id}}</th>
       <td>{{user.nom}}</td>
       <td>{{user.prenom}}</td>
@@ -44,7 +44,7 @@
       <td>{{user.num_siren}}</td>
       <td>{{user.etat_compte}}</td>
       <td class="table-light"><button type="button" class="btn btn-info">Modifier</button></td>
-      <td class="table-light"><button type="button" class="btn btn-success" (click)="changerEtatUser(1,user.id)">Activer</button></td>
+      <td class="table-light"><button type="button" class="btn btn-success" (click)="changerEtatUser(1,user.id)" >Activer</button></td>
     </tr>
   </ng-container>
 

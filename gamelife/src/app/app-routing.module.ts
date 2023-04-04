@@ -37,6 +37,7 @@ const routes: Routes = [
   { path : "admin/home" , component : HomeAdminComponent},
 
 
+
   { path: '404', component: NotFoundComponent },
   { path: '500', component: InternalServerComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full' }

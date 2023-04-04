@@ -123,8 +123,8 @@ export class GestionCompteComponent implements OnInit {
     let observable : Observable<UpdateCompteModel> = this.GestionCompteService.updateUser(this.id, nom, prenom, email, numRue, rue, ville, codePostal, numSiren)
     observable.subscribe(
       (response)=>{
-    },(value)=> {
-        console.log(value)
+    },
+      (value)=> {
         this.errorEmail = value.error.message;
         console.log(this.errorEmail);
     });
