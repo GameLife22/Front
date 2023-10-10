@@ -8,9 +8,9 @@
       <div class="lien-icones pt-1 " (click)="deconnexion()"><a [routerLink]="['']"><mat-icon class="icones">exit_to_app</mat-icon></a></div>
     </div>
     <div *ngIf="!!!token" class="container1">
-      <div class="logo pt-3"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
+      <div class="logo pt-3"><a [routerLink]="['/']"><h3>GAMELIFE</h3></a></div>
       <div class="recherche"><app-rechercher-produit></app-rechercher-produit></div>
-      <div class="lien"><a [routerLink]="['/inscription']">INSCRIPTION</a></div>
+      <!--<div class="lien inscription"><a [routerLink]="['/inscription']">INSCRIPTION</a></div>!-->
       <div class="lien"><a [routerLink]="['/login']">CONNEXION</a></div>
     </div>
   </div>
