@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'accueil', component: HomeComponent },
   { path : "login", component : LoginComponent},
   { path : "inscription", component : InscriptionComponent},
-  {path : "paiment", component: PaimentComponent},
+  {path :  "paiment", component: PaimentComponent},
   { path: "produit/all", component : ProduitDetailComponent},
   { path : "produit/:id", component : FicheProduitComponent},
   { path : "produit", component: RechercherProduitComponent},
@@ -32,7 +32,7 @@ const routes: Routes = [
   { path : "motdepasseoublie" , component : MotDePasseOublieComponent},
   { path : "resetmotdepasse" , component : ResetMotDePasseComponent},
   { path : "admin/login" , component : AdminLoginComponent},
-  {path : "validationinscription", component : ValidationInscriptionComponent},
+  {path :  "validationinscription", component : ValidationInscriptionComponent},
   { path : "activationcompte" , component : ActivationCompteComponent},
   { path : "admin/home", component : HomeAdminComponent},
 

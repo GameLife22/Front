@@ -34,7 +34,6 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { ValidationInscriptionComponent } from './validation-inscription/validation-inscription.component';
 import { ActivationCompteComponent } from './activation-compte/activation-compte.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
-import { GestionUtilisateurComponent } from './admin/gestion-utilisateur/gestion-utilisateur.component';
 import { GestionUtilisateurAdminComponent } from './admin/gestion-utilisateur-admin/gestion-utilisateur-admin.component';
 
 
@@ -59,7 +58,6 @@ import { GestionUtilisateurAdminComponent } from './admin/gestion-utilisateur-ad
     ValidationInscriptionComponent,
     ActivationCompteComponent,
     HomeAdminComponent,
-    GestionUtilisateurComponent,
     GestionUtilisateurAdminComponent,
   ],
   imports: [
