@@ -33,6 +33,10 @@ import { ResetMotDePasseComponent } from './reset-mot-de-passe/reset-mot-de-pass
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { ValidationInscriptionComponent } from './validation-inscription/validation-inscription.component';
 import { ActivationCompteComponent } from './activation-compte/activation-compte.component';
+import { GestionUtilisateurAdminComponent } from './admin/gestion-utilisateur-admin/gestion-utilisateur-admin.component';
+import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
+import { ModificationUtilisateurAdminComponent } from './admin/gestion-utilisateur-admin/modification-utilisateur-admin/modification-utilisateur-admin.component';
+import {ActiveUserService} from "./services/admin/gestion-utilisateur-admin/active-user/active-user.service";
 
 
 @NgModule({
@@ -55,6 +59,9 @@ import { ActivationCompteComponent } from './activation-compte/activation-compte
     AdminLoginComponent,
     ValidationInscriptionComponent,
     ActivationCompteComponent,
+    GestionUtilisateurAdminComponent,
+    HomeAdminComponent,
+    ModificationUtilisateurAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +84,7 @@ import { ActivationCompteComponent } from './activation-compte/activation-compte
     AngularSvgIconModule,
 
   ],
-  providers: [TokenInterceptorProvider],
+  providers: [TokenInterceptorProvider,ActiveUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

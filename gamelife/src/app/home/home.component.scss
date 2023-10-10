@@ -1,32 +1,50 @@
 body {
     background: red;
 }
-
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
 .example-card {
     max-width: 320px;
 }
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-}
 
+
+mat-card{
+  width: 70%;
+}
 .card-wrapper {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-bottom: 20vh;
-    margin-top: 8vh;
+  text-align: center;
+  width: 20rem;
+
+}
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10rem;
+}
+@media (max-width: 500px) {
+  mat-card{
+    width: 70%;
+  }
+  .card-wrapper {
+
+  }
+  .container{
+    display: block;
+  }
 }
 
 .titleGame{
-    text-align: center; 
+    text-align: center;
     margin-top: 8vh;
     font-family: revert;
     font-size: xx-large;
-    font-weight: bolder; 
+    font-weight: bolder;
 }
 
-mat-card:hover { 
-    transform: scale(1.1); 
-    transition: 1s ease-out 100ms; 
+mat-card:hover {
+    transform: scale(1.1);
+    transition: 1s ease-out 100ms;
 }

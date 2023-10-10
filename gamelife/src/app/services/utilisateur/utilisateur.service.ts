@@ -27,26 +27,25 @@ export class UtilisateurService {
 
   login(email: string, password: string){
     let contentHeader = new HttpHeaders({ "Content-Type":"application/json" });
-    this.http.post(environment.baseUrl+'auth/signin' ,
+    return this.http.post(environment.baseUrl+'auth/signin' ,
       {
         "login" : email,
         "pwd" : password
       },
       { headers: contentHeader, observe: 'response' })
-      .subscribe(
-        (resp) => {
+      /**.subscribe({
+        next : (resp) => {
           let token = resp.headers.get('Authorization')
           if (typeof token === "string") {
             this.tokenService.saveToken(token)
           }
           this.router.navigate(['/gestioncompte'])
           window.location.reload();
-          },
-        (resp)=>{
-          console.log(resp.message)
+        },
+        error : (err) => {
+          console.log(err.message)
         }
-
-      );
+      });*/
   };
 
 

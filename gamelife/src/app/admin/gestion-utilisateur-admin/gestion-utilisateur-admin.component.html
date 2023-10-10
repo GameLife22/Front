@@ -1,0 +1,53 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Email</th>
+    <th scope="col">N° rue</th>
+    <th scope="col">Rue</th>
+    <th scope="col">Ville</th>
+    <th scope="col">Code Postal</th>
+    <th scope="col">Role</th>
+    <th scope="col">N° Siren</th>
+    <th scope="col">Etat Compte</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let user of users">
+    <tr  *ngIf="user.etat_compte == '1' && user.id != 1"  id="success">
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.nom}}</td>
+      <td>{{user.prenom}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.num_rue}}</td>
+      <td>{{user.rue}}</td>
+      <td>{{user.ville}}</td>
+      <td>{{user.code_postal}}</td>
+      <td>{{user.role}}</td>
+      <td>{{user.num_siren}}</td>
+      <td>{{user.etat_compte}}</td>
+      <td class="table-light"><button type="button" class="btn btn-info">Modifier</button></td>
+      <td class="table-light"><button type="button" class="btn btn-danger" (click)="changerEtatUser(0,user.id)">Desactiver</button></td>
+    </tr>
+    <tr  *ngIf="user.etat_compte != '1' && user.id != 1  "  id="danger">
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.nom}}</td>
+      <td>{{user.prenom}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.num_rue}}</td>
+      <td>{{user.rue}}</td>
+      <td>{{user.ville}}</td>
+      <td>{{user.code_postal}}</td>
+      <td>{{user.role}}</td>
+      <td>{{user.num_siren}}</td>
+      <td>{{user.etat_compte}}</td>
+      <td class="table-light"><button type="button" class="btn btn-info">Modifier</button></td>
+      <td class="table-light"><button type="button" class="btn btn-success" (click)="changerEtatUser(1,user.id)" >Activer</button></td>
+    </tr>
+  </ng-container>
+
+
+  </tbody>
+</table>

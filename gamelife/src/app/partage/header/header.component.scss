@@ -1,5 +1,4 @@
 #container {
-  width: 100%;
 }
 .container1 {
     background-color: #1633A4;
@@ -8,6 +7,19 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
+    //margin: 0;
+
+
+}
+@media (max-width: 800px) {
+  .container1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+
+  }
 
 }
 

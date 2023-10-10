@@ -17,22 +17,24 @@ import { ResetMotDePasseComponent } from "./reset-mot-de-passe/reset-mot-de-pass
 import {AdminLoginComponent} from "./admin/admin-login/admin-login.component";
 import {ValidationInscriptionComponent} from "./validation-inscription/validation-inscription.component";
 import {ActivationCompteComponent} from "./activation-compte/activation-compte.component";
+import {HomeAdminComponent} from "./admin/home-admin/home-admin.component";
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'accueil' },
-  { path: 'accueil', component: HomeComponent },
-  { path : "login", component : LoginComponent},
-  { path : "inscription", component : InscriptionComponent},
-  {path : "paiment", component: PaimentComponent},
-  { path: "produit/all", component : ProduitDetailComponent},
-  { path : "produit/:id", component : FicheProduitComponent},
-  { path : "produit", component: RechercherProduitComponent},
-  { path : "gestioncompte", component: GestionCompteComponent},
-  { path : "motdepasseoublie" , component : MotDePasseOublieComponent},
-  { path : "resetmotdepasse" , component : ResetMotDePasseComponent},
-  { path : "admin/login" , component : AdminLoginComponent},
-  {path : "validationinscription", component : ValidationInscriptionComponent},
-  { path : "activationcompte" , component : ActivationCompteComponent},
+  { path  : '', pathMatch: 'full', redirectTo: 'accueil' },
+  { path  : 'accueil', component: HomeComponent },
+  { path  : "login", component : LoginComponent},
+  { path  : "inscription", component : InscriptionComponent},
+  { path  : "paiement", component: PaimentComponent},
+  { path  : "produit", component : ProduitDetailComponent},
+  { path  : "produit/:id", component : FicheProduitComponent},
+  { path  : "gestioncompte", component: GestionCompteComponent},
+  { path  : "motdepasseoublie" , component : MotDePasseOublieComponent},
+  { path  : "resetmotdepasse" , component : ResetMotDePasseComponent},
+  { path  : "admin/login" , component : AdminLoginComponent},
+  { path  : "validationinscription", component : ValidationInscriptionComponent},
+  { path  : "activationcompte" , component : ActivationCompteComponent},
+  { path  : "admin/home" , component : HomeAdminComponent},
+
 
 
   { path: '404', component: NotFoundComponent },

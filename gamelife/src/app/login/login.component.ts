@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {UtilisateurService} from "../services/utilisateur/utilisateur.service";
 import {Router} from "@angular/router";
+import {TokenService} from "../services/token/token.service";
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb : FormBuilder,
               private loginService : UtilisateurService,
+              private tokenService : TokenService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -37,7 +39,19 @@ export class LoginComponent implements OnInit {
   handleLogin(){
     let email = this.userFormGroup.value.email
     let password = this.userFormGroup.value.password
-    this.loginService.login(email,password)
+    this.loginService.login(email,password).subscribe({
+      next : (resp) => {
+        let token = resp.headers.get('Authorization')
+        if (typeof token === "string") {
+          this.tokenService.saveToken(token)
+        }
+        this.router.navigate(['/gestioncompte'])
+        window.location.reload();
+      },
+      error : (err) => {
+        console.log(err.message)
+      }
+    })
   }
   handleRedirectionToInscription(){
     this.router.navigate(['/inscription']);
