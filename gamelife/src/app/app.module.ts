@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
@@ -12,7 +12,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
 import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
-import {TokenInterceptor, TokenInterceptorProvider} from "./helpers/token.interceptor";
+import { TokenInterceptorProvider} from "./helpers/token.interceptor";
 import {MatSelectModule} from "@angular/material/select";
 import { FicheProduitComponent } from './produit/fiche-produit/fiche-produit.component';
 import { FooterComponent } from './partage/footer/footer.component';
@@ -28,12 +28,10 @@ import {GestionCompteComponent} from "./gestion-compte/gestion-compte.component"
 import { PaimentComponent } from './paiment/paiment.component';
 import {NgxPayPalModule} from "ngx-paypal";
 import {AngularSvgIconModule} from "angular-svg-icon";
-import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
-import { ResetMotDePasseComponent } from './reset-mot-de-passe/reset-mot-de-passe.component';
-import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { MotDePasseOublieComponent } from './login/mot-de-passe-oublie/mot-de-passe-oublie.component';
+import { ResetMotDePasseComponent } from './login/reset-mot-de-passe/reset-mot-de-passe.component';
 import { ValidationInscriptionComponent } from './validation-inscription/validation-inscription.component';
 import { ActivationCompteComponent } from './activation-compte/activation-compte.component';
-
 
 @NgModule({
   declarations: [
@@ -52,7 +50,6 @@ import { ActivationCompteComponent } from './activation-compte/activation-compte
     PaimentComponent,
     MotDePasseOublieComponent,
     ResetMotDePasseComponent,
-    AdminLoginComponent,
     ValidationInscriptionComponent,
     ActivationCompteComponent,
   ],

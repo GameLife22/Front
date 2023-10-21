@@ -21,6 +21,7 @@ export class ValidationInscriptionComponent implements OnInit {
   }
 
   emailDeValidation(){
+    console.log(this.email)
     this.service.validationInscription(this.email).subscribe();
   }
 

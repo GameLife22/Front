@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {MotDePasseOublieService} from "../services/mot-de-passe-oublie/mot-de-passe-oublie.service";
+import {MotDePasseOublieService} from "../../services/mot-de-passe-oublie/mot-de-passe-oublie.service";
 
 @Component({
   selector: 'app-mot-de-passe-oublie',

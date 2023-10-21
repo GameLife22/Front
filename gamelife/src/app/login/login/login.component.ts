@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
-import {UtilisateurService} from "../services/utilisateur/utilisateur.service";
+import {UtilisateurService} from "../../services/utilisateur/utilisateur.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
           Validators.required,
           Validators.email]),
         password : this.fb.control("",[
-          Validators.required,
-          Validators.pattern("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")])
+          Validators.required])
+          //Validators.pattern("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")])
 
       }
     )
