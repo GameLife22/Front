@@ -12,7 +12,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
 import { MatCardModule } from "@angular/material/card";
 import { AppRoutingModule } from './app-routing.module';
-import {TokenInterceptor, TokenInterceptorProvider} from "./helpers/token.interceptor";
+import { TokenInterceptorProvider} from "./helpers/token.interceptor";
 import {MatSelectModule} from "@angular/material/select";
 import { FicheProduitComponent } from './produit/fiche-produit/fiche-produit.component';
 import { FooterComponent } from './partage/footer/footer.component';
@@ -30,12 +30,8 @@ import {NgxPayPalModule} from "ngx-paypal";
 import {AngularSvgIconModule} from "angular-svg-icon";
 import { MotDePasseOublieComponent } from './login/mot-de-passe-oublie/mot-de-passe-oublie.component';
 import { ResetMotDePasseComponent } from './login/reset-mot-de-passe/reset-mot-de-passe.component';
-import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { ValidationInscriptionComponent } from './validation-inscription/validation-inscription.component';
 import { ActivationCompteComponent } from './activation-compte/activation-compte.component';
-import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
-import { GestionUtilisateurAdminComponent } from './admin/gestion-utilisateur-admin/gestion-utilisateur-admin.component';
-
 
 @NgModule({
   declarations: [
@@ -54,11 +50,8 @@ import { GestionUtilisateurAdminComponent } from './admin/gestion-utilisateur-ad
     PaimentComponent,
     MotDePasseOublieComponent,
     ResetMotDePasseComponent,
-    AdminLoginComponent,
     ValidationInscriptionComponent,
     ActivationCompteComponent,
-    HomeAdminComponent,
-    GestionUtilisateurAdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {TokenService} from "../token/token.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import { environment } from "../../../environments/environment";
 import { UpdatePwdModel } from 'src/app/model/update.pwd.model';
 import { UpdateEtatModel } from 'src/app/model/update.etat.model';
@@ -24,21 +24,23 @@ export class UtilisateurService {
 
   login(email: string, password: string){
     let contentHeader = new HttpHeaders({ "Content-Type":"application/json" });
-    this.http.post(environment.baseUrl+'auth/signin' ,
+    this.http.post(environment.baseUrl+'utilisateur/auth' ,
       {
-        "login" : email,
-        "pwd" : password
+        "email" : email,
+        "password" : password
       },
-      { headers: contentHeader, observe: 'response' })
+      { headers: contentHeader, observe: 'response' , responseType: 'text'})
       .subscribe(
         (resp) => {
-          let token = resp.headers.get('Authorization')
-          if (typeof token === "string") {
-            this.tokenService.saveToken(token)
-          }
-          this.router.navigate(['/gestioncompte'])
-          window.location.reload();
-          },
+              let token = resp.body
+
+              if (typeof token === "string") {
+                this.tokenService.saveToken(token)
+              }
+              this.router.navigate(['/gestioncompte'])
+
+              window.location.reload();
+              },
         (resp)=>{
           console.log(resp.message)
         }
@@ -104,13 +106,17 @@ export class UtilisateurService {
     );
   }
 
-  updateEtat(id: number, etat: number): Observable<UpdateEtatModel> {
+  updateEtat(id: number, etat: number): Subscription {
     return this.http.post<UpdateEtatModel>(environment.baseUrl + 'gestioncompte/etat',
       {
         "id": id,
         "new_etat": etat,
+      }).subscribe(
+      ()=>{
+        this.tokenService.clearToken();
+        this.router.navigate(['/'])
       }
-    );
+    )
   }
 
   isRevendeur(id: number): Observable<boolean>{

@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import {UtilisateurService} from "../../services/utilisateur/utilisateur.service";
 
@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
   }
   infos():void{
-    this.service.getUserById(this.tokenDec.user).subscribe(resp => {
+    this.service.getUserById(this.tokenDec.jti).subscribe(resp => {
       this.nom = resp.nom;
       this.prenom = resp.prenom;
     })

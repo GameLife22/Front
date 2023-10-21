@@ -23,6 +23,7 @@ export class TokenService {
   }
 
   getToken() : string | null{
+    sessionStorage.getItem('JWT_TOKEN')
     return sessionStorage.getItem('JWT_TOKEN')
   }
 }
