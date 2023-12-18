@@ -35,6 +35,7 @@ export class RechercherProduitComponent implements OnInit {
    * elle récupére le(s) jeu(x) vidéo(s) selon le terme recherché
    * @author: Fabien
    */
+
   handleSearchProducts() {
     let keyword = this.searchFormGroup.value.keyword;
     this.productService.getProductsByName(keyword).subscribe({

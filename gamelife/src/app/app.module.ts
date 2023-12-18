@@ -32,6 +32,8 @@ import { MotDePasseOublieComponent } from './login/mot-de-passe-oublie/mot-de-pa
 import { ResetMotDePasseComponent } from './login/reset-mot-de-passe/reset-mot-de-passe.component';
 import { ValidationInscriptionComponent } from './validation-inscription/validation-inscription.component';
 import { ActivationCompteComponent } from './activation-compte/activation-compte.component';
+import { PanierComponent } from './panier/panier.component';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { ActivationCompteComponent } from './activation-compte/activation-compte
     ResetMotDePasseComponent,
     ValidationInscriptionComponent,
     ActivationCompteComponent,
+    PanierComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,6 @@ import { ActivationCompteComponent } from './activation-compte/activation-compte
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
     MatFormFieldModule,
     MatRadioModule,
     MatInputModule,
@@ -72,9 +74,11 @@ import { ActivationCompteComponent } from './activation-compte/activation-compte
     MatSelectModule,
     NgxPayPalModule,
     AngularSvgIconModule,
-
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    
   ],
   providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]
-})
+}) 
 export class AppModule { }

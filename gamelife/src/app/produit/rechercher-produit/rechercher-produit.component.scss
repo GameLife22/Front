@@ -1,3 +1,5 @@
+
+
 input:placeholder-shown {
     font-style: italic;
     color: #ABABAB;
@@ -9,23 +11,23 @@ button, button:hover {
     font-weight: bold;
 }
 
-#container {
-    display: flex;
-    flex-wrap: wrap;
-    //flex-direction: column;
+.game-image {
+  width: 100%; /* Ajustez la largeur selon vos besoins */
+  height: auto; /* Permet à l'image de conserver ses proportions d'origine */
+  margin-bottom: 10px; /* Ajoute un espace entre l'image et le texte */
 }
+
 
 #mini-container1 {
     display: flex;
 }
-.search{
+
+.search {
   position: relative;
   box-shadow: 0 0 40px rgba(51, 51, 51, .1);
-
 }
 
-.search input{
-
+.search input {
   height: 60px;
   text-indent: 25px;
   border: 2px solid lightgray;
@@ -36,9 +38,7 @@ button, button:hover {
   position: relative;
 }
 
-
-.search input:focus{
-
+.search input:focus {
   box-shadow: none;
   border: 2px solid darkblue;
 
@@ -58,8 +58,7 @@ button, button:hover {
 
 }
 
-.search button{
-
+.search button {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -67,5 +66,5 @@ button, button:hover {
   width: 110px;
   background: darkgray;
   border: lightgray 1px;
-
 }
+
