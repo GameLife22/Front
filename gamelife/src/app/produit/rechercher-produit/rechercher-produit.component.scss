@@ -48,3 +48,27 @@ button, button:hover {
   border: lightgray 1px;
 }
 
+a{
+  text-decoration: none;
+}
+.nameSearch{
+  cursor: pointer;
+  color: black;
+  text-transform: uppercase; 
+  font-weight: bolder;
+}
+
+.nameSearch:hover {
+  cursor: grab; 
+}
+
+.nameSearch2{
+  cursor: pointer;
+  color: black;
+  text-transform: uppercase; 
+  font-weight: normal;
+}
+
+.nameSearch2:hover {
+  cursor: grab; 
+}
