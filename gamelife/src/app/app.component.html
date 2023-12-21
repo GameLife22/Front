@@ -1,14 +1,12 @@
 <!-- No Admin !-->
 <div *ngIf="!router.url.includes('admin/')">
   <app-header></app-header>
-
+  <app-rechercher-produit></app-rechercher-produit>
   <div class="container pt-3 mh-100">
     <router-outlet class="d-flex flex-column h-100"></router-outlet>
   </div>
-
   <app-footer ></app-footer>
 </div>
-
 <!-- Admin !-->
 <div *ngIf="router.url.includes('admin/')">
     <router-outlet></router-outlet>

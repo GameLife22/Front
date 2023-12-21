@@ -1,85 +1,14 @@
-#container {
-  width: 100%;
-}
-.container1 {
-  background-color: #1633A4;
-  height: 10vh;
-  display: flex;
-  width: 100%;
-  flex-wrap: nowrap;
-  align-content: flex-end;
-  align-items: baseline;
-  padding-top: 1rem;
-
-}
-
-#container2 {
-    background-color: #0B2384;
-    height: 5vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    justify-content: center;
-    width: 25vw;
-}
-
-.recherche {
-    //display: flex;
-    //justify-content: center;
-    width: 50vw;
-}
-
-.lien {
-    display: flex;
-    justify-content: center;
-    width: 12.5vw;
-}
-.lien:hover {
-  display: flex;
-  justify-content: center;
-  width: 12.5vw;
-  text-decoration: underline white 1px;
-
-}
-.lien-icones{
-  display: flex;
-  justify-content: center;
-  width: 6vw;
-}
-.lien-nom{
-  display: flex;
-  justify-content: center;
-  width: 6vw;
-}
-.lien-nom:hover{
-  display: flex;
-  justify-content: center;
-  width: 6vw;
-  text-decoration: underline white 1px;
-
-}
-.icones{
-  transform: scale(1.4);
-}
-.icones:hover{
-  transition: transform .5s ease-in-out;
-  transform: scale(1.6);
-}
-
-h1 {
-    color: white;
-    letter-spacing: 2.5px;
+nav {
+  background-color: #0b32f7;
 }
 
 a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-mat-icon {
+  text-decoration: none;
   color: white;
+}
+
+#title {
+  font-family: 'Varela Round', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
 }

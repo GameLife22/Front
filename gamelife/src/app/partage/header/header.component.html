@@ -1,14 +1,32 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand m-0 h1" href="#">GAMELIFE</a>
+<nav class="navbar navbar-expand-lg">
+  <section class="container-fluid">
+    <a [routerLink]="['/']" class="navbar-brand m-0 h1" style="padding: 1rem" id="title" href="#">GAMELIFE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
+    <section class="collapse navbar-collapse" id="navbarScroll">
+      <section>
+        <i class="bi bi-person-fill"></i>
+      </section>
+    </section>
+  </section>
 </nav>
+<!--
+<section id="container">
+  <section>
+    <section *ngIf="!!token" class="container1">
+      <section class="logo pt-3"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></section>
+      <section class="recherche"><app-rechercher-produit></app-rechercher-produit></section>
+      <section class="lien-nom ms-5 pt-1"><a [routerLink]="['/gestioncompte']"> Bonjour, <br>{{this.prenom}} {{this.nom}} </a></section>
+      <section class="lien-icones pt-1 "><a [routerLink]="['/panier']"><mat-icon class="icones">shopping_cart</mat-icon></a></section>
+      <section class="lien-icones pt-1 " (click)="deconnexion()"><a [routerLink]="['']"><mat-icon class="icones">exit_to_app</mat-icon></a></section>
+    </section>
+    <section *ngIf="!!!token" class="container1">
+      <section class="logo pt-3"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></section>
+      <section class="recherche"><app-rechercher-produit></app-rechercher-produit></section>
+      <section class="lien"><a [routerLink]="['/inscription']">INSCRIPTION</a></section>
+      <section class="lien"><a [routerLink]="['/login']">CONNEXION</a></section>
+    </section>
+  </section>
+</section>
+-->
