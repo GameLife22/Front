@@ -1,6 +1,46 @@
 <header>
   <div class="container-fluid">
     <div class="navb-logo">
+      <a [routerLink]="['/']" class="navbar-brand m-0 h1" class="title">GAMELIFE</a>
+    </div>
+    <div class="navb-items d-none d-xl-flex">
+      <div class="item-button m-2">
+        <a type="button"><i class="bi bi-bag-fill"></i>PANIER</a>
+      </div>
+      <div class="item-button">
+        <a type="button"><i class="bi bi-person-fill"></i>COMPTE</a>
+      </div>
+    </div>
+    <div class="mobile-toggler d-lg-none">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#navbModal">
+        <i class="text-white bi bi-list"></i>
+      </a>
+    </div>
+    <div class="modal fade" id="navbModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a [routerLink]="['/']" class="navbar-brand m-0 h1" class="title">GAMELIFE</a>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-line">
+              <a type="button"><i class="bi bi-bag"></i>PANIER</a>
+            </div>
+            <div class="modal-line">
+              <a type="button"><i class="bi bi-person"></i>COMPTE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!--
+<header>
+  <div class="container-fluid">
+    <div class="navb-logo">
       <a [routerLink]="['/']" class="navbar-brand m-0 h1" id="title">GAMELIFE</a>
     </div>
     <app-rechercher-produit></app-rechercher-produit>
@@ -14,3 +54,4 @@
     </div>
   </div>
 </header>
+-->
