@@ -1,74 +1,29 @@
-
+input.form-control {
+  width: 35dvw;
+}
 
 input:placeholder-shown {
     font-style: italic;
-    color: #ABABAB;
+    color: lightgray;
 }
 
-button, button:hover {
-    background-color: #C7C7C7;
-    color: white;
+input, button {
+  border-radius: 0;
+}
+
+button {
+    background-color: lightgray;
     font-weight: bold;
 }
 
-.game-image {
-  width: 100%; /* Ajustez la largeur selon vos besoins */
-  height: auto; /* Permet à l'image de conserver ses proportions d'origine */
-  margin-bottom: 10px; /* Ajoute un espace entre l'image et le texte */
+button:hover {
+  background-color: #64d6f4;
+}
+
+button, i {
+  color: white;
 }
 
 
-#mini-container1 {
-    display: flex;
-}
 
-.search {
-  position: relative;
-  box-shadow: 0 0 40px rgba(51, 51, 51, .1);
-}
 
-.search input {
-  height: 60px;
-  text-indent: 25px;
-  border: 2px solid lightgray;
-}
-
-.search input:focus {
-  box-shadow: none;
-  border: 2px solid darkblue;
-}
-
-.search button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  height: 50px;
-  width: 110px;
-  background: darkgray;
-  border: lightgray 1px;
-}
-
-a{
-  text-decoration: none;
-}
-.nameSearch{
-  cursor: pointer;
-  color: black;
-  text-transform: uppercase; 
-  font-weight: bolder;
-}
-
-.nameSearch:hover {
-  cursor: grab; 
-}
-
-.nameSearch2{
-  cursor: pointer;
-  color: black;
-  text-transform: uppercase; 
-  font-weight: normal;
-}
-
-.nameSearch2:hover {
-  cursor: grab; 
-}
