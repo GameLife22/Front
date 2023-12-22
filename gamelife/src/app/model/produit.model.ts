@@ -1,3 +1,5 @@
+import { ImageModel } from "./image.model";
+
 /**
  * Produit Interface
  */
@@ -10,6 +12,6 @@
     nom?: string;
     plateforme?: string;
     prix: number;
-    images: string[];
+    images: ImageModel[];
 
 }
