@@ -1,0 +1,16 @@
+$breakpoints-min: (
+        "xs": 0,
+        "s": 320px,
+        "m": 768px,
+        "l": 1280px,
+        "xl": 1600px
+) !default;
+
+$breakpoints-max: (
+        "s": 319px,
+        "m": 767px,
+        "l": 1279px,
+        "xl": 1599px,
+) !default;
+
+@import "scss/mixins/breakpoints";

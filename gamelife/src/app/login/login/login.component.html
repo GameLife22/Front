@@ -1,84 +1,83 @@
-<div class="container">
+<div class="login">
+  <div class="form">
+    <mat-card class="login-card">
+      <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
+        <mat-card-header class="header-card">
+          <h2>CONNEXION</h2>
+        </mat-card-header >
+        <mat-card-content>
+          <div>
+            <mat-form-field appearance="outline"  >
+              <mat-label >Votre email</mat-label>
+              <input matInput type="email" formControlName="email" >
+            </mat-form-field>
+            <div *ngIf="userFormGroup.controls['email'].invalid && (userFormGroup.controls['email'].dirty || userFormGroup.controls['email'].touched)" class="alert alert-danger">
+              <div *ngIf="userFormGroup.controls['email'].errors?.['email']">
+                Email non valide
+              </div>
 
-  <div class="pt-2">
-    <h1>IDENTIFIEZ-VOUS</h1>
+              <div *ngIf="userFormGroup.controls['email'].errors?.['required']">
+                Email is required.
+              </div>
+
+            </div>
+          </div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Votre mot de passe</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+            <div *ngIf="userFormGroup.controls['password'].invalid && (userFormGroup.controls['password'].dirty || userFormGroup.controls['password'].touched)" class="alert alert-danger">
+              <div *ngIf="userFormGroup.controls['password'].errors?.['required']">
+                Password is required.
+              </div>
+              <div *ngIf="userFormGroup.controls['password'].errors?.['pattern']">
+                Mot de passe non conforme.
+              </div>
+            </div>
+          </div>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+          <div class="mdp-oubli-link">
+            <a routerLink="/motdepasseoublie"><span>Vous avez oublié votre mot de passe ?</span></a>
+          </div>
+
+          <div>
+            <!-- [disabled]="userFormGroup.invalid" !-->
+            <button mat-button  class="button-connexion" type="submit">CONNEXION</button>
+          </div>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+    <div class="seperator"></div>
+
+    <mat-card class="nvclient-card" >
+      <form [formGroup]="userFormGroup" (ngSubmit)="handleRedirectionToInscription()">
+
+        <mat-card-header>
+          <div>
+            <h2>NOUVEAU CLIENT ?</h2>
+          </div>
+        </mat-card-header>
+
+        <mat-card-actions>
+          <div>
+            <button mat-button (click)="handleRedirectionToInscription()" class="button-inscription" type="submit" > CRÉEZ UN COMPTE</button>
+          </div>
+        </mat-card-actions>
+
+      </form>
+
+    </mat-card>
+    <div class="seperator"></div>
   </div>
-
-  <mat-card class="login-card">
-    <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
-      <mat-card-header class="header-card">
-        <h2>DÉJÁ CLIENT ?</h2>
-      </mat-card-header >
-      <mat-card-content>
-        <div>
-          <mat-form-field appearance="outline"  >
-            <mat-label >Votre email</mat-label>
-            <input matInput type="email" formControlName="email" >
-          </mat-form-field>
-          <div *ngIf="userFormGroup.controls['email'].invalid && (userFormGroup.controls['email'].dirty || userFormGroup.controls['email'].touched)" class="alert alert-danger">
-            <div *ngIf="userFormGroup.controls['email'].errors?.['email']">
-              Email non valide
-            </div>
-
-            <div *ngIf="userFormGroup.controls['email'].errors?.['required']">
-              Email is required.
-            </div>
-
-          </div>
-        </div>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>Votre mot de passe</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </mat-form-field>
-          <div *ngIf="userFormGroup.controls['password'].invalid && (userFormGroup.controls['password'].dirty || userFormGroup.controls['password'].touched)" class="alert alert-danger">
-            <div *ngIf="userFormGroup.controls['password'].errors?.['required']">
-              Password is required.
-            </div>
-            <div *ngIf="userFormGroup.controls['password'].errors?.['pattern']">
-              Mot de passe non conforme.
-            </div>
-          </div>
-        </div>
-
-      </mat-card-content>
-
-      <mat-card-actions>
-        <div class="mdp-oubli-link">
-          <a routerLink="/motdepasseoublie"><span>Vous avez oublié votre mot de passe ?</span></a>
-        </div>
-
-        <div>
-          <!-- [disabled]="userFormGroup.invalid" !-->
-          <button mat-button  class="button-connexion" type="submit">CONNEXION</button>
-        </div>
-      </mat-card-actions>
-    </form>
-  </mat-card>
-  <div class="seperator"></div>
-
-  <mat-card class="nvclient-card" >
-    <form [formGroup]="userFormGroup" (ngSubmit)="handleRedirectionToInscription()">
-
-      <mat-card-header>
-        <div>
-          <h2>NOUVEAU CLIENT ?</h2>
-        </div>
-      </mat-card-header>
-
-      <mat-card-actions>
-        <div>
-          <button mat-button class="button-inscription" type="submit" > CRÉEZ UN COMPTE</button>
-        </div>
-      </mat-card-actions>
-
-    </form>
-
-  </mat-card>
-  <div class="seperator"></div>
-
+  <img class="main-media" src="assets/img/cyberpunk-2077.png" alt="Cyber punk 2077 image">
 </div>
+
+
 
