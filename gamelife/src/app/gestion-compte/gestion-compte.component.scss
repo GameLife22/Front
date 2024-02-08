@@ -1,12 +1,45 @@
-.container{
+@import "scss/breakpoints";
+
+.container {
   text-align: center;
   background-color: darkblue;
-  height: auto;
-  width:  40vw;
+  height: fit-content;
+  width:  50vw;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding-bottom: 50px;
+
+  @include respond-to-max("m") {
+    width: 100vw;
+  }
 }
+
+.btn {
+  width: fit-content;
+  margin: auto;
+
+  @include respond-to-max("m") {
+    margin-bottom: 1rem;
+  }
+}
+
+.field {
+  width: 95%;
+
+  &-small {
+    @include respond-to-max("m") {
+      width: 95%;
+    }
+  }
+}
+
+.page {
+  height: 100vh;
+  overflow: scroll;
+
+}
+
 .example-container mat-form-field + mat-form-field {
   margin-left: 8px;
 }
@@ -32,9 +65,19 @@
   align-items: flex-start;
 }
 
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @include respond-to-max("m") {
+    flex-direction: column;
+  }
+}
+
 .inscription-card {
   margin: auto;
   max-width: 500px;
   text-align: center;
-  padding: 5px;
+  padding-top: 2vh;
 }
