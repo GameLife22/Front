@@ -1,0 +1,42 @@
+@mixin respond-to-min($breakpoint) {
+  @if map-has-key($breakpoints-min, $breakpoint) {
+    @media (min-width: map-get($breakpoints-min, $breakpoint)) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+      + "Available breakpoints are: #{map-keys($breakpoints-min)}.";
+  }
+}
+
+
+@mixin respond-to-max($breakpoint) {
+  @if map-has-key($breakpoints-max, $breakpoint) {
+    @media (max-width: map-get($breakpoints-max, $breakpoint)) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+      + "Available breakpoints are: #{map-keys($breakpoints-max)}.";
+  }
+}
+
+@mixin respond-between($breakpointMin, $breakpointMax) {
+  @if map-has-key($breakpoints-min, $breakpointMin) and
+    map-has-key($breakpoints-max, $breakpointMax) {
+    @media (min-width: map-get($breakpoints-min, $breakpointMin)) and (max-width: map-get($breakpoints-max, $breakpointMax)) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpointMin}` or `#{$breakpointMax}`. "
+      + "Available breakpoints are: #{map-keys($breakpoints-min)}, #{map-keys($breakpoints-max)}.";
+  }
+}
+
+@function get-column-value($index, $nbColumn: 12) {
+  $value: $index / $nbColumn * 100%;
+  @return $value;
+}

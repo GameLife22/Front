@@ -1,6 +1,19 @@
+@import "scss/breakpoints";
+
 .descForm {
   text-align: center;
 }
+
+.container {
+  height: 100vh;
+  margin-top: 5%;
+  width: 50vw;
+
+  @include respond-to-max("m") {
+    width: 100vw;
+  }
+}
+
 a:link {
   text-decoration: none;
 }

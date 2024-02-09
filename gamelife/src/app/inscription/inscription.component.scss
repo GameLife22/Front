@@ -1,41 +1,42 @@
-.container{
-  text-align: center;
-  background-color: darkblue;
-  //height: 100%;
-  width:  40vw;
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  padding-bottom: 50px;
+@import "scss/breakpoints";
+
+.register {
+  display: flex;
+  flex-direction: row;
+
+  @include respond-to-max("m") {
+    flex-direction: column;
+    align-items: center;
+  }
 }
-.example-container mat-form-field + mat-form-field {
-    margin-left: 8px;
-  }
 
-  .example-container mat-form-field {
-    width: 220px;
-  }
+.form {
+  float: left;
+  width: 50vw;
+  justify-content: center;
+  margin-bottom: 1rem;
+  text-align: center;
 
-  .example-container form {
-    margin-bottom: 20px;
+  @include respond-to-max("m") {
+    width: 100vw;
   }
+}
 
-  .example-container form > * {
-    margin: 12px 0;
-  }
+.label {
+  color: #0B2384;
+}
 
-  .example-container .mat-radio-button {
-    margin: 0 12px;
-  }
+.main-media {
+  display: none;
 
-  .example-form-fields {
-    display: flex;
-    align-items: flex-start;
-  }
+    @include respond-to-min("m") {
+      float: none;
+      overflow: hidden;
+      display: block;
+      border-radius: 10px 0 0 10px; //Header height
+      object-fit: cover;
+      position: sticky;
+      width: 50%;
+    }
 
-  .inscription-card {
-    margin: auto;
-    max-width: 500px;
-    text-align: center;
-    padding: 5px;
-  }
+}
