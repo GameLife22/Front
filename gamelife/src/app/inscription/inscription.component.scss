@@ -3,6 +3,7 @@
 .register {
   display: flex;
   flex-direction: row;
+  height: 100vh;
 
   @include respond-to-max("m") {
     flex-direction: column;

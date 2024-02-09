@@ -1,131 +1,136 @@
-<div class="container" >
-  <div class="pt-3 text-center text-white">
-    <h2>Gestion du compte</h2>
-  </div>
-  <mat-card class="inscription-card">
-
-    <div>
-      <form id="inscription-form" *ngIf="!showHide && !suppCompt" [formGroup]="userFormGroup" (ngSubmit)="handleUpdateUser()">
-
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="outline">
-              <input matInput placeholder="Nom" formControlName="nom" required>
-              <mat-error *ngIf="userFormGroup.controls['nom'].invalid">Champ requis</mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col">
-            <mat-form-field appearance="outline">
-              <input matInput placeholder="Prenom" formControlName="prenom" required>
-              <mat-error *ngIf="userFormGroup.controls['prenom'].invalid">Champ requis</mat-error>
-            </mat-form-field>
-          </div>
-
-        </div>
-
-        <div>
-          <mat-form-field appearance="outline" style="width: 93.5%">
-            <input matInput placeholder="Email" formControlName="email" required>
-            <mat-error *ngIf="userFormGroup.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
-
-          </mat-form-field>
-        </div>
-
-
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="outline">
-              <input matInput type="number" placeholder="N° rue" formControlName="numRue" required>
-              <mat-error *ngIf="userFormGroup.controls['numRue'].invalid">Champ requis</mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col">
-            <mat-form-field appearance="outline">
-              <input matInput placeholder="Rue" formControlName="rue" required>
-              <mat-error *ngIf="userFormGroup.controls['rue'].invalid">Champ requis</mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col">
-            <mat-form-field appearance="outline">
-              <input matInput placeholder="Ville" formControlName="ville" required>
-              <mat-error *ngIf="userFormGroup.controls['ville'].invalid">Champ requis</mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col">
-            <mat-form-field appearance="outline">
-              <input matInput type="number" placeholder="Code postal" formControlName="codePostal" required>
-              <mat-error *ngIf="userFormGroup.controls['codePostal'].invalid">Champ requis</mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-
-
-        <div *ngIf="estRevendeurModel">
-          <mat-form-field appearance="outline" style="width: 93.5%">
-            <input matInput placeholder="Siren" formControlName="siren" required>
-            <mat-error *ngIf="userFormGroup.controls['siret'].invalid">Siren invalide</mat-error>
-          </mat-form-field>
-        </div>
-        <button mat-stroked-button type="submit" color="primary">valider</button>
-        <mat-error *ngIf="!!errorEmail">{{handleEmailErro()}}</mat-error>
-      </form><br>
-
-
-      <div class="row">
-        <div class="col">
-          <button mat-stroked-button *ngIf="!showHide && !suppCompt" (click)="suppCompt = true">Supprimer mon compte</button>
-        </div>
-
-        <div class="col">
-          <button mat-stroked-button *ngIf="!showHide && !suppCompt" (click)="showHide = true" type="submit">modifier mot de passe ?</button>
-        </div>
-      </div>
-
-
-      <div *ngIf="!showHide">
-        <p *ngIf="suppCompt">Voulez-vous supprimer votre compte ?</p><br>
-        <button mat-stroked-button *ngIf="!showHide && suppCompt" (click)="handleUpdateEtat()" color="primary">Valider</button>
-        <button mat-stroked-button *ngIf="!showHide && suppCompt" (click)="suppCompt= false">Annuler</button>
-      </div>
-
-
-
-      <form [formGroup]="mdpFormGroup" (ngSubmit)="handleUpdatePassword()" *ngIf="showHide">
-        <div>
-          <mat-form-field appearance="outline" style="width: 93.5%">
-            <input matInput type="password" placeholder="Ancien mot de passe" formControlName="oldPwd" required>
-            <mat-error *ngIf="mdpFormGroup.controls['oldPwd'].invalid">Champ requis</mat-error>
-          </mat-form-field>
-        </div>
-
-
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="outline">
-              <input matInput type="password" formControlName="newPwd1" placeholder="Nouveau mot de passe" required>
-              <mat-error *ngIf="mdpFormGroup.controls['newPwd1'].invalid">Champ requis</mat-error>
-            </mat-form-field>
-          </div>
-
-
-          <div class="col">
-            <mat-form-field appearance="outline">
-              <input matInput type="password" formControlName="newPwd2" placeholder="Confirmer mot de passe" required>
-              <mat-error *ngIf="mdpFormGroup.controls['newPwd2'].invalid">Champ requis</mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-        <button mat-stroked-button type="submit" color="primary" [disabled]="!mdpFormGroup.valid">Confirmer</button>
-        <button mat-stroked-button (click)="showHide = false">Annuler</button>
-        <mat-error *ngIf="!!errorPassword">{{handleMdpError()}}</mat-error>
-      </form>
-
+<div class="page">
+  <div class="container" >
+    <div class="pt-3 text-center text-white">
+      <h2>Gestion du compte</h2>
     </div>
-  </mat-card>
+    <mat-card class="inscription-card">
 
+      <div>
+        <form id="inscription-form" *ngIf="!showHide && !suppCompt" [formGroup]="userFormGroup" (ngSubmit)="handleUpdateUser()">
+
+            <div class="col">
+              <mat-form-field appearance="outline" class="field">
+                <mat-label class="label">Entrez votre nom</mat-label>
+                <input matInput placeholder="Nom" formControlName="nom" required>
+                <mat-error *ngIf="userFormGroup.controls['nom'].invalid">Champ requis</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col">
+              <mat-form-field appearance="outline" class="field">
+                <mat-label class="label">Entrez votre prenom</mat-label>
+                <input matInput placeholder="Prenom" formControlName="prenom" required>
+                <mat-error *ngIf="userFormGroup.controls['prenom'].invalid">Champ requis</mat-error>
+              </mat-form-field>
+            </div>
+
+
+          <div>
+            <mat-form-field appearance="outline" class="field">
+              <mat-label class="label">Entrez votre email</mat-label>
+              <input matInput placeholder="Email" formControlName="email" required>
+              <mat-error *ngIf="userFormGroup.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
+
+            </mat-form-field>
+          </div>
+
+            <div class="col">
+              <mat-form-field appearance="outline" class="field">
+                <mat-label class="label">Entrez votre numéro de rue</mat-label>
+                <input matInput type="number" placeholder="N° rue" formControlName="numRue" required>
+                <mat-error *ngIf="userFormGroup.controls['numRue'].invalid">Champ requis</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col">
+              <mat-form-field appearance="outline" class="field">
+                <mat-label class="label">Entrez votre rue</mat-label>
+                <input matInput placeholder="Rue" formControlName="rue" required>
+                <mat-error *ngIf="userFormGroup.controls['rue'].invalid">Champ requis</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col">
+              <mat-form-field appearance="outline" class="field">
+                <mat-label class="label">Entrez votre ville</mat-label>
+                <input matInput placeholder="Ville" formControlName="ville" required>
+                <mat-error *ngIf="userFormGroup.controls['ville'].invalid">Champ requis</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col">
+              <mat-form-field appearance="outline" class="field">
+                <mat-label class="label">Entrez votre code postal</mat-label>
+                <input matInput type="number" placeholder="Code postal" formControlName="codePostal" required>
+                <mat-error *ngIf="userFormGroup.controls['codePostal'].invalid">Champ requis</mat-error>
+              </mat-form-field>
+            </div>
+
+
+          <div *ngIf="estRevendeurModel">
+            <mat-form-field appearance="outline" class="field">
+              <mat-label class="label">Entrez votre siren</mat-label>
+              <input matInput placeholder="Siren" formControlName="siren" required>
+              <mat-error *ngIf="userFormGroup.controls['siret'].invalid">Siren invalide</mat-error>
+            </mat-form-field>
+          </div>
+          <button class="btn" mat-stroked-button type="submit" color="primary">valider</button>
+          <mat-error *ngIf="!!errorEmail">{{handleEmailErro()}}</mat-error>
+        </form><br>
+
+        <div class="btn-container">
+          <button class="btn" mat-stroked-button *ngIf="!showHide && !suppCompt" (click)="suppCompt = true" color="primary">Supprimer mon compte</button>
+          <button class="btn" mat-stroked-button *ngIf="!showHide && !suppCompt" (click)="showHide = true" type="submit" color="primary">modifier mot de passe ?</button>
+        </div>
+
+        <div *ngIf="!showHide" class="col">
+          <p *ngIf="suppCompt">Voulez-vous supprimer votre compte ?</p><br>
+          <div class="btn-container">
+            <button class="btn" mat-stroked-button *ngIf="!showHide && suppCompt" (click)="handleUpdateEtat()" color="primary">Valider</button>
+            <button class="btn" mat-stroked-button *ngIf="!showHide && suppCompt" (click)="suppCompt= false">Annuler</button>
+          </div>
+        </div>
+
+
+
+        <form [formGroup]="mdpFormGroup" (ngSubmit)="handleUpdatePassword()" *ngIf="showHide">
+          <div>
+            <mat-form-field appearance="outline" class="field">
+              <mat-label class="label">Entrez votre ancien mot de passe</mat-label>
+              <input matInput type="password" placeholder="Ancien mot de passe" formControlName="oldPwd" required>
+              <mat-error *ngIf="mdpFormGroup.controls['oldPwd'].invalid">Champ requis</mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline" class="field-small">
+                <mat-label class="label">Entrez votre nouveau mot de passe</mat-label>
+                <input matInput type="password" formControlName="newPwd1" placeholder="Nouveau mot de passe" required>
+                <mat-error *ngIf="mdpFormGroup.controls['newPwd1'].invalid">Champ requis</mat-error>
+              </mat-form-field>
+            </div>
+
+
+            <div class="col">
+              <mat-form-field appearance="outline" class="field-small">
+                <mat-label class="label">Confirmer votre nouveau mot de passe</mat-label>
+                <input matInput type="password" formControlName="newPwd2" placeholder="Confirmer mot de passe" required>
+                <mat-error *ngIf="mdpFormGroup.controls['newPwd2'].invalid">Champ requis</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="btn-container">
+            <button class="btn" mat-stroked-button type="submit" color="primary" [disabled]="!mdpFormGroup.valid">Confirmer</button>
+            <button class="btn" mat-stroked-button (click)="showHide = false">Annuler</button>
+          </div>
+          <mat-error *ngIf="!!errorPassword">{{handleMdpError()}}</mat-error>
+        </form>
+
+      </div>
+    </mat-card>
+
+  </div>
 </div>
 
