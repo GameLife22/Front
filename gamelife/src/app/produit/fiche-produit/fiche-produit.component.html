@@ -6,7 +6,7 @@
             </div>
             <div id="mini-wrapper2">
                 <div id="wrapper-title" class="wrapper"><h2 id="name">{{ game.nom }} ({{ game.plateforme }})</h2></div>
-                <div id="wrapper-description" class="wrapper"><p id="description">{{ game.texteDescriptif }}</p></div>
+                <div id="wrapper-description" class="wrapper"><p id="description">{{ game.description }}</p></div>
                 <div id="wrapper-price" class="wrapper"><p id="price">{{ game.prix.toFixed(2) }}€</p></div>
                 <div id="wrapper-button" class="wrapper"><button type="button">AJOUTER AU PANIER</button></div>
             </div>
@@ -17,7 +17,7 @@
             <h3><u>DESCRIPTION</u></h3>
         </div>
         <div id="mini-wrapper4">
-            <p id="detail">{{ game.detail }}</p>
+            <p id="detail">{{ game.description }}</p>
         </div>
     </div>
 </div>
