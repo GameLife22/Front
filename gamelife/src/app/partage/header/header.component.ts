@@ -11,8 +11,8 @@ export class HeaderComponent implements OnInit {
 
   token : any = sessionStorage.getItem("JWT_TOKEN");
   tokenDec = this.getDecodedAccessToken(this.token);
-  nom : string;
-  prenom : string;
+  nom : string = '';
+  prenom : string = '';
 
 
   constructor(private service : UtilisateurService) {}

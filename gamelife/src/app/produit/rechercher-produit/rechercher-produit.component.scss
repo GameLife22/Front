@@ -30,7 +30,10 @@ button, button:hover {
   text-indent: 25px;
   border: 2px solid lightgray;
 
+}
 
+.result {
+  position: relative;
 }
 
 
@@ -40,6 +43,11 @@ button, button:hover {
   border: 2px solid darkblue;
 
 
+}
+
+.result {
+  position: absolute;
+  z-index: 3;
 }
 
 .search .fa-search{

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProduitModel } from 'src/app/model/produit.model';
 import { ProduitService } from 'src/app/services/produit/produit.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   produits: ProduitModel[] | any ;
 
-  constructor(private produitService: ProduitService) { }
+  constructor(private produitService: ProduitService, private router : Router) { }
 
   ngOnInit(): void {
     this.showAllProduitDetail();
@@ -21,11 +22,24 @@ export class HomeComponent implements OnInit {
     this.produitService.getAllProduit()
       .subscribe({
         next: (res) => {
+          console.log(res)
           this.produits = res;
-          console.log(this.produits, "this.produit");
+          this.produits.pop();
         },
-        error: (e) => console.error(e, "error ici")
+        error: (e) => console.error(e, "error getAllProduit")
       });
+  }
+
+  /**
+   *  Cette méthode permet de rediriger vers une fiche produit
+   *  @param id: un identifiant unique d'un produit
+   *  @autor: Hippolyte
+   * **/
+  productDetail(id:number) {
+    const link = ['/produit', id];
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+        this.router.navigate(link)
+    );
   }
 
 }

@@ -5,7 +5,7 @@
 
     id?: number;
     categorie?: string;
-    texteDescriptif?: string;
+    description?: string;
     detail?: string;
     nom?: string;
     plateforme?: string;

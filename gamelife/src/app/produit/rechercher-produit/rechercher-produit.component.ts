@@ -56,7 +56,17 @@ export class RechercherProduitComponent implements OnInit {
     const link = ['/produit', product.id]
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
     this.router.navigate(link)
-    )
+    );
+    this.searchFormGroup.controls["keyword"].setValue('');
+    this.games = undefined;
+  }
+
+  /**
+   * Cette méthode permet de vider le champ de recherche
+   * @author Hippolyte
+   **/
+  clearInput() {
+    this.games = undefined;
   }
 
 }

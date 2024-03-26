@@ -13,9 +13,9 @@ import { ProduitService } from 'src/app/services/produit/produit.service';
 export class FicheProduitComponent implements OnInit {
   errorMessage: string = '';
 
-  id : string | any
-  game : ProduitModel | any
-  picture : string
+  id : string | any;
+  game : ProduitModel | any;
+  picture : string;
 
   constructor(private activatedRoute : ActivatedRoute, private productService : ProduitService, private errorHandler : ErrorHandlerService) { }
 
