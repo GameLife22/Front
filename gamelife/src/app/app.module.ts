@@ -32,6 +32,9 @@ import { MotDePasseOublieComponent } from './login/mot-de-passe-oublie/mot-de-pa
 import { ResetMotDePasseComponent } from './login/reset-mot-de-passe/reset-mot-de-passe.component';
 import { ValidationInscriptionComponent } from './validation-inscription/validation-inscription.component';
 import { ActivationCompteComponent } from './activation-compte/activation-compte.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { AddToRevendeurDialogComponent } from './revendeur/add-to-revendeur-dialog/add-to-revendeur-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -52,6 +55,7 @@ import { ActivationCompteComponent } from './activation-compte/activation-compte
     ResetMotDePasseComponent,
     ValidationInscriptionComponent,
     ActivationCompteComponent,
+    AddToRevendeurDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +76,8 @@ import { ActivationCompteComponent } from './activation-compte/activation-compte
     MatSelectModule,
     NgxPayPalModule,
     AngularSvgIconModule,
+    MatSidenavModule,
+    MatDialogModule,
 
   ],
   providers: [TokenInterceptorProvider],

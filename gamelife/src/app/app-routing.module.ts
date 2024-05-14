@@ -31,6 +31,11 @@ const routes: Routes = [
   { path : "resetmotdepasse" , component : ResetMotDePasseComponent},
   {path :  "validationinscription", component : ValidationInscriptionComponent},
   { path : "activationcompte" , component : ActivationCompteComponent},
+  {
+    path: 'revendeur',
+    loadChildren: () => import('./gestion-produit-revendeur/gestion-produit-revendeur.module')
+      .then(m => m.GestionProduitRevendeurModule)
+  },
 
   { path: '404', component: NotFoundComponent },
   { path: '500', component: InternalServerComponent },
