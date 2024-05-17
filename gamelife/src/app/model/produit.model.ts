@@ -1,15 +1,14 @@
-/**
- * Produit Interface
- */
- export interface ProduitModel {
+export interface ProduitModel {
+  id: string;
+  nom: string;
+  description: string;
+  prix: number;
+  images: string[]; // chemin vers les images du produit
+  categories: string[]; // liste des catégories du produit
+  plateformes: string[]; // liste des plateformes du produit
 
-    id?: number;
-    categorie?: string;
-    description?: string;
-    detail?: string;
-    nom?: string;
-    plateforme?: string;
-    prix: number;
-    images: string[];
+
+
+
 
 }

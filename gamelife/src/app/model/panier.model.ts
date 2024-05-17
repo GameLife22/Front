@@ -1,10 +1,15 @@
-import { ItemPanierModel } from "./item-panier.model";
-import { UtilisateurModel } from "./utilisateur.model";
+
 
 export interface PanierModel {
-    id: number;
-    date: Date;
-    etat: number;
-    utilisateur: UtilisateurModel;
-    itemPaniers: ItemPanierModel[];
+  id: string;
+  produitId: string;
+  nom: string;
+  prix: number;
+  quantite: number;
+
+}
+
+export interface Panier {
+  items: PanierModel[];
+  total: number;
 }

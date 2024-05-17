@@ -16,6 +16,7 @@ import { ResetMotDePasseComponent } from "./login/reset-mot-de-passe/reset-mot-d
 
 import {ValidationInscriptionComponent} from "./validation-inscription/validation-inscription.component";
 import {ActivationCompteComponent} from "./activation-compte/activation-compte.component";
+import {PanierComponent} from "./panier/panier.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'accueil' },
@@ -31,6 +32,9 @@ const routes: Routes = [
   { path : "resetmotdepasse" , component : ResetMotDePasseComponent},
   {path :  "validationinscription", component : ValidationInscriptionComponent},
   { path : "activationcompte" , component : ActivationCompteComponent},
+  { path : "panier" , component : PanierComponent},
+
+
 
   { path: '404', component: NotFoundComponent },
   { path: '500', component: InternalServerComponent },

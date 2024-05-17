@@ -21,7 +21,6 @@ export class UtilisateurService {
               private router : Router) {
   }
 
-
   login(email: string, password: string){
     let contentHeader = new HttpHeaders({ "Content-Type":"application/json" });
     this.http.post(environment.baseUrl+'utilisateur/auth' ,
@@ -130,7 +129,8 @@ export class UtilisateurService {
         "siret" : siret
         })
   }
-  getUserById(id:number): Observable<UtilisateurModel>{
+
+  getUserById(id: string): Observable<UtilisateurModel>{
       return this.http.post<UtilisateurModel>(environment.baseUrl + 'utilisateur/infos',{
         "id" : id
       })

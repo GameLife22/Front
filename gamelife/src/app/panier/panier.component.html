@@ -1,1 +1,36 @@
-<p>panier works!</p>
+<div class="container">
+  <h2 class="text-center">Votre panier :</h2>
+
+  <!-- Afficher le message de succès lorsque la commande est validée -->
+  <div *ngIf="commandeValidee" class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Commande validée avec succès !</h4>
+    <p>Votre commande a été validée avec succès.</p>
+  </div>
+
+  <!-- Vérifier si aucun produit n'est dans le panier -->
+  <div *ngIf="produitsPanier.length === 0" class="alert alert-info">
+    Aucun produit dans le panier pour le moment.
+  </div>
+
+  <!-- Afficher les produits dans le panier -->
+  <div class="row">
+    <div class="col-md-4" *ngFor="let produit of produitsPanier">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ produit.nom }}</h5>
+          <p class="card-text">Prix: {{ produit.prix }}</p>
+          <!-- Bouton pour supprimer le produit -->
+          <button (click)="supprimerProduitPanier(produit)" class="btn btn-danger">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Afficher le prix total -->
+  <div *ngIf="produitsPanier.length > 0" class="mt-3">
+    <h3 >PRIX AU TOTAL : {{ prixTotal }}</h3>
+  </div>
+
+  <!-- Bouton pour valider le panier -->
+  <button (click)="validerCommande()" id="btn-valider" class="btn btn-success">Passer la commande</button>
+</div>

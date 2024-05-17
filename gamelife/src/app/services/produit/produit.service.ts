@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ProduitModel } from 'src/app/model/produit.model';
 import { environment } from 'src/environments/environment';
+import {ProduitRevendeurModel} from "../../model/produit.revendeur.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,9 @@ import { environment } from 'src/environments/environment';
 export class ProduitService {
 
   private baseUrl = environment.baseUrl;
-  
+
   constructor(private http: HttpClient) { }
- 
+
 
   /**
    * Cette méthode permet de récupérer une liste de jeux vidéos à partir de son nom
@@ -21,14 +22,14 @@ export class ProduitService {
    * @author: Fabien
    */
   public getProductsByName(name: string): Observable<ProduitModel[]>  {
-    return this.http.get<ProduitModel[]>(this.baseUrl+`produit/search?nom=${name}`)
+    return this.http.get<ProduitModel[]>(this.baseUrl+`produits/search?nom=${name}`)
   }
 
 
   public getAllProduit(): Observable<ProduitModel[]>{
 
-    return this.http.get<ProduitModel[]>(this.baseUrl + "produit/all");
-    
+    return this.http.get<ProduitModel[]>(this.baseUrl + "api/v1/produits");
+
   }
 
   /**
@@ -37,8 +38,10 @@ export class ProduitService {
    * @returns: un jeu video
    * @author: Fabien
    */
-  public getProductById(id: string): Observable<ProduitModel> {
-    return this.http.get<ProduitModel>(this.baseUrl + `produit/${id}`);
+  public trouverRevendeursParProduit(id: string): Observable<ProduitRevendeurModel[]> {
+    return this.http.get<ProduitRevendeurModel[]>(`${this.baseUrl}api/v1/produitrevendeurs/${id}`);
   }
+
+
 
 }

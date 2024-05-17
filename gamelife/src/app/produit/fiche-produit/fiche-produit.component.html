@@ -1,23 +1,36 @@
-<div id="wrapper">
-    <div id="wrapper1" class="card">
-        <div id="mini-wrapper">
-            <div id="mini-wrapper1">
-                <img src="{{ picture }}" alt="">
-            </div>
-            <div id="mini-wrapper2">
-                <div id="wrapper-title" class="wrapper"><h2 id="name">{{ game.nom }} ({{ game.plateforme }})</h2></div>
-                <div id="wrapper-description" class="wrapper"><p id="description">{{ game.description }}</p></div>
-                <div id="wrapper-price" class="wrapper"><p id="price">{{ game.prix.toFixed(2) }}€</p></div>
-                <div id="wrapper-button" class="wrapper"><button type="button">AJOUTER AU PANIER</button></div>
-            </div>
-        </div>
+<div *ngIf="panierCree" class="alert alert-success text-center" role="alert">
+  Le panier a été créé avec succès !
+</div>
+
+<div *ngIf="produitAjoute" class="alert alert-primary text-center" role="alert">
+  Le produit a été ajouté au panier avec succès !
+</div>
+
+
+<div *ngIf="afficherMessagePanierNonCree" class="alert alert-warning text-center" role="alert">
+  Veuillez d'abord créer votre panier.
+</div>
+
+<div id="wrapper" *ngFor="let gameItem of game">
+
+  <button (click)="creerPanier()" class="btn btn-primary">Créer votre panier</button>
+
+
+  <div id="wrapper1" class="card" >
+    <div id="mini-wrapper">
+      <div id="mini-wrapper2">
+        <div class="wrapper"><h2>Id du Revendeur : {{ gameItem.id }} </h2></div>
+        <div class="wrapper"><h2>Id Jeux : {{ gameItem.produit_id }} </h2></div>
+        <div class="wrapper" >
+
+           </div>
+        <div id="wrapper-title" class="wrapper"><h2 id="name">{{ gameItem.etat === 'TRUE' ? 'Disponible' : 'Indisponible' }} </h2></div>
+        <div class="wrapper"><h2>Stock : {{ gameItem.stock }} </h2></div>
+        <div id="wrapper-price" class="wrapper"><p id="price">{{ gameItem.prix }}€</p></div>
+
+        <div id="wrapper-button" class="wrapper">
+          <button type="button" (click)="ajouterAuPanier(gameItem)">AJOUTER AU PANIER</button></div>
+      </div>
     </div>
-    <div id="wrapper2" class="card">
-        <div id="mini-wrapper3">
-            <h3><u>DESCRIPTION</u></h3>
-        </div>
-        <div id="mini-wrapper4">
-            <p id="detail">{{ game.description }}</p>
-        </div>
-    </div>
+  </div>
 </div>
