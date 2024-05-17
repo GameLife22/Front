@@ -12,7 +12,7 @@ export class AddToRevendeurDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<AddToRevendeurDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    //@Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = new FormGroup({
       stockSize: new FormControl('', Validators.required),

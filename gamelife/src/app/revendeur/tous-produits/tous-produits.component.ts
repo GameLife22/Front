@@ -11,6 +11,7 @@ import {MatDialog} from "@angular/material/dialog";
 export class TousProduitsComponent implements OnInit {
 
   produits : any[];
+  p: number = 1;
 
   constructor( private tousProduitsService : TousProduitsService,public dialog: MatDialog) { }
 
@@ -38,6 +39,7 @@ export class TousProduitsComponent implements OnInit {
         this.tousProduitsService.ajouterProduitAuRevendeur(produit, result.stockSize, result.price).subscribe({
           next: (result) => {
             console.log(result);
+            this.ngOnInit();
           },
           error: (e) => {
             console.error(e);

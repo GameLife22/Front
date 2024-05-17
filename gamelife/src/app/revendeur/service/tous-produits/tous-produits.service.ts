@@ -15,8 +15,8 @@ export class TousProduitsService {
   constructor(private http: HttpClient,public tokenService :TokenService ) { }
 
   public getAllProduit(): Observable<ProduitModel[]>{
-
-    return this.http.get<ProduitModel[]>(this.baseUrl + "api/v1/produits");
+    let revendeurId = this.tokenService.getUserIdFromToken();
+    return this.http.get<ProduitModel[]>(this.baseUrl + "api/v1/produits_revendeur/"+revendeurId);
 
   }
 

@@ -5,22 +5,30 @@ import {GestionProduitRevendeurComponent} from "../revendeur/gestion-produit-rev
 import {TousProduitsComponent} from "../revendeur/tous-produits/tous-produits.component";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatCardModule} from "@angular/material/card";
+import {MesProduitsComponent} from "../revendeur/mes-produits/mes-produits.component";
+import {MatButtonModule} from "@angular/material/button";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 const routes: Routes = [
   { path: '', component: GestionProduitRevendeurComponent },
-  { path: 'produits', component: TousProduitsComponent }
+  { path: 'produits', component: TousProduitsComponent },
+  { path: 'mes-produits', component: MesProduitsComponent }
+
 ];
 @NgModule({
   declarations: [
     GestionProduitRevendeurComponent,
     TousProduitsComponent,
+    MesProduitsComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    NgxPaginationModule
   ]
 })
 export class GestionProduitRevendeurModule { }
