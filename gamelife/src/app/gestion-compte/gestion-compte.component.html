@@ -82,6 +82,10 @@
           <button class="btn" mat-stroked-button *ngIf="!showHide && !suppCompt" (click)="suppCompt = true" color="primary">Supprimer mon compte</button>
           <button class="btn" mat-stroked-button *ngIf="!showHide && !suppCompt" (click)="showHide = true" type="submit" color="primary">modifier mot de passe ?</button>
         </div>
+        <br>
+        <div>
+          <button class="btn" mat-stroked-button  routerLink="/revendeur" color="primary">Gestion de produit</button>
+        </div>
 
         <div *ngIf="!showHide" class="col">
           <p *ngIf="suppCompt">Voulez-vous supprimer votre compte ?</p><br>

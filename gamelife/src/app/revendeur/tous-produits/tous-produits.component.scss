@@ -1,0 +1,45 @@
+.sidenav-container {
+  height: auto;
+  min-height: 73.9vh;
+}
+
+.sidenav {
+  width: 200px;
+}
+.card-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 10vh;
+  margin-top: 8vh;
+
+  .product-image {
+    height: 20rem;
+  }
+
+
+  .product {
+    width: 20rem; // Diminuer la largeur
+    height: 25rem; // Ajuster la hauteur automatiquement en fonction du contenu
+    flex: 0 0 calc(25% - 2rem); // for 4 cards in a row, adjust as needed
+    margin: 1rem; // half of the subtraction above
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+
+  button {
+    background-color: green;
+    color: white;
+  }
+}
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+}
+

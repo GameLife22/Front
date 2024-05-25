@@ -39,6 +39,7 @@ export class GestionCompteComponent implements OnInit {
       this.decriptToken = this.getDecodedAccessToken(this.token);
       this.id = this.decriptToken.jti;
       this.findUser(this.id);
+
       this.handleIsRevendeur();
 
       this.userFormGroup = this.fb.group(
@@ -107,6 +108,7 @@ export class GestionCompteComponent implements OnInit {
         "numSiret" : response.num_siret
       })
     })
+
 
   }
 

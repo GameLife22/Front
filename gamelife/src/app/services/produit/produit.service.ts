@@ -10,9 +10,10 @@ import { environment } from 'src/environments/environment';
 export class ProduitService {
 
   private baseUrl = environment.baseUrl;
-  
+  private apiVersion = "api/v1/";
+
   constructor(private http: HttpClient) { }
- 
+
 
   /**
    * Cette méthode permet de récupérer une liste de jeux vidéos à partir de son nom
@@ -26,9 +27,7 @@ export class ProduitService {
 
 
   public getAllProduit(): Observable<ProduitModel[]>{
-
-    return this.http.get<ProduitModel[]>(this.baseUrl + "produit/all");
-    
+    return this.http.get<ProduitModel[]>(this.baseUrl + "api/v1/produits");
   }
 
   /**
