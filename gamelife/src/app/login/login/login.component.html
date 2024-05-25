@@ -1,6 +1,6 @@
 <div class="login">
   <div class="form">
-    <mat-card class="login-card">
+    <mat-card appearance="outlined" class="login-card">
       <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
         <mat-card-header class="header-card">
           <h2>CONNEXION</h2>
@@ -56,7 +56,7 @@
     </mat-card>
     <div class="seperator"></div>
 
-    <mat-card class="nvclient-card" >
+    <mat-card appearance="outlined" class="nvclient-card" >
       <form [formGroup]="userFormGroup" (ngSubmit)="handleRedirectionToInscription()">
 
         <mat-card-header>

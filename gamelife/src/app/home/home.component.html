@@ -32,7 +32,7 @@
   <h1 class="titleGame">TOP JEUX</h1>
   <div style="margin-inline: -12rem" class="card-wrapper">
     <div *ngFor="let prod of produits ">
-      <mat-card (click)="productDetail(prod.id)"  class="product example-card container text-uppercase shadow lg p-3 mb-5 bg-white rounded">
+      <mat-card appearance="outlined" (click)="productDetail(prod.id)"  class="product example-card container text-uppercase shadow lg p-3 mb-5 bg-white rounded">
         <!-- src="https://static.fnac-static.com/multimedia/Images/FR/MDM/c4/34/1f/18822340/3756-1/tsp20221120214044/FIFA-23-PS4.jpg" -->
 
         <img mat-card-image

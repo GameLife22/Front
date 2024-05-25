@@ -43,6 +43,7 @@ h1{
   color: white;
 }
 
+/*TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version.*/
 mat-card-header{
   display: block;
 }
@@ -54,7 +55,7 @@ mat-card-header{
   padding: 40px;
 }
 
-.mat-form-field {
+.mat-mdc-form-field {
    display: block;
   position: relative;
   font-size: 16px;

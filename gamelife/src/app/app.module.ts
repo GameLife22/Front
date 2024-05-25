@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
-import {HttpClientModule} from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
@@ -33,48 +33,40 @@ import { ResetMotDePasseComponent } from './login/reset-mot-de-passe/reset-mot-d
 import { ValidationInscriptionComponent } from './validation-inscription/validation-inscription.component';
 import { ActivationCompteComponent } from './activation-compte/activation-compte.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    ProduitDetailComponent,
-    InscriptionComponent,
-    RechercherProduitComponent,
-    FicheProduitComponent,
-    FooterComponent,
-    HeaderComponent,
-    HomeComponent,
-    GestionCompteComponent,
-    InternalServerComponent,
-    NotFoundComponent,
-    PaimentComponent,
-    MotDePasseOublieComponent,
-    ResetMotDePasseComponent,
-    ValidationInscriptionComponent,
-    ActivationCompteComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    MatFormFieldModule,
-    MatRadioModule,
-    MatInputModule,
-    MatCardModule,
-    AppRoutingModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSelectModule,
-    FormsModule,
-    MatSelectModule,
-    NgxPayPalModule,
-    AngularSvgIconModule,
-
-  ],
-  providers: [TokenInterceptorProvider],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        LoginComponent,
+        ProduitDetailComponent,
+        InscriptionComponent,
+        RechercherProduitComponent,
+        FicheProduitComponent,
+        FooterComponent,
+        HeaderComponent,
+        HomeComponent,
+        GestionCompteComponent,
+        InternalServerComponent,
+        NotFoundComponent,
+        PaimentComponent,
+        MotDePasseOublieComponent,
+        ResetMotDePasseComponent,
+        ValidationInscriptionComponent,
+        ActivationCompteComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        MatFormFieldModule,
+        MatRadioModule,
+        MatInputModule,
+        MatCardModule,
+        AppRoutingModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSelectModule,
+        FormsModule,
+        MatSelectModule,
+        NgxPayPalModule,
+        AngularSvgIconModule], providers: [TokenInterceptorProvider, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
