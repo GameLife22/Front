@@ -1,41 +1,58 @@
-body {
-    background: red;
+#conteneur, #cards, #card-contenu {
+  display: flex;
 }
 
-.example-card {
-    max-width: 320px;
-}
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+#conteneur {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #1633a4;
 }
 
-.card-wrapper {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-bottom: 20vh;
-    margin-top: 8vh;
-
-    .product-image {
-        height: 20rem;
-    }
-
-    .product {
-        width: 20rem;
-    }
+#cards {
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
-.titleGame{
-    text-align: center; 
-    margin-top: 8vh;
-    font-family: revert;
-    font-size: xx-large;
-    font-weight: bolder; 
+#sidebar {
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
 }
 
-/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
-mat-card:hover { 
-    transform: scale(1.1); 
-    transition: 1s ease-out 100ms; 
+#cards {
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 2em;
+  column-gap: 2em;
+  justify-content: center;
+  width: 100%;
+}
+
+#card {
+  width: 16vw;
+  height: 32vh;
+}
+
+#image {
+  height: 50%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+#button-card {
+  background-color: #FFCA0A;
+  width: 50%;
+}
+
+#card-contenu {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+h3 {
+  font-family: Poppins, "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
 }

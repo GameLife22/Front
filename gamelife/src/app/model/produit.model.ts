@@ -1,15 +1,12 @@
-/**
- * Produit Interface
- */
- export interface ProduitModel {
+import {ImageModel} from "./image.model";
+import {CategorieModel} from "./categorie.model";
+import {PlateformeModel} from "./plateforme.model";
 
-    id?: number;
-    categorie?: string;
-    description?: string;
-    detail?: string;
-    nom?: string;
-    plateforme?: string;
-    prix: number;
-    images: string[];
-
+export interface ProduitModel {
+  idProduit: string;
+  nom: string;
+  description: string;
+  categorie: CategorieModel[];
+  plateforme: PlateformeModel[];
+  images: ImageModel[];
 }

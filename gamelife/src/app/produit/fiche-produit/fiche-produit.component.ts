@@ -14,28 +14,16 @@ export class FicheProduitComponent implements OnInit {
   errorMessage: string = '';
 
   id : string | any;
-  game : ProduitModel | any;
-  picture : string;
+  produit : ProduitModel;
 
-  constructor(private activatedRoute : ActivatedRoute, private productService : ProduitService, private errorHandler : ErrorHandlerService) { }
+  constructor(private activatedRoute : ActivatedRoute, private produitService : ProduitService) { }
 
-  /**
-   * Cette méthode permet au chargement du composant de récupérer
-   * l'identifiant unique du jeu vidéo (fiche produit) via l'url, 
-   * et fait un appel sur une méthode pour récupérer un jeu vidéo 
-   * @author: Fabien
-   */
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id')
-    this.productService.getProductById(this.id)
+    this.produitService.recupererProduitParId(this.id)
     .subscribe({
-      next: (result) => {
-        this.game = result;
-        this.picture = this.game.images[0].image;
-      },
-      error: (e : HttpErrorResponse) => {
-        this.errorHandler.handleError(e);
-        this.errorMessage = this.errorHandler.errorMessage;
+      next: (produit) => {
+        this.produit = produit;
       }
     });
   }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
+import jwt_decode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,13 @@ export class TokenService {
   getToken() : string | null{
     sessionStorage.getItem('JWT_TOKEN')
     return sessionStorage.getItem('JWT_TOKEN')
+  }
+  getUserIdFromToken(): string | null {
+    const token = this.getToken();
+    if (token) {
+      const decodedToken : any = jwt_decode(token);
+      return decodedToken.jti; // replace 'userId' with the actual property name in your token payload
+    }
+    return null;
   }
 }

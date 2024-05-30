@@ -1,22 +1,21 @@
-<div id="container">
-  <div>
-    <div *ngIf="!!token" class="container1">
-      <div class="logo pt-3"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
-      <div class="recherche"><app-rechercher-produit></app-rechercher-produit></div>
-      <div class="lien-nom ms-5 pt-1"><a [routerLink]="['/gestioncompte']"> Bonjour, <br>{{this.prenom}} {{this.nom}} </a></div>
-      <div class="lien-icones pt-1 "><a [routerLink]="['/panier']"><mat-icon class="icones">shopping_cart</mat-icon></a></div>
-      <div class="lien-icones pt-1 " (click)="deconnexion()"><a [routerLink]="['']"><mat-icon class="icones">exit_to_app</mat-icon></a></div>
-    </div>
-    <div *ngIf="!!!token" class="container1">
-      <div class="logo pt-3"><a [routerLink]="['/']"><h1>GAMELIFE</h1></a></div>
-      <div class="recherche"><app-rechercher-produit></app-rechercher-produit></div>
-      <div class="lien"><a [routerLink]="['/inscription']">INSCRIPTION</a></div>
-      <div class="lien"><a [routerLink]="['/login']">CONNEXION</a></div>
-    </div>
-  </div>
-  <div id="container2">
-    <div><a [routerLink]="['/']">Catégories</a></div>
-    <div><a [routerLink]="['/']">Meilleurs ventes</a></div>
-    <div><a [routerLink]="['/']">Clés aléatoires</a></div>
-  </div>
-</div>
+<section id="conteneur">
+  <section id="conteneur1">
+    <a [routerLink]="['/']">
+      <h1>Gamelife</h1>
+    </a>
+  </section>
+  <section id="conteneur2">
+    <app-rechercher-produit id="recherche"></app-rechercher-produit>
+  </section>
+  <section [hidden]="!!token" class="conteneur3">
+    <ng-icon name="ionPerson" class="icone" id="icone-gauche" name="basket"></ng-icon>
+    <a [routerLink]="['/login']">Me connecter</a>
+  </section>
+  <section [hidden]="!!!token" class="conteneur3">
+    <a [routerLink]="['/gestioncompte']">{{this.prenom}} {{this.nom}}</a>
+  </section>
+  <section id="conteneur4">
+    <ng-icon name="ionBasket" class="icone" id="icone-droite" name="basket"></ng-icon>
+    <a [routerLink]="['/panier']">Mon panier</a>
+  </section>
+</section>

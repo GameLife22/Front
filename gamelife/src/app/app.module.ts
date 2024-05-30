@@ -32,6 +32,14 @@ import { MotDePasseOublieComponent } from './login/mot-de-passe-oublie/mot-de-pa
 import { ResetMotDePasseComponent } from './login/reset-mot-de-passe/reset-mot-de-passe.component';
 import { ValidationInscriptionComponent } from './validation-inscription/validation-inscription.component';
 import { ActivationCompteComponent } from './activation-compte/activation-compte.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { AddToRevendeurDialogComponent } from './revendeur/add-to-revendeur-dialog/add-to-revendeur-dialog.component';
+import {MatDialogClose, MatDialogModule} from "@angular/material/dialog";
+import {MatList, MatListItem} from "@angular/material/list";
+import {NgxPaginationModule} from "ngx-pagination";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { NgIconsModule } from '@ng-icons/core';
+import { ionPerson, ionBasket  } from '@ng-icons/ionicons'
 
 @NgModule({ declarations: [
         AppComponent,
@@ -51,22 +59,25 @@ import { ActivationCompteComponent } from './activation-compte/activation-compte
         ResetMotDePasseComponent,
         ValidationInscriptionComponent,
         ActivationCompteComponent,
+        AddToRevendeurDialogComponent,
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        NoopAnimationsModule,
-        MatFormFieldModule,
-        MatRadioModule,
-        MatInputModule,
-        MatCardModule,
-        AppRoutingModule,
-        MatButtonModule,
-        MatIconModule,
-        MatSelectModule,
-        FormsModule,
-        MatSelectModule,
-        NgxPayPalModule,
-        AngularSvgIconModule], providers: [TokenInterceptorProvider, provideHttpClient(withInterceptorsFromDi())] })
+    bootstrap: [AppComponent],
+  imports: [BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatInputModule,
+    MatCardModule,
+    AppRoutingModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSelectModule,
+    FormsModule,
+    MatSelectModule,
+    NgxPayPalModule,
+    NgIconsModule.withIcons({ionPerson, ionBasket}),
+    AngularSvgIconModule, NgxPaginationModule, MatDialogClose, MatList, MatListItem], providers: [TokenInterceptorProvider, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
 export class AppModule { }

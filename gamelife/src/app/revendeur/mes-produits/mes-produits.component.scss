@@ -1,0 +1,39 @@
+.sidenav-container {
+  height: 74.1vh;
+}
+
+.sidenav {
+  width: 200px;
+}
+.card-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 10vh;
+  margin-top: 8vh;
+
+  .product-image {
+    height: 20rem;
+  }
+
+
+  .product {
+    width: 20rem;
+    flex: 0 0 calc(25% - 2rem); // for 4 cards in a row, adjust as needed
+    margin: 1rem; // half of the subtraction above
+  }
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  .modifier{
+    background-color: yellow;
+    color: black;
+  }
+   .supprimer{
+    background-color: red;
+    color: white;
+  }
+}
+
