@@ -1,10 +1,47 @@
-.sidenav-container {
-  height: 74.1vh;
+.sidenav a {
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #333;
+  text-decoration: none;
+}
+.sidenav a.active-link {
+  font-weight: bold;
+  color: #007BFF;
+}
+.sidenav .nav-item:first-child {
+  margin-top: 30px;
 }
 
-.sidenav {
-  width: 200px;
+.toggle-button {
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s ease;
 }
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+.toggle-button mat-icon {
+  transition: transform 0.3s ease;
+}
+.toggle-button mat-icon.open {
+  transform: rotate(90deg);
+}
+.nav-item {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.nav-item mat-icon {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+
 .card-wrapper {
   display: flex;
   justify-content: space-around;

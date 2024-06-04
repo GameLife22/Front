@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TousProduitsService} from "../service/tous-produits/tous-produits.service";
 import {AddToRevendeurDialogComponent} from "../add-to-revendeur-dialog/add-to-revendeur-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import { Router } from '@angular/router';
+import {TokenService} from "../../services/token/token.service";
 
 @Component({
   selector: 'app-tous-produits',
@@ -10,16 +12,22 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class TousProduitsComponent implements OnInit {
 
-  produits : any[];
+  produits: any[];
+  nbrProduits: number = 0;
   p: number = 1;
 
-  constructor( private tousProduitsService : TousProduitsService,public dialog: MatDialog) { }
+
+  constructor( private tousProduitsService : TousProduitsService,
+               public dialog: MatDialog,
+               public tokenService : TokenService,
+               private router: Router
+               ) { }
 
   ngOnInit(): void {
-
     this.tousProduitsService.getAllProduit().subscribe({
       next: (result) => {
         this.produits = result;
+        this.nbrProduits = this.produits.length;
         console.log(this.produits);
       },
       error: (e) => {
@@ -27,6 +35,9 @@ export class TousProduitsComponent implements OnInit {
       }
     });
   }
+
+
+
   public ajouterProduitAuRevendeur(produit: any): void {
     const dialogRef = this.dialog.open(AddToRevendeurDialogComponent, {
       width: '250px',
@@ -49,4 +60,15 @@ export class TousProduitsComponent implements OnInit {
     });
   }
 
+
+  disconnect() {
+    this.tokenService.clearToken();
+    this.refreshPage()
+  }
+
+  refreshPage(): void {
+    this.router.navigateByUrl('login').then(() => {
+      location.reload();
+    });
+  }
 }

@@ -1,7 +1,47 @@
 .sidenav-container {
-  height: 74.1vh;
+  height: 74.3vh;
 }
 
-.sidenav {
-  width: 200px;
+.sidenav a {
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.sidenav a.active-link {
+  font-weight: bold;
+  color: #007BFF;
+}
+.sidenav .nav-item:first-child {
+  margin-top: 30px;
+}
+.toggle-button {
+  position: fixed;
+  z-index: 1000;
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+
+.toggle-button mat-icon {
+  transition: transform 0.3s ease;
+}
+
+.toggle-button mat-icon.open {
+  transform: rotate(90deg);
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item mat-icon {
+  margin-right: 10px;
 }

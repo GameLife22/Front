@@ -1,11 +1,43 @@
 <mat-sidenav-container class="sidenav-container">
+
+
   <mat-sidenav #sidenav class="sidenav" mode="side" opened>
-    <p><a routerLink="/revendeur/produits" routerLinkActive="active-link">Tous les produits</a></p>
-    <p><a routerLink="/revendeur/mes-produits" routerLinkActive="active-link">Mes produits</a></p>
+    <div class="nav-item">
+      <mat-icon>home</mat-icon>
+      <a routerLink="/revendeur" routerLinkActive="active-link">Home</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon>list</mat-icon>
+      <a routerLink="/revendeur/produits" routerLinkActive="active-link">Tous les produits</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon>star</mat-icon>
+      <a routerLink="/revendeur/mes-produits" routerLinkActive="active-link">Mes produits</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon>add</mat-icon>
+      <a routerLink="/revendeur/ajouter-produit" routerLinkActive="active-link">Ajouter un produit</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon>account_circle</mat-icon>
+      <a routerLink="/revendeur/compte" routerLinkActive="active-link">Mon compte</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon>exit_to_app</mat-icon>
+      <a routerLink="/revendeur/login" routerLinkActive="active-link">Se déconnecter</a>
+    </div>
 
   </mat-sidenav>
 
+
   <mat-sidenav-content>
-    <p>Gestion des produits</p>
+    <div class="container">
+      <div class="header">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1>Gestion des produits</h1>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

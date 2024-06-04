@@ -3,6 +3,8 @@ import {MesProduitsService} from "../service/mes-produits/mes-produits.service";
 import {ModifProduitRevendeurModel} from "../model/modif.produitRevendeur.model";
 import {AddToRevendeurDialogComponent} from "../add-to-revendeur-dialog/add-to-revendeur-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
+import {TokenService} from "../../services/token/token.service";
 
 @Component({
   selector: 'app-mes-produits',
@@ -13,7 +15,10 @@ export class MesProduitsComponent implements OnInit {
 
   produitsRevendeur: any[];
 
-  constructor(public mesProduitsService: MesProduitsService,public dialog: MatDialog) {
+  constructor(public mesProduitsService: MesProduitsService,
+              public dialog: MatDialog,
+              public tokenService: TokenService,
+              public router: Router) {
   }
 
   ngOnInit(): void {
@@ -61,6 +66,17 @@ export class MesProduitsComponent implements OnInit {
         console.error(e);
       }
     });
+  }
+
+  disconnect() {
+    this.tokenService.clearToken();
+    this.refreshPage()
+  }
+  refreshPage(): void {
+    this.router.navigateByUrl('login').then(() => {
+      location.reload();
+    });
+
   }
 
 }

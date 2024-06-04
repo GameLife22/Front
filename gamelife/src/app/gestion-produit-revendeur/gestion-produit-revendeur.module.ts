@@ -8,6 +8,12 @@ import {MatCardModule} from "@angular/material/card";
 import {MesProduitsComponent} from "../revendeur/mes-produits/mes-produits.component";
 import {MatButtonModule} from "@angular/material/button";
 import {NgxPaginationModule} from "ngx-pagination";
+import {MatToolbar} from "@angular/material/toolbar";
+import {MatIcon} from "@angular/material/icon";
+import {MatListItem, MatNavList} from "@angular/material/list";
+import {MatLine} from "@angular/material/core";
+import {MatGridList, MatGridTile} from "@angular/material/grid-list";
+import {MatPaginator} from "@angular/material/paginator";
 
 
 const routes: Routes = [
@@ -28,7 +34,15 @@ const routes: Routes = [
     MatSidenavModule,
     MatCardModule,
     MatButtonModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatToolbar,
+    MatIcon,
+    MatNavList,
+    MatListItem,
+    MatLine,
+    MatGridList,
+    MatGridTile,
+    MatPaginator
   ]
 })
 export class GestionProduitRevendeurModule { }

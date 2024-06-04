@@ -1,45 +1,114 @@
-.sidenav-container {
-  height: auto;
-  min-height: 73.9vh;
+mat-sidenav-content {
+  min-height: 100vh;
+  transition: margin-left 0.3s;
+  padding: 30px;
+  background: #f9f9f9;
 }
 
-.sidenav {
-  width: 200px;
-}
-.card-wrapper {
+.search_bar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.sidenav a {
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #333;
+  text-decoration: none;
+}
+.sidenav a.active-link {
+  font-weight: bold;
+  color: #007BFF;
+}
+.sidenav .nav-item:first-child {
+  margin-top: 30px;
+}
+
+.toggle-button {
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+.toggle-button mat-icon {
+  transition: transform 0.3s ease;
+}
+.toggle-button mat-icon.open {
+  transform: rotate(90deg);
+}
+.nav-item {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.nav-item mat-icon {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+.card-container {
+  display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10vh;
-  margin-top: 8vh;
+  justify-content: space-between;
+}
 
-  .product-image {
-    height: 20rem;
-  }
-
-
-  .product {
-    width: 20rem; // Diminuer la largeur
-    height: 25rem; // Ajuster la hauteur automatiquement en fonction du contenu
-    flex: 0 0 calc(25% - 2rem); // for 4 cards in a row, adjust as needed
-    margin: 1rem; // half of the subtraction above
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+mat-card {
+  flex: 1 0 calc(30% - 20px); // This means that the cards will grow and shrink as needed, and the base width is 20% minus the grid gap
+  margin: 10px; // This adds some space around the cards
+}
+mat-card-header {
+  margin: auto;
+}
+.mdc-card__media{
+  height: 200px;
+  width: 350px;
 }
 mat-card-actions {
   display: flex;
   justify-content: center;
-
-  button {
-    background-color: green;
-    color: white;
-  }
 }
-.pagination-wrapper {
+.add-button {
+  background-color: #3dc43d; // This is the hex code for green
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #006400; // This is a darker green for the hover effect
+}
+
+.add-button mat-icon {
+  color: #fff; // This sets the color of the icon to white
+  margin :auto;
+}
+
+pagination-controls{
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
+
+
+@media (min-width: 500px) and (max-width: 768px) {
+
+  input[type="text"] {
+    width: 70%;
+  }
+}

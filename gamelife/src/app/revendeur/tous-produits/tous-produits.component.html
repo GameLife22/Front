@@ -1,34 +1,73 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container >
+
+
   <mat-sidenav #sidenav class="sidenav" mode="side" opened>
-    <p><a routerLink="/revendeur/produits" routerLinkActive="active-link">Tous les produits</a></p>
-    <p><a routerLink="/revendeur/mes-produits" routerLinkActive="active-link">Mes produits</a></p>
+    <div class="nav-item">
+      <mat-icon>home</mat-icon>
+      <a routerLink="/revendeur" routerLinkActive="active-link">Home</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon>list</mat-icon>
+      <a routerLink="/revendeur/produits" routerLinkActive="active-link">Tous les produits</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon>star</mat-icon>
+      <a routerLink="/revendeur/mes-produits" routerLinkActive="active-link">Mes produits</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon>add</mat-icon>
+      <a routerLink="/revendeur/ajouter-produit" routerLinkActive="active-link">Ajouter un produit</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon>account_circle</mat-icon>
+      <a routerLink="/revendeur/compte" routerLinkActive="active-link">Mon compte</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon>exit_to_app</mat-icon>
+      <a  (click)="disconnect()" routerLinkActive="active-link">Se déconnecter</a>
+    </div>
+
   </mat-sidenav>
 
+
   <mat-sidenav-content>
+    <button mat-icon-button class="toggle-button" (click)="sidenav.toggle()">
+      <mat-icon>{{sidenav.opened ? 'close' : 'menu'}}</mat-icon>
+    </button>
 
-    <div  class="card-wrapper">
-
-      <div *ngFor="let prod of produits | paginate: { itemsPerPage: 10, currentPage: p }">
-        <mat-card   class="product example-card container  shadow lg p-3 mb-3 bg-white rounded">
-
-          <img mat-card-image alt="Photo" src="{{prod.images[0].image}}" class="product-image">
-
+      <div class="header">
+        <h1 style="text-align: center">Tous les produits</h1>
+        <h2 style="text-align: center" >{{nbrProduits}} Produits</h2>
+        <div class="search_bar">
+          <section>
+            <form>
+              <input type="text" placeholder="Filter by Name" #filter>
+              <button mat-icon-button type="button">
+                <mat-icon  style="margin-bottom: -5px">search</mat-icon >
+              </button>
+            </form>
+          </section>
+        </div>
+      </div>
+    <div class="card-container">
+      <div *ngFor="let produit of produits | paginate: { itemsPerPage: 15, currentPage: p }">
+        <mat-card >
           <mat-card-header>
-            <mat-card-title> {{prod.nom}} </mat-card-title>
-            <mat-card-subtitle>{{prod.plateforme}}</mat-card-subtitle>
+            <mat-card-title>{{produit.nom}}</mat-card-title>
           </mat-card-header>
-          <mat-card-content>
-              <p class="produit_detail">{{prod.detail}}</p>
-              <mat-card-actions>
-                <button mat-button (click)="ajouterProduitAuRevendeur(prod)">Ajouter produit</button>
-              </mat-card-actions>
-          </mat-card-content>
+          <img mat-card-image src="{{produit.images[0].image}}">
+          <mat-card-actions>
+            <button mat-button class="add-button" (click)="ajouterProduitAuRevendeur(produit)">
+              <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+          </mat-card-actions>
         </mat-card>
       </div>
-
     </div>
-    <div class="pagination-wrapper">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+
+

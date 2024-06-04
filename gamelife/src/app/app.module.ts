@@ -34,7 +34,13 @@ import { ValidationInscriptionComponent } from './validation-inscription/validat
 import { ActivationCompteComponent } from './activation-compte/activation-compte.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { AddToRevendeurDialogComponent } from './revendeur/add-to-revendeur-dialog/add-to-revendeur-dialog.component';
-import {MatDialogClose, MatDialogModule} from "@angular/material/dialog";
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogModule,
+  MatDialogTitle
+} from "@angular/material/dialog";
 import {MatList, MatListItem} from "@angular/material/list";
 import {NgxPaginationModule} from "ngx-pagination";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -79,5 +85,5 @@ import { ionPerson, ionBasket  } from '@ng-icons/ionicons'
     MatSelectModule,
     NgxPayPalModule,
     NgIconsModule.withIcons({ionPerson, ionBasket}),
-    AngularSvgIconModule, NgxPaginationModule, MatDialogClose, MatList, MatListItem], providers: [TokenInterceptorProvider, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
+    AngularSvgIconModule, NgxPaginationModule, MatDialogClose, MatList, MatListItem, MatDialogActions, MatDialogContent, MatDialogTitle], providers: [TokenInterceptorProvider, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
 export class AppModule { }
