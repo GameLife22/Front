@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {ProduitModel} from "../../../model/produit.model";
+import {GameModel} from "../../../model/game.model";
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token/token.service";
@@ -14,9 +14,9 @@ export class TousProduitsService {
 
   constructor(private http: HttpClient,public tokenService :TokenService ) { }
 
-  public getAllProduit(): Observable<ProduitModel[]>{
+  public getAllProduit(): Observable<GameModel[]>{
     let revendeurId = this.tokenService.getUserIdFromToken();
-    return this.http.get<ProduitModel[]>(this.baseUrl + "api/v1/produits_revendeur/"+revendeurId);
+    return this.http.get<GameModel[]>(this.baseUrl + "api/v1/produits_revendeur/"+revendeurId);
 
   }
 
@@ -26,7 +26,7 @@ export class TousProduitsService {
       "stock" : stock,
       "prix": prix,
       "etat":true,
-      "idProduit":produit.id,
+      "gameId":produit.id,
       "idUtilisateur":this.tokenService.getUserIdFromToken()
       },
       {

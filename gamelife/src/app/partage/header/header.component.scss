@@ -1,21 +1,21 @@
-#conteneur, #conteneur1, #conteneur2, .conteneur3, #conteneur4 {
+#container, #container1, #container2, .container3, #container4 {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#conteneur {
+#container {
   flex-direction: row;
   height: 13vh;
   background: -webkit-linear-gradient(160deg, #021254 0%, #1633a4 100%);
   background: linear-gradient(160deg, #021254 0%, #1633a4 100%);
 }
 
-#conteneur1 {
+#container1 {
   width: 30%;
 }
 
-#conteneur2 {
+#container2 {
   width: 30%;
 }
 
@@ -23,7 +23,7 @@
   width: 100%;
 }
 
-.conteneur3, #conteneur4 {
+.container3, #container4 {
   width: 20%;
 }
 

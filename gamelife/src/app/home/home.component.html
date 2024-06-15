@@ -1,14 +1,14 @@
-<div id="conteneur">
+<div id="container">
   <div id="cards">
-    <div *ngFor="let produit of this.produits().content | paginate: { itemsPerPage: this.produitsParPage, currentPage: this.page() + 1, totalItems:  this.produits().totalElements };">
+    <div *ngFor="let game of this.games().content | paginate: { itemsPerPage: this.size, currentPage: this.page() + 1, totalItems:  this.games().totalElements };">
       <mat-card id="card">
-        <img id="image" [src]="produit.images[0].url" alt="{{ produit.nom }}">
-        <div id="card-contenu">
-          <h3 id="titre">{{ produit.nom }}</h3>
-          <button mat-button id="button-card" class="button-active" (click)="redirigerVersFicheProduit(produit.idProduit)">Acheter</button>
+        <img id="image" [src]="game.images[0]" alt="{{ game.name }}">
+        <div id="card-content">
+          <h3 id="title">{{ game.name }}</h3>
+          <button mat-button id="button-card" class="button-active" (click)="redirectToGameSheet(game.id)">Acheter</button>
         </div>
       </mat-card>
     </div>
-    <pagination-controls (pageChange)="recupererPage($event)"></pagination-controls>
+    <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
   </div>
 </div>

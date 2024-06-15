@@ -1,6 +1,4 @@
 import {Component, inject, OnInit} from '@angular/core';
-import { ProduitModel } from 'src/app/model/produit.model';
-import { ProduitService } from 'src/app/services/produit/produit.service';
 
 @Component({
   selector: 'app-produit-detail',

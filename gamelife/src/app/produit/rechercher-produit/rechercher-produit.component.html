@@ -1,17 +1,17 @@
-<form class="form-inline" (ngSubmit)="rechercherProduits(terme())">
+<form class="form-inline" (ngSubmit)="searchGames(term())">
   <div class="search">
-    <input (input)="gererRechercheInput($event)" [value]="terme()" type="text" class="form-control"
+    <input (input)="gererRechercheInput($event)" [value]="term()" type="text" class="form-control"
            placeholder="Rechercher"
-           [ngClass]="{ 'liste-produits': verifierProduitNonVide() }">
+           [ngClass]="{ 'games-list': checkGameNotEmpty() }">
     <button type="submit">
       <mat-icon>search</mat-icon>
     </button>
   </div>
 </form>
-<div *ngIf="verifierProduitNonVide()" class="result">
+<div *ngIf="checkGameNotEmpty()" class="result">
   <mat-list>
-    <mat-list-item *ngFor="let produit of produits">
-      <p (click)="redirigerVersFicheProduit(produit.idProduit)">{{ produit.nom }}</p>
+    <mat-list-item *ngFor="let game of this.games">
+      <p (click)="redirectToGameSheet(game.id)">{{ game.name }}</p>
     </mat-list-item>
   </mat-list>
 </div>

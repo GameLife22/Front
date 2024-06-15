@@ -1,7 +1,8 @@
 import {Component, effect, inject, OnChanges, signal} from '@angular/core';
 import { Router } from '@angular/router';
-import { ProduitModel } from 'src/app/model/produit.model';
-import { ProduitService } from 'src/app/services/produit/produit.service';
+import { GameModel } from 'src/app/model/game.model';
+import {GameService} from "../../services/game/game.service";
+import {SearchGameModel} from "../../model/searchGame.model";
 
 @Component({
   selector: 'app-rechercher-produit',
@@ -10,49 +11,50 @@ import { ProduitService } from 'src/app/services/produit/produit.service';
 })
 export class RechercherProduitComponent implements OnChanges {
   router = inject(Router);
-  produitService = inject(ProduitService);
-  produits: ProduitModel[] = [];
-  terme = signal<string>('');
+  gameService = inject(GameService);
+  games: SearchGameModel[] = [];
+  term = signal<string>('');
 
   ngOnChanges(): void {
     effect(() => {
-      const terme = this.terme();
-      if (terme.length >= 3) {
-        this.produitService.rechercherProduitsContenantNom(terme);
+      const term = this.term();
+      if (term.length >= 3) {
+        this.gameService.getGameByName(term);
       }
     });
   }
 
-  verifierProduitNonVide(): boolean {
-    return this.produits && this.produits.length > 0;
+  checkGameNotEmpty(): boolean {
+    return this.games && this.games.length > 0;
   }
 
-  rechercherProduits(terme: string) {
-    if (terme.length >= 3) {
-      this.produitService.rechercherProduitsContenantNom(terme).subscribe({
-        next: (produits) => {
-          this.produits = produits;
+  searchGames(term: string) {
+    if (term.length >= 3) {
+      this.gameService.getGameByName(term).subscribe({
+        next: (games) => {
+          this.games = games;
+          console.log(this.games)
         }
       });
     } else {
-      this.produits = [];
+      this.games = [];
     }
   }
 
-  redirigerVersFicheProduit(idProduit: string) {
-    const lien = ['/produit', idProduit];
+  redirectToGameSheet(id: string) {
+    const lien = ['/produit', id];
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
       this.router.navigate(lien)
     );
-    this.terme.set('');
+    this.term.set('');
   }
 
   viderInput() {
-    this.terme.set('');
+    this.term.set('');
   }
 
   gererRechercheInput(event: Event) {
     const input = event.target as HTMLInputElement;
-    this.terme.set(input.value);
+    this.term.set(input.value);
   }
 }

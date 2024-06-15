@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {ProduitModel} from "../../../model/produit.model";
+import {GameModel} from "../../../model/game.model";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
 import {TokenService} from "../../../services/token/token.service";

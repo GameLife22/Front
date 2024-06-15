@@ -1,8 +1,8 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
-import { ProduitModel } from 'src/app/model/produit.model';
-import { ProduitService } from 'src/app/services/produit/produit.service';
+import { GameModel } from 'src/app/model/game.model';
 import { Router } from "@angular/router";
 import { PageModel } from "../model/page.model";
+import {GameService} from "../services/game/game.service";
 
 @Component({
   selector: 'app-home',
@@ -11,33 +11,34 @@ import { PageModel } from "../model/page.model";
 })
 export class HomeComponent {
   router = inject(Router);
-  produitService: ProduitService = inject(ProduitService);
-  produits: WritableSignal<PageModel<ProduitModel>> = signal<PageModel<ProduitModel>>({ content: [], totalElements: 0, totalPages: 0, number: 0, size: 0 });
+  gameService: GameService = inject(GameService);
+  games: WritableSignal<PageModel<GameModel>> = signal<PageModel<GameModel>>({ content: [], totalElements: 0, totalPages: 0, number: 0, size: 0 });
   page: WritableSignal<number> = signal<number>(0);
-  produitsParPage: number = 15; // valeur fixe
+  size: number = 20; // number of elements in a page
 
   constructor() {
-    this.recupererProduits(this.page(), this.produitsParPage);
+    this.getGames(this.page(), this.size);
   }
 
-  recupererProduits(page: number, produitsParPage: number): void {
-    this.produitService.recupererProduits(page, produitsParPage)
+  getGames(page: number, size: number): void {
+    this.gameService.getGames(page, size)
       .subscribe({
-        next: (produits) => {
-          this.produits.set(produits);
+        next: (games) => {
+          this.games.set(games);
+          console.log(this.games())
         }
       });
   }
 
-  recupererPage(page: number) {
+  getPage(page: number) {
     if(page > 0) {
       this.page.set(page - 1);
-      this.recupererProduits(this.page(), this.produitsParPage);
+      this.getGames(this.page(), this.size);
     }
   }
 
-  redirigerVersFicheProduit(idProduit: string) {
-    const lien = ['/produit', idProduit];
+  redirectToGameSheet(gameId: string) {
+    const lien = ['/produit', gameId];
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
       this.router.navigate(lien)
     );

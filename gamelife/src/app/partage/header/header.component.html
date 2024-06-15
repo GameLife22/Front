@@ -1,20 +1,20 @@
-<section id="conteneur">
-  <section id="conteneur1">
+<section id="container">
+  <section id="container1">
     <a [routerLink]="['/']">
       <h1>Gamelife</h1>
     </a>
   </section>
-  <section id="conteneur2">
+  <section id="container2">
     <app-rechercher-produit id="recherche"></app-rechercher-produit>
   </section>
-  <section [hidden]="!!token" class="conteneur3">
+  <section [hidden]="!!token" class="container3">
     <ng-icon name="ionPerson" class="icone" id="icone-gauche" name="basket"></ng-icon>
     <a [routerLink]="['/login']">Me connecter</a>
   </section>
-  <section [hidden]="!!!token" class="conteneur3">
+  <section [hidden]="!!!token" class="container3">
     <a [routerLink]="['/gestioncompte']">{{this.prenom}} {{this.nom}}</a>
   </section>
-  <section id="conteneur4">
+  <section id="container4">
     <ng-icon name="ionBasket" class="icone" id="icone-droite" name="basket"></ng-icon>
     <a [routerLink]="['/panier']">Mon panier</a>
   </section>

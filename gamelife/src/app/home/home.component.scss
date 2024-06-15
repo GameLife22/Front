@@ -1,8 +1,8 @@
-#conteneur, #cards, #card-contenu {
+#container, #cards, #card-content {
   display: flex;
 }
 
-#conteneur {
+#container {
   min-height: 100vh;
   width: 100%;
   background-color: #1633a4;
@@ -11,12 +11,6 @@
 #cards {
   padding-top: 2em;
   padding-bottom: 2em;
-}
-
-#sidebar {
-  flex-direction: column;
-  align-items: center;
-  width: 25%;
 }
 
 #cards {
@@ -44,7 +38,7 @@
   width: 50%;
 }
 
-#card-contenu {
+#card-content {
   flex-direction: column;
   justify-content: center;
   align-items: center;

@@ -14,7 +14,7 @@ export interface ProduitRevendeurModel {
         images: {
             id: string;
             image: string;
-            titre: string;
+            title: string;
         }[];
     };
     utilisateur: {
