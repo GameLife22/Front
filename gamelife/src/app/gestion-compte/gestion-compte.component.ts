@@ -3,9 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilisateurService } from "../services/utilisateur/utilisateur.service";
 import {UpdateCompteModel} from "../model/update.compte.model";
 import {Observable} from "rxjs";
-import {Router} from "@angular/router";
 import jwt_decode from 'jwt-decode';
-import {TokenService} from "../services/token/token.service";
 
 
 @Component({
@@ -98,12 +96,12 @@ export class GestionCompteComponent implements OnInit {
     this.GestionCompteService.getUser(this.id).subscribe((response)=>{
       this.userModel = response
       this.userFormGroup.setValue({
-        "nom" : response.nom,
-        "prenom" : response.prenom,
+        "nom" : response.lastName,
+        "prenom" : response.firstName,
         "email" : response.email,
         "numRue" : response.num_rue,
-        "rue" : response.rue,
-        "ville" : response.ville,
+        "rue" : response.street,
+        "ville" : response.city,
         "codePostal" : response.code_postal,
         "numSiret" : response.num_siret
       })
