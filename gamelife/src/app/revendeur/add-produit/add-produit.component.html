@@ -31,16 +31,38 @@
 
 
   <mat-sidenav-content>
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
+    <button mat-icon-button class="toggle-button" (click)="sidenav.toggle()">
+      <mat-icon>{{sidenav.opened ? 'close' : 'menu'}}</mat-icon>
     </button>
 
-    <h1 style="text-align: center">Bienvenue à ton Store : {{storeName.firstName}}</h1>
+    <div class="header">
+      <h1 style="text-align: center">Ajouter un nouveau produit</h1>
+    </div>
 
-    <mat-grid-list cols="4" rowHeight="100px">
-      <mat-grid-tile [colspan]="4" [rowspan]="4" [style.background]="'lightblue'">
+    <div class="add-produit-container">
+      <form [formGroup]="addProduitForm" (ngSubmit)="onSubmit()">
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="Nom du produit" formControlName="nom">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <textarea matInput placeholder="Description du produit" formControlName="description"></textarea>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="Image du produit" formControlName="image">
+          </mat-form-field>
+        </div>
 
-      </mat-grid-tile>
-    </mat-grid-list>
+        <button mat-raised-button color="primary" type="submit">Ajouter</button>
+      </form>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+
+

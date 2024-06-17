@@ -14,6 +14,8 @@ import {TokenService} from "../../services/token/token.service";
 export class MesProduitsComponent implements OnInit {
 
   produitsRevendeur: any[];
+  nbrProduits: number = 0;
+  p: number = 1;
 
   constructor(public mesProduitsService: MesProduitsService,
               public dialog: MatDialog,
@@ -25,7 +27,7 @@ export class MesProduitsComponent implements OnInit {
     this.mesProduitsService.getAllProduitDuRevendeur().subscribe({
       next: (result) => {
         this.produitsRevendeur = result;
-        console.log(this.produitsRevendeur);
+        this.nbrProduits = this.produitsRevendeur.length;
       },
       error: (e) => {
         console.error(e);

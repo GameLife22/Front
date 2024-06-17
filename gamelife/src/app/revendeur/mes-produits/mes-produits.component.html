@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container >
 
   <mat-sidenav #sidenav class="sidenav" mode="side" opened>
     <div class="nav-item">
@@ -30,25 +30,41 @@
 
 
   <mat-sidenav-content>
+    <button mat-icon-button class="toggle-button" (click)="sidenav.toggle()">
+      <mat-icon>{{sidenav.opened ? 'close' : 'menu'}}</mat-icon>
+    </button>
 
-    <div  class="card-wrapper">
-      <div *ngFor="let prod of produitsRevendeur ">
-        <mat-card   class="product example-card container text-uppercase shadow lg p-3 mb-3 bg-white rounded">
+    <div class="header">
+      <h1 style="text-align: center">Mes produits</h1>
+      <h2 style="text-align: center" > {{nbrProduits}} Produits</h2>
+      <div class="search_bar">
+        <section>
+          <form>
+            <input type="text" placeholder="Filter by Name" #filter>
+            <button mat-icon-button type="button">
+              <mat-icon  style="margin-bottom: -5px">search</mat-icon >
+            </button>
+          </form>
+        </section>
+      </div>
+    </div>
 
-          <img mat-card-image alt="Photo" src="{{prod.produit.images[0].image}}" class="product-image">
+    <div class="card-container">
+      <div *ngFor="let prod of produitsRevendeur | paginate: { itemsPerPage: 15, currentPage: p } ">
+        <mat-card>
+
+          <img mat-card-image alt="Photo" src="{{prod.produit.images[0].image}}" >
 
           <mat-card-header>
             <mat-card-title> {{prod.produit.nom}} </mat-card-title>
-            <mat-card-subtitle>{{prod.produit.plateforme}}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <p class="produit_detail">Description : {{prod.produit.description}}</p>
             <p class="produit_stock">Stock : {{prod.stock}}</p>
             <p class="produit_prix">Prix : {{prod.prix}}</p>
 
             <mat-card-actions>
-              <button mat-button (click)="modifierProduit(prod.id,prod)" class="modifier">Modifier produit</button>
-              <button mat-button (click)="supprimerProduit(prod.id)" class="supprimer">Supprimer produit</button>
+              <button mat-button (click)="modifierProduit(prod.id,prod)" class="modifier"><mat-icon>autorenew</mat-icon></button>
+              <button mat-button (click)="supprimerProduit(prod.id)" class="supprimer"><mat-icon>delete</mat-icon></button>
             </mat-card-actions>
 
 
@@ -56,6 +72,6 @@
         </mat-card>
       </div>
     </div>
-
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </mat-sidenav-content>
 </mat-sidenav-container>

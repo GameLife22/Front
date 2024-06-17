@@ -1,3 +1,9 @@
+mat-sidenav-content {
+  min-height: 100vh;
+  transition: margin-left 0.3s;
+  padding: 30px;
+  background: #f9f9f9;
+}
 .sidenav a {
   padding: 10px;
   margin-bottom: 10px;
@@ -41,10 +47,4 @@
   margin-bottom: 10px;
 }
 
-mat-sidenav-container{
-  height: 100vh;
-}
 
-mat-grid-tile {
-  background: lightblue;
-}

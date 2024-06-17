@@ -11,22 +11,30 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {MatToolbar} from "@angular/material/toolbar";
 import {MatIcon} from "@angular/material/icon";
 import {MatListItem, MatNavList} from "@angular/material/list";
-import {MatLine} from "@angular/material/core";
+import {MatLine, MatOption} from "@angular/material/core";
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import {MatPaginator} from "@angular/material/paginator";
+import {BaseChartDirective} from "ng2-charts";
+import {AddProduitComponent} from "../revendeur/add-produit/add-produit.component";
+import {MatFormField} from "@angular/material/form-field";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatSelect} from "@angular/material/select";
+import {MatInput} from "@angular/material/input";
 
 
 const routes: Routes = [
   { path: '', component: GestionProduitRevendeurComponent },
   { path: 'produits', component: TousProduitsComponent },
-  { path: 'mes-produits', component: MesProduitsComponent }
+  { path: 'mes-produits', component: MesProduitsComponent },
+  { path: 'ajouter-produit', component: AddProduitComponent }
 
 ];
 @NgModule({
   declarations: [
     GestionProduitRevendeurComponent,
     TousProduitsComponent,
-    MesProduitsComponent
+    MesProduitsComponent,
+    AddProduitComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +50,13 @@ const routes: Routes = [
     MatLine,
     MatGridList,
     MatGridTile,
-    MatPaginator
+    MatPaginator,
+    BaseChartDirective,
+    MatFormField,
+    ReactiveFormsModule,
+    MatSelect,
+    MatOption,
+    MatInput
   ]
 })
 export class GestionProduitRevendeurModule { }

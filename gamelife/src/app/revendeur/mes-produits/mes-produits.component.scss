@@ -41,29 +41,88 @@
   margin-bottom: 10px;
 }
 
-
-.card-wrapper {
+mat-sidenav-content {
+  min-height: 100vh;
+  transition: margin-left 0.3s;
+  padding: 30px;
+  background: #f9f9f9;
+}
+.search_bar {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-bottom: 10vh;
-  margin-top: 8vh;
-
-  .product-image {
-    height: 20rem;
-  }
-
-
-  .product {
-    width: 20rem;
-    flex: 0 0 calc(25% - 2rem); // for 4 cards in a row, adjust as needed
-    margin: 1rem; // half of the subtraction above
-  }
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
+input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+mat-card {
+  flex: 1 0 calc(30% - 20px); // This means that the cards will grow and shrink as needed, and the base width is 20% minus the grid gap
+  margin: 10px; // This adds some space around the cards
+}
+mat-card-header {
+  margin: auto;
+}
+.mdc-card__media{
+  height: 200px;
+  width: 350px;
+}
 mat-card-actions {
   display: flex;
   justify-content: center;
+}
+.add-button {
+  background-color: #3dc43d; // This is the hex code for green
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #006400; // This is a darker green for the hover effect
+}
+
+.add-button mat-icon {
+  color: #fff; // This sets the color of the icon to white
+  margin :auto;
+}
+
+pagination-controls{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+
+@media (min-width: 500px) and (max-width: 768px) {
+
+  input[type="text"] {
+    width: 70%;
+  }
+}
+
+
+mat-card-actions {
+  button{
+    margin-right: 10px; // This adds space to the right of each button
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mat-icon {
+      margin :auto;
+    }
+  }
   .modifier{
     background-color: yellow;
     color: black;
