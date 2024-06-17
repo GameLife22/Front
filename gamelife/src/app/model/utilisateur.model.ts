@@ -1,5 +1,5 @@
 export interface UtilisateurModel{
-  nom : string;
-  prenom : string;
+  lastName : string;
+  firstName : string;
   email : string;
 }

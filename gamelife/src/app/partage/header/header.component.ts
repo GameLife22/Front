@@ -11,8 +11,8 @@ export class HeaderComponent implements OnInit {
 
   token : any = sessionStorage.getItem("JWT_TOKEN");
   tokenDec = this.getDecodedAccessToken(this.token);
-  nom : string = '';
-  prenom : string = '';
+  lastName : string = '';
+  firstName : string = '';
 
 
   constructor(private service : UtilisateurService) {}
@@ -28,8 +28,9 @@ export class HeaderComponent implements OnInit {
   }
   infos():void{
     this.service.getUserById(this.tokenDec.jti).subscribe(resp => {
-      this.nom = resp.nom;
-      this.prenom = resp.prenom;
+      this.lastName = resp.lastName;
+      this.firstName = resp.firstName;
+      console.log(resp);
     })
   }
   getDecodedAccessToken(token: string): any {

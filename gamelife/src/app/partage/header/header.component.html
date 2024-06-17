@@ -12,7 +12,7 @@
     <a [routerLink]="['/login']">Me connecter</a>
   </section>
   <section [hidden]="!!!token" class="container3">
-    <a [routerLink]="['/gestioncompte']">{{this.prenom}} {{this.nom}}</a>
+    <a [routerLink]="['/gestioncompte']">{{this.firstName}} {{this.lastName}}</a>
   </section>
   <section id="container4">
     <ng-icon name="ionBasket" class="icone" id="icone-droite" name="basket"></ng-icon>
