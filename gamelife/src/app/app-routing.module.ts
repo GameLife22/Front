@@ -8,7 +8,6 @@ import { ProduitDetailComponent } from './produit/produit-detail/produit-detail.
 
 import { RechercherProduitComponent } from './produit/rechercher-produit/rechercher-produit.component';
 import { GestionCompteComponent } from "./gestion-compte/gestion-compte.component";
-import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { PaimentComponent } from "./paiment/paiment.component";
 import { MotDePasseOublieComponent } from "./login/mot-de-passe-oublie/mot-de-passe-oublie.component";
@@ -38,7 +37,6 @@ const routes: Routes = [
   },
 
   { path: '404', component: NotFoundComponent },
-  { path: '500', component: InternalServerComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full' }
 ];
 

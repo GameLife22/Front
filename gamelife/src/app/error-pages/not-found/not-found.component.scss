@@ -1,11 +1,24 @@
-#wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1633a4;
+}
+
+h3 {
+  padding: 0 2em;
+  font-family: Poppins, "Helvetica Neue", sans-serif;
+  font-weight: 800;
+  font-size: 4em;
+  color: white;
+  padding-bottom: 2%;
 }
 
 p {
-    font-size: 60px;
-    color: #1633A4;
+  font-family: Poppins, "Helvetica Neue", sans-serif;
+  font-weight: 800;
+  font-size: 2em;
+  color: white;
 }

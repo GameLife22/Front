@@ -19,7 +19,6 @@ import { FooterComponent } from './partage/footer/footer.component';
 import { HeaderComponent } from './partage/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
-import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatRadioModule} from "@angular/material/radio";
@@ -58,7 +57,6 @@ import { ionPerson, ionBasket  } from '@ng-icons/ionicons'
         HeaderComponent,
         HomeComponent,
         GestionCompteComponent,
-        InternalServerComponent,
         NotFoundComponent,
         PaimentComponent,
         MotDePasseOublieComponent,

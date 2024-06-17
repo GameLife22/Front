@@ -25,7 +25,6 @@ export class HomeComponent {
       .subscribe({
         next: (games) => {
           this.games.set(games);
-          console.log(this.games())
         }
       });
   }
@@ -37,10 +36,10 @@ export class HomeComponent {
     }
   }
 
-  redirectToGameSheet(gameId: string) {
-    const lien = ['/produit', gameId];
+  redirectToGameSheet(id: string) {
+    const link = ['/produit', id];
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
-      this.router.navigate(lien)
+      this.router.navigate(link)
     );
   }
 }

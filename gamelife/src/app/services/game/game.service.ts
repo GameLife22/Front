@@ -13,7 +13,7 @@ export class GameService {
   http = inject(HttpClient);
   baseUrl = environment.baseUrl;
 
-  public getGameByName(name: string): Observable<SearchGameModel[]>  {
+  public findByNameContainingIgnoreCase(name: string): Observable<SearchGameModel[]>  {
     return this.http.get<SearchGameModel[]>(this.baseUrl+`api/v1/games/search?name=${name}`)
   }
 

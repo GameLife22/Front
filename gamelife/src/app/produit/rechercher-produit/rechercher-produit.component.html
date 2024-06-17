@@ -1,8 +1,13 @@
 <form class="form-inline" (ngSubmit)="searchGames(term())">
   <div class="search">
-    <input (input)="gererRechercheInput($event)" [value]="term()" type="text" class="form-control"
-           placeholder="Rechercher"
-           [ngClass]="{ 'games-list': checkGameNotEmpty() }">
+    <input
+      (input)="handleSearchInput($event)"
+      (keydown.enter)="searchGames(term())"
+      [value]="term()" type="text" class="form-control"
+      placeholder="Rechercher"
+      [ngClass]="{ 'games-list': checkGameNotEmpty() }"
+      (blur)="disableCard()"
+    >
     <button type="submit">
       <mat-icon>search</mat-icon>
     </button>

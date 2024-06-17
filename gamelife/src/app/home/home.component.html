@@ -10,7 +10,9 @@
       </mat-card>
     </div>
   </div>
-  <div class="pagination-container">
-    <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
-  </div>
+  @if (this.games().totalElements >= 20)  {
+    <div class="pagination-container">
+      <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+    </div>
+  }
 </main>

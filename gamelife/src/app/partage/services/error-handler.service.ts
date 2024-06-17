@@ -14,27 +14,14 @@ export class ErrorHandlerService {
    * Cette méthode permet d'identifier le status de l'erreur et de gérer cette erreur
    * @param error : HTTP Response Status
    * @author: Fabien
-   */  
+   */
   public handleError = (error: HttpErrorResponse) => {
-    if (error.status === 500) {
-      this.handle500Error(error);
-    }
-    else if (error.status === 404) {
+    if (error.status === 404) {
       this.handle404Error(error)
     }
     else {
       this.handleOtherError(error);
     }
-  }
-
-  /**
-   * Cette méthode permet de rediriger vers une page pour gérer une erreur côté serveur (500 Internal Server Error)
-   * @param error: HTTP Response Status
-   * @author: Fabien
-   */
-  private handle500Error = (error: HttpErrorResponse) => {
-    this.createErrorMessage(error);
-    this.router.navigate(['/500']);
   }
 
   /**

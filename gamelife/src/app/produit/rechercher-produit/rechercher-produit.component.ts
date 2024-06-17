@@ -1,8 +1,7 @@
-import {Component, effect, inject, OnChanges, signal} from '@angular/core';
+import { Component, effect, inject, OnChanges, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { GameModel } from 'src/app/model/game.model';
-import {GameService} from "../../services/game/game.service";
-import {SearchGameModel} from "../../model/searchGame.model";
+import { GameService } from "../../services/game/game.service";
+import { SearchGameModel } from "../../model/searchGame.model";
 
 @Component({
   selector: 'app-rechercher-produit',
@@ -18,8 +17,15 @@ export class RechercherProduitComponent implements OnChanges {
   ngOnChanges(): void {
     effect(() => {
       const term = this.term();
-      if (term.length >= 3) {
-        this.gameService.getGameByName(term);
+      if (term && term.length >= 3) { // Vérifier que term est défini avant de vérifier sa longueur
+        this.gameService.findByNameContainingIgnoreCase(term).subscribe({
+          next: (games) => {
+            this.games = games;
+            console.log(this.games);
+          }
+        });
+      } else {
+        this.games = [];
       }
     });
   }
@@ -28,12 +34,12 @@ export class RechercherProduitComponent implements OnChanges {
     return this.games && this.games.length > 0;
   }
 
-  searchGames(term: string) {
-    if (term.length >= 3) {
-      this.gameService.getGameByName(term).subscribe({
+  searchGames(term: string): void {
+    if (term && term.length >= 3) {
+      this.gameService.findByNameContainingIgnoreCase(term).subscribe({
         next: (games) => {
           this.games = games;
-          console.log(this.games)
+          console.log(this.games);
         }
       });
     } else {
@@ -41,20 +47,22 @@ export class RechercherProduitComponent implements OnChanges {
     }
   }
 
-  redirectToGameSheet(id: string) {
-    const lien = ['/produit', id];
+  disableCard(): void {
+    this.games = [];
+  }
+
+  redirectToGameSheet(id: string): void {
+    const link = ['/produit', id];
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
-      this.router.navigate(lien)
+      this.router.navigate(link)
     );
     this.term.set('');
   }
 
-  viderInput() {
-    this.term.set('');
-  }
-
-  gererRechercheInput(event: Event) {
+  handleSearchInput(event: any): void {
     const input = event.target as HTMLInputElement;
-    this.term.set(input.value);
+    if (input && input.value) {
+      this.term.set(input.value);
+    }
   }
 }
