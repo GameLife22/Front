@@ -26,7 +26,7 @@ export class TousProduitsService {
       "stock" : stock,
       "prix": prix,
       "etat":true,
-      "gameId":produit.id,
+      "idProduit":produit.id,
       "idUtilisateur":this.tokenService.getUserIdFromToken()
       },
       {

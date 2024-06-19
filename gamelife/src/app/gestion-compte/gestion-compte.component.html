@@ -66,12 +66,11 @@
               </mat-form-field>
             </div>
 
-
           <div *ngIf="estRevendeurModel">
             <mat-form-field appearance="outline" class="field">
               <mat-label class="label">Entrez votre siren</mat-label>
-              <input matInput placeholder="Siren" formControlName="siren" required>
-              <mat-error *ngIf="userFormGroup.controls['siret'].invalid">Siren invalide</mat-error>
+              <input matInput placeholder="Siren" formControlName="numSiret" required>
+              <mat-error *ngIf="userFormGroup.controls['numSiret'].invalid">Siren invalide</mat-error>
             </mat-form-field>
           </div>
           <button class="btn" mat-stroked-button type="submit" color="primary">valider</button>

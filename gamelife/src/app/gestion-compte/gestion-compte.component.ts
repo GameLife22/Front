@@ -119,8 +119,8 @@ export class GestionCompteComponent implements OnInit {
     let rue: string = this.userFormGroup.value.rue
     let ville: string = this.userFormGroup.value.ville
     let codePostal: number = this.userFormGroup.value.codePostal
-    let numSiren: string | null = this.userFormGroup.value.numSiren
-    let observable : Observable<UpdateCompteModel> = this.GestionCompteService.updateUser(this.id, nom, prenom, email, numRue, rue, ville, codePostal, numSiren)
+    let numSiret: string | null = this.userFormGroup.value.numSiret
+    let observable : Observable<UpdateCompteModel> = this.GestionCompteService.updateUser(this.id, nom, prenom, email, numRue, rue, ville, codePostal, numSiret)
     observable.subscribe(
       ()=>{},
       (value)=> {

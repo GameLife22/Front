@@ -7,7 +7,7 @@ export interface UpdateCompteModel {
     street : string;
     city : string;
     code_postal : number;
-    num_siret : string | null;
+    num_siret : number | null;
 
 
 

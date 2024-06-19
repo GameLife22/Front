@@ -5,6 +5,8 @@ import {AddToRevendeurDialogComponent} from "../add-to-revendeur-dialog/add-to-r
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {TokenService} from "../../services/token/token.service";
+import {GameModel} from "../../model/game.model";
+import {ProduitRevendeurModel} from "../model/produitRevendeur.model";
 
 @Component({
   selector: 'app-mes-produits',
@@ -13,7 +15,9 @@ import {TokenService} from "../../services/token/token.service";
 })
 export class MesProduitsComponent implements OnInit {
 
-  produitsRevendeur: any[];
+  produitsRevendeur: ProduitRevendeurModel[];
+  filteredGames: ProduitRevendeurModel[]; // filtered games array
+  searchTerm = ''; // search term
   nbrProduits: number = 0;
   p: number = 1;
 
@@ -27,7 +31,7 @@ export class MesProduitsComponent implements OnInit {
     this.mesProduitsService.getAllProduitDuRevendeur().subscribe({
       next: (result) => {
         this.produitsRevendeur = result;
-        this.nbrProduits = this.produitsRevendeur.length;
+        this.filterGames();
       },
       error: (e) => {
         console.error(e);
@@ -35,7 +39,13 @@ export class MesProduitsComponent implements OnInit {
     });
   }
 
-
+  filterGames() {
+    this.filteredGames = this.produitsRevendeur.filter(game =>
+      game.produit.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+    this.nbrProduits = this.filteredGames.length;
+    console.log(this.filteredGames)
+  }
 
   public modifierProduit(id: string, produitRevendeur: ModifProduitRevendeurModel): void {
     const dialogRef = this.dialog.open(AddToRevendeurDialogComponent, {

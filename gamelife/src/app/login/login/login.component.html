@@ -39,19 +39,16 @@
               </div>
             </div>
           </div>
-
+          <div class="mdp-oubli-link action-item">
+            <a class="forgot-password-link" routerLink="/motdepasseoublie"><span>Vous avez oublié votre mot de passe ?</span></a>
+          </div>
+          <div class="action-item">
+            <button class="login-button" mat-button [disabled]="userFormGroup.invalid" type="submit">CONNEXION</button>
+          </div>
         </mat-card-content>
 
-        <mat-card-actions>
-          <div class="mdp-oubli-link">
-            <a routerLink="/motdepasseoublie"><span>Vous avez oublié votre mot de passe ?</span></a>
-          </div>
 
-          <div>
-            <!-- [disabled]="userFormGroup.invalid" !-->
-            <button mat-button  class="button-connexion" type="submit">CONNEXION</button>
-          </div>
-        </mat-card-actions>
+
       </form>
     </mat-card>
     <div class="seperator"></div>
@@ -64,13 +61,11 @@
             <h2>NOUVEAU CLIENT ?</h2>
           </div>
         </mat-card-header>
-
-        <mat-card-actions>
+        <mat-card-content>
           <div>
             <button mat-button (click)="handleRedirectionToInscription()" class="button-inscription" type="submit" > CRÉEZ UN COMPTE</button>
           </div>
-        </mat-card-actions>
-
+        </mat-card-content>
       </form>
 
     </mat-card>

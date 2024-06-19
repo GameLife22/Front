@@ -14,10 +14,9 @@ import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatLine, MatOption} from "@angular/material/core";
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import {MatPaginator} from "@angular/material/paginator";
-import {BaseChartDirective} from "ng2-charts";
 import {AddProduitComponent} from "../revendeur/add-produit/add-produit.component";
 import {MatFormField} from "@angular/material/form-field";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelect} from "@angular/material/select";
 import {MatInput} from "@angular/material/input";
 
@@ -36,27 +35,27 @@ const routes: Routes = [
     MesProduitsComponent,
     AddProduitComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatSidenavModule,
-    MatCardModule,
-    MatButtonModule,
-    NgxPaginationModule,
-    MatToolbar,
-    MatIcon,
-    MatNavList,
-    MatListItem,
-    MatLine,
-    MatGridList,
-    MatGridTile,
-    MatPaginator,
-    BaseChartDirective,
-    MatFormField,
-    ReactiveFormsModule,
-    MatSelect,
-    MatOption,
-    MatInput
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatSidenavModule,
+        MatCardModule,
+        MatButtonModule,
+        NgxPaginationModule,
+        MatToolbar,
+        MatIcon,
+        MatNavList,
+        MatListItem,
+        MatLine,
+        MatGridList,
+        MatGridTile,
+        MatPaginator,
+        MatFormField,
+        ReactiveFormsModule,
+        MatSelect,
+        MatOption,
+        MatInput,
+        FormsModule
+    ]
 })
 export class GestionProduitRevendeurModule { }

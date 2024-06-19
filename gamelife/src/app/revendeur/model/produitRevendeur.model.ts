@@ -5,7 +5,7 @@ export interface ProduitRevendeurModel {
     etat: string;
     produit: {
         id: string;
-        nom: string;
+        name: string;
         description: string;
         plateformes: {
             id: string;

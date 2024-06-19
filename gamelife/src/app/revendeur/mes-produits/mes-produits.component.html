@@ -40,8 +40,8 @@
       <div class="search_bar">
         <section>
           <form>
-            <input type="text" placeholder="Filter by Name" #filter>
-            <button mat-icon-button type="button">
+            <input type="text" placeholder="Filter by Name" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}" >
+            <button mat-icon-button type="button" (click)="filterGames()">
               <mat-icon  style="margin-bottom: -5px">search</mat-icon >
             </button>
           </form>
@@ -50,13 +50,12 @@
     </div>
 
     <div class="card-container">
-      <div *ngFor="let prod of produitsRevendeur | paginate: { itemsPerPage: 15, currentPage: p } ">
+      <div *ngFor="let prod of filteredGames | paginate: { itemsPerPage: 15, currentPage: p } ">
         <mat-card>
-
-          <img mat-card-image alt="Photo" src="{{prod.produit.images[0].image}}" >
+          <img mat-card-image alt="Photo" src="{{prod.produit.images[0]}}" >
 
           <mat-card-header>
-            <mat-card-title> {{prod.produit.nom}} </mat-card-title>
+            <mat-card-title> {{prod.produit.name}} </mat-card-title>
           </mat-card-header>
           <mat-card-content>
             <p class="produit_stock">Stock : {{prod.stock}}</p>

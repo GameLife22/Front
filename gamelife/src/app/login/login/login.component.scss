@@ -60,16 +60,28 @@ mat-card-header{
   position: relative;
   font-size: 16px;
 }
-.mdp-oubli-link{
-  margin-bottom: 10px;
-}
-.button-connexion{
-  background: darkblue;
-  color: white;
+.action-item {
+  margin-bottom: 30px;
 }
 
-.button-connexion:disabled {
-  border: 1px solid #999999;
+.forgot-password-link {
+  color: #1976d2; // Change this to the color you want
+  text-decoration: none;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  background-color: darkblue; // Change this to the color you want
+  color: white;
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+}
+
+.login-button:disabled {
   background-color: #cccccc;
   color: #666666;
 }
@@ -86,29 +98,6 @@ mat-card-header{
 .button-inscription{
   background: darkblue;
   color: white;
+  width: 100%;
 }
-/*************************/
-
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a:active {
-  text-decoration: none;
-}
-.mdp-oubli-link{
-  margin-top: -20px;
-}
-span{
-  color:cornflowerblue;
-}
-/**************************/
 

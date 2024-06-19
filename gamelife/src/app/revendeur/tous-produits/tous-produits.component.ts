@@ -4,6 +4,7 @@ import {AddToRevendeurDialogComponent} from "../add-to-revendeur-dialog/add-to-r
 import {MatDialog} from "@angular/material/dialog";
 import { Router } from '@angular/router';
 import {TokenService} from "../../services/token/token.service";
+import {GameModel} from "../../model/game.model";
 
 @Component({
   selector: 'app-tous-produits',
@@ -12,7 +13,9 @@ import {TokenService} from "../../services/token/token.service";
 })
 export class TousProduitsComponent implements OnInit {
 
-  produits: any[];
+  produits: GameModel[];
+  filteredGames: GameModel[]; // filtered games array
+  searchTerm = ''; // search term
   nbrProduits: number = 0;
   p: number = 1;
 
@@ -26,14 +29,24 @@ export class TousProduitsComponent implements OnInit {
   ngOnInit(): void {
     this.tousProduitsService.getAllProduit().subscribe({
       next: (result) => {
+        console.log(result);
         this.produits = result;
-        this.nbrProduits = this.produits.length;
-        console.log(this.produits);
+        this.filterGames();
       },
       error: (e) => {
         console.error(e);
       }
     });
+
+
+  }
+
+  filterGames() {
+    this.filteredGames = this.produits.filter(game =>
+      game.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+    this.nbrProduits = this.filteredGames.length;
+    console.log(this.filteredGames)
   }
 
 
@@ -49,7 +62,6 @@ export class TousProduitsComponent implements OnInit {
         // result contains the stock size and the price
         this.tousProduitsService.ajouterProduitAuRevendeur(produit, result.stockSize, result.price).subscribe({
           next: (result) => {
-            console.log(result);
             this.ngOnInit();
           },
           error: (e) => {
