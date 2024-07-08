@@ -8,20 +8,6 @@ import { GameService } from "../../services/game/game.service";
   templateUrl: './fiche-produit.component.html',
   styleUrls: ['./fiche-produit.component.scss']
 })
-export class FicheProduitComponent implements OnInit {
+export class FicheProduitComponent {
 
-  id : string | any;
-  game : GameModel;
-
-  constructor(private activatedRoute : ActivatedRoute, private gameService : GameService) { }
-
-  ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id')
-    this.gameService.getGamesById(this.id)
-    .subscribe({
-      next: (game) => {
-        this.game = game;
-      }
-    });
-  }
 }

@@ -17,8 +17,7 @@ import {ValidationInscriptionComponent} from "./validation-inscription/validatio
 import {ActivationCompteComponent} from "./activation-compte/activation-compte.component";
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'accueil' },
-  { path: 'accueil', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path : "login", component : LoginComponent},
   { path : "inscription", component : InscriptionComponent},
   {path :  "paiment", component: PaimentComponent},

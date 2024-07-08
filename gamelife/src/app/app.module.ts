@@ -45,6 +45,7 @@ import {NgxPaginationModule} from "ngx-pagination";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NgIconsModule } from '@ng-icons/core';
 import { ionPerson, ionBasket  } from '@ng-icons/ionicons'
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({ declarations: [
         AppComponent,
@@ -83,5 +84,5 @@ import { ionPerson, ionBasket  } from '@ng-icons/ionicons'
     MatSelectModule,
     NgxPayPalModule,
     NgIconsModule.withIcons({ionPerson, ionBasket}),
-    AngularSvgIconModule, NgxPaginationModule, MatDialogClose, MatList, MatListItem, MatDialogActions, MatDialogContent, MatDialogTitle], providers: [TokenInterceptorProvider, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
+    AngularSvgIconModule, NgxPaginationModule, MatDialogClose, MatList, MatListItem, MatDialogActions, MatDialogContent, MatDialogTitle, NgOptimizedImage], providers: [TokenInterceptorProvider, provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
 export class AppModule { }

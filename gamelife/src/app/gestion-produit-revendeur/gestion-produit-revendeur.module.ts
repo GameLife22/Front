@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {GestionProduitRevendeurComponent} from "../revendeur/gestion-produit-revendeur/gestion-produit-revendeur.component";
 import {TousProduitsComponent} from "../revendeur/tous-produits/tous-produits.component";
@@ -55,7 +55,8 @@ const routes: Routes = [
         MatSelect,
         MatOption,
         MatInput,
-        FormsModule
+        FormsModule,
+        NgOptimizedImage
     ]
 })
 export class GestionProduitRevendeurModule { }

@@ -1,5 +1,5 @@
 <main class="container">
-  <div class="cards-wrapper">
+  <div class="cards-container">
     <div *ngFor="let game of this.games().content | paginate: { itemsPerPage: this.size, currentPage: this.page() + 1, totalItems: this.games().totalElements };">
       <mat-card class="card">
         <img class="card-image" [src]="game.images[0]" alt="{{ game.name }}">
@@ -16,3 +16,4 @@
     </div>
   }
 </main>
+
