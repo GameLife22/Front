@@ -1,0 +1,22 @@
+mat-dialog-content {
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-dialog-actions {
+  justify-content: space-between;
+}
+
+.close-button {
+  color: white;
+  background-color: #e80808;
+}
+
+.add-button {
+  color: white;
+  background-color: #3dc43d; // This sets the color of the Add button to green
+}

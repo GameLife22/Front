@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {GameModel} from "../../../model/game.model";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
 import {TokenService} from "../../../services/token/token.service";
@@ -16,8 +15,9 @@ export class MesProduitsService {
 
   constructor(private http : HttpClient,public tokenService : TokenService) { }
 
-  public getAllProduitDuRevendeur(): Observable<ProduitRevendeurModel[]>{
-    return this.http.get<ProduitRevendeurModel[]>(this.baseUrl + "api/v1/produit_revendeur/utilisateur/"+this.tokenService.getUserIdFromToken());
+  public getAllProduitDuRevendeur(): Observable<ProduitRevendeurModel[] >{
+    return this.http.get<ProduitRevendeurModel[]>(this.baseUrl + "api/v1/produit_revendeur/utilisateur/"
+      +this.tokenService.getUserIdFromToken());
 
   }
   public modifierProduit(id: string, produitRevendeur: ModifProduitRevendeurModel): Observable<any> {

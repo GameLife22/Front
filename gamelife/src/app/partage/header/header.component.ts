@@ -30,7 +30,6 @@ export class HeaderComponent implements OnInit {
     this.service.getUserById(this.tokenDec.jti).subscribe(resp => {
       this.lastName = resp.lastName;
       this.firstName = resp.firstName;
-      console.log(resp);
     })
   }
   getDecodedAccessToken(token: string): any {

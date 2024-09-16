@@ -41,21 +41,36 @@
 
     <div class="add-produit-container">
       <form [formGroup]="addProduitForm" (ngSubmit)="onSubmit()">
-        <div>
-          <mat-form-field>
-            <input matInput placeholder="Nom du produit" formControlName="nom">
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
-            <textarea matInput placeholder="Description du produit" formControlName="description"></textarea>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
-            <input matInput placeholder="Image du produit" formControlName="image">
-          </mat-form-field>
-        </div>
+
+        <mat-form-field>
+          <input matInput placeholder="Nom du produit" formControlName="nom">
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput placeholder="Description du produit" formControlName="description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          Genre
+          <mat-select formControlName="genre" multiple>
+            <mat-option *ngFor="let genre of genres" [value]="genre">
+              {{ genre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          Plateforme
+          <mat-select formControlName="plateform" multiple>
+            <mat-option *ngFor="let platform of platforms" [value]="platform">
+              {{ platform }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+<!-- TODO : Add image upload !-->
+
+
 
         <button mat-raised-button color="primary" type="submit">Ajouter</button>
       </form>

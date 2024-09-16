@@ -21,13 +21,8 @@ export class MotDePasseOublieService {
   getEmailByToken(token : String) : Observable<EmailModel>{
     return this.http.get<EmailModel>(environment.baseUrl + `utilisateur/getEmailByToken?token=${token}`);
   }
-  motDePasseReset(mdp : string,token : string){
-    console.log(mdp)
-    console.log(token)
-    return this.http.post(environment.baseUrl + `utilisateur/mdpreset?token=${token}`,
-      {
-        "pwd": mdp
-      });
+  motDePasseReset(pwd : string,token : string){
+    return this.http.post(environment.baseUrl + `utilisateur/mdpreset?token=${token}`,pwd);
   }
 
 

@@ -29,7 +29,6 @@ export class TousProduitsComponent implements OnInit {
   ngOnInit(): void {
     this.tousProduitsService.getAllProduit().subscribe({
       next: (result) => {
-        console.log(result);
         this.produits = result;
         this.filterGames();
       },
@@ -42,11 +41,10 @@ export class TousProduitsComponent implements OnInit {
   }
 
   filterGames() {
-    this.filteredGames = this.produits.filter(game =>
+    this.filteredGames = this.produits/*.filter(game =>
       game.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
+    );*/
     this.nbrProduits = this.filteredGames.length;
-    console.log(this.filteredGames)
   }
 
 

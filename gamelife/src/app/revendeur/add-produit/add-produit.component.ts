@@ -3,7 +3,10 @@ import {Router} from "@angular/router";
 import {TokenService} from "../../services/token/token.service";
 
 import {CategorieModel} from "../../model/categorie.model";
+
 import {FormBuilder, Validators} from "@angular/forms";
+import {GameGenres} from "../enum/game-genres.enum";
+import {Platforms} from "../enum/platforms.enum";
 
 @Component({
   selector: 'app-add-produit',
@@ -11,8 +14,12 @@ import {FormBuilder, Validators} from "@angular/forms";
   styleUrl: './add-produit.component.scss'
 })
 export class AddProduitComponent {
-   categories: CategorieModel[];
+
   addProduitForm: any;
+  genres = Object.values(GameGenres);
+  platforms = Object.values(Platforms);
+  fileName = 'No file selected';
+
 
   constructor(public tokenService: TokenService,
               public router: Router,
@@ -20,12 +27,14 @@ export class AddProduitComponent {
 
     this.addProduitForm = this.formBuilder.group({
       nom: ['', Validators.required],
-      prix: ['', Validators.required],
-      quantite: ['', Validators.required],
       description: ['', Validators.required],
-      image: ['', Validators.required],
+      image: [null, Validators.required] ,
+      genre: [[], Validators.required],
+      platforms: [[], Validators.required] // Add this line
+
     });
   }
+
 
   ngOnInit(): void {
 
@@ -47,6 +56,16 @@ export class AddProduitComponent {
     if (this.addProduitForm.valid) {
       const newProduct = this.addProduitForm.value;
       console.log(newProduct);
+    }
+  }
+
+
+
+  handleFileInput(files: FileList) {
+    if (files.length > 0) {
+      this.fileName = files[0].name;
+      // Assuming you have a method or property to handle the file for submission
+      // this.selectedFile = files[0];
     }
   }
 }

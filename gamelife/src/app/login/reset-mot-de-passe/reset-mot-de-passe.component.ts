@@ -47,7 +47,8 @@ export class ResetMotDePasseComponent implements OnInit {
     let mdp = this.userFormGroup.value.password
     this.mdpOublieService.motDePasseReset(mdp,this.token).subscribe({
       next : value => {
-        this.router.navigate(['/login'])
+        this.router.navigate(['/login']).then(r => console.log("redirection vers login")
+        )
 
       }
     })

@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 import {TokenService} from "../../services/token/token.service";
 import {GameModel} from "../../model/game.model";
 import {ProduitRevendeurModel} from "../model/produitRevendeur.model";
+import {DeleteDialogComponent} from "../delete-dialog/delete-dialog.component";
 
 @Component({
   selector: 'app-mes-produits',
@@ -28,10 +29,18 @@ export class MesProduitsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetchData();
+  }
+  fetchData(): void {
     this.mesProduitsService.getAllProduitDuRevendeur().subscribe({
       next: (result) => {
-        this.produitsRevendeur = result;
-        this.filterGames();
+        if(result == null){
+          console.log("No products found for this user.");
+        }
+        else {
+          this.produitsRevendeur = result;
+          this.filterGames();
+        }
       },
       error: (e) => {
         console.error(e);
@@ -39,12 +48,12 @@ export class MesProduitsComponent implements OnInit {
     });
   }
 
+
   filterGames() {
-    this.filteredGames = this.produitsRevendeur.filter(game =>
+    this.filteredGames = this.produitsRevendeur/*.filter(game =>
       game.produit.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
+    );*/
     this.nbrProduits = this.filteredGames.length;
-    console.log(this.filteredGames)
   }
 
   public modifierProduit(id: string, produitRevendeur: ModifProduitRevendeurModel): void {
@@ -57,7 +66,6 @@ export class MesProduitsComponent implements OnInit {
        let  produitRevendeurs: ModifProduitRevendeurModel = { stock: result.stockSize, prix: result.price};
         this.mesProduitsService.modifierProduit(id, produitRevendeurs).subscribe({
           next: (result) => {
-            console.log(result);
             this.ngOnInit();
           },
           error: (e) => {
@@ -68,10 +76,29 @@ export class MesProduitsComponent implements OnInit {
     });
 
 }
+
+  public supprimerProduitDialog(id: string): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '250px',
+    });
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        console.log('Product deletion confirmed.')
+        this.mesProduitsService.supprimerProduit(id).subscribe({
+          next: (result): void => {
+            console.log('Product deleted successfully.');
+            this.fetchData();
+          },
+          error: (e) => {
+            console.error('Error deleting product:', e);
+          }
+        });
+      }
+    });
+  }
   public supprimerProduit(id: string): void {
     this.mesProduitsService.supprimerProduit(id).subscribe({
-      next: (result) => {
-        console.log(result);
+      next: (result): void => {
         this.ngOnInit();
       },
       error: (e) => {
