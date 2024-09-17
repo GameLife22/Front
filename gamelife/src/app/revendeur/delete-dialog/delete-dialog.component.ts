@@ -1,7 +1,6 @@
-import {Component, Inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {
-  MAT_DIALOG_DATA,
   MatDialogActions,
   MatDialogClose, MatDialogContainer,
   MatDialogContent,
@@ -10,7 +9,7 @@ import {
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatIcon} from "@angular/material/icon";
 import {MatInput} from "@angular/material/input";
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import { ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-delete-dialog',

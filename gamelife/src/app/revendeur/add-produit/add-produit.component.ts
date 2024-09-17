@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {TokenService} from "../../services/token/token.service";
 
-import {CategorieModel} from "../../model/categorie.model";
-
 import {FormBuilder, Validators} from "@angular/forms";
 import {GameGenres} from "../enum/game-genres.enum";
 import {Platforms} from "../enum/platforms.enum";

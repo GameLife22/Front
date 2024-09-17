@@ -5,7 +5,6 @@ import {AddToRevendeurDialogComponent} from "../add-to-revendeur-dialog/add-to-r
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {TokenService} from "../../services/token/token.service";
-import {GameModel} from "../../model/game.model";
 import {ProduitRevendeurModel} from "../model/produitRevendeur.model";
 import {DeleteDialogComponent} from "../delete-dialog/delete-dialog.component";
 
@@ -65,7 +64,7 @@ export class MesProduitsComponent implements OnInit {
       if (result) {
        let  produitRevendeurs: ModifProduitRevendeurModel = { stock: result.stockSize, prix: result.price};
         this.mesProduitsService.modifierProduit(id, produitRevendeurs).subscribe({
-          next: (result) => {
+          next: () => {
             this.ngOnInit();
           },
           error: (e) => {
@@ -85,7 +84,7 @@ export class MesProduitsComponent implements OnInit {
       if (confirmed) {
         console.log('Product deletion confirmed.')
         this.mesProduitsService.supprimerProduit(id).subscribe({
-          next: (result): void => {
+          next: (): void => {
             console.log('Product deleted successfully.');
             this.fetchData();
           },
@@ -98,7 +97,7 @@ export class MesProduitsComponent implements OnInit {
   }
   public supprimerProduit(id: string): void {
     this.mesProduitsService.supprimerProduit(id).subscribe({
-      next: (result): void => {
+      next: (): void => {
         this.ngOnInit();
       },
       error: (e) => {
