@@ -41,9 +41,9 @@ export class TousProduitsComponent implements OnInit {
   }
 
   filterGames() {
-    this.filteredGames = this.produits/*.filter(game =>
-      game.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );*/
+    this.filteredGames = this.produits.filter(game =>
+      game.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
     this.nbrProduits = this.filteredGames.length;
   }
 

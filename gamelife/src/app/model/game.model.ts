@@ -1,6 +1,6 @@
 export interface GameModel {
   id: string;
-  name: string;
+  title: string;
   description: string;
   genres: String[];
   platforms: String[];

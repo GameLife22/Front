@@ -52,11 +52,12 @@
     <div class="card-container">
       <div *ngFor="let prod of filteredGames | paginate: { itemsPerPage: 15, currentPage: p } ">
         <div>
-          <img alt="Photo" ngSrc="{{prod.produit.images[0]}}" >
-
           <mat-card-header>
-            <mat-card-title> {{prod.produit.name}} </mat-card-title>
+            <mat-card-title> {{prod.produit.title}} </mat-card-title>
           </mat-card-header>
+          <img mat-card-image src="{{prod.produit.images[0]}}">
+
+
           <mat-card-content>
             <p class="produit_stock">Stock : {{prod.stock}}</p>
             <p class="produit_prix">Prix : {{prod.prix}}</p>

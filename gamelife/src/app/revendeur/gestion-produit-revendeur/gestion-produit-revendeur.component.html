@@ -35,12 +35,8 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-    <h1 style="text-align: center">Bienvenue à ton Store : {{storeName.firstName}}</h1>
+    <h1 style="text-align: center">Bienvenue à ton Store : {{storeName.firstName}} {{storeName.lastName}}</h1>
 
-    <mat-grid-list cols="4" rowHeight="100px">
-      <mat-grid-tile [colspan]="4" [rowspan]="4" [style.background]="'lightblue'">
 
-      </mat-grid-tile>
-    </mat-grid-list>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -37,6 +37,7 @@ export class MesProduitsComponent implements OnInit {
           console.log("No products found for this user.");
         }
         else {
+          console.log(result);
           this.produitsRevendeur = result;
           this.filterGames();
         }
@@ -49,9 +50,9 @@ export class MesProduitsComponent implements OnInit {
 
 
   filterGames() {
-    this.filteredGames = this.produitsRevendeur/*.filter(game =>
-      game.produit.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );*/
+    this.filteredGames = this.produitsRevendeur.filter(game =>
+      game.produit.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
     this.nbrProduits = this.filteredGames.length;
   }
 

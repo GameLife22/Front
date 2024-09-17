@@ -53,7 +53,7 @@
       <div *ngFor="let produit of filteredGames | paginate: { itemsPerPage: 15, currentPage: p }">
         <mat-card >
           <mat-card-header>
-            <mat-card-title>{{produit.name}}</mat-card-title>
+            <mat-card-title>{{produit.title}}</mat-card-title>
           </mat-card-header>
           <img mat-card-image src="{{produit.images[0]}}">
           <mat-card-actions>

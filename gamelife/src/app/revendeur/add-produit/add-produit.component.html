@@ -39,17 +39,20 @@
       <h1 style="text-align: center">Ajouter un nouveau produit</h1>
     </div>
 
-    <div class="add-produit-container">
+    <div class="add-produit-container" >
       <form [formGroup]="addProduitForm" (ngSubmit)="onSubmit()">
-
+      <div>
         <mat-form-field>
           <input matInput placeholder="Nom du produit" formControlName="nom">
         </mat-form-field>
+      </div>
 
-        <mat-form-field>
-          <textarea matInput placeholder="Description du produit" formControlName="description"></textarea>
-        </mat-form-field>
-
+      <div>
+      <mat-form-field>
+        <textarea matInput placeholder="Description du produit" formControlName="description"></textarea>
+      </mat-form-field>
+      </div>
+      <div>
         <mat-form-field>
           Genre
           <mat-select formControlName="genre" multiple>
@@ -58,7 +61,8 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-
+      </div>
+      <div>
         <mat-form-field>
           Plateforme
           <mat-select formControlName="plateform" multiple>
@@ -67,12 +71,13 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-
+      </div>
 <!-- TODO : Add image upload !-->
 
 
-
-        <button mat-raised-button color="primary" type="submit">Ajouter</button>
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit">Ajouter</button>
+        </div>
       </form>
     </div>
   </mat-sidenav-content>

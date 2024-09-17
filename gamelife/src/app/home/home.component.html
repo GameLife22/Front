@@ -2,9 +2,9 @@
   <div class="cards-container">
     <div *ngFor="let game of this.games().content | paginate: { itemsPerPage: this.size, currentPage: this.page() + 1, totalItems: this.games().totalElements };">
       <mat-card class="card">
-        <img class="card-image" [src]="game.images[0]" alt="{{ game.name }}">
+        <img class="card-image" [src]="game.images[0]" alt="{{ game.title }}">
         <div class="card-content">
-          <h3 class="card-title">{{ game.name }}</h3>
+          <h3 class="card-title">{{ game.title }}</h3>
           <button mat-button class="card-button button-active" (click)="redirectToGameSheet(game.id)">Acheter</button>
         </div>
       </mat-card>
