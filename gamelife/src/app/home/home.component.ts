@@ -22,8 +22,12 @@ export class HomeComponent implements OnInit {
     this.produitService.getAllProduit()
       .subscribe({
         next: (res) => {
-          console.log(res,"res")
-          this.produits = res;
+          if (res) {
+            console.log(res, "res");
+            this.produits = res;
+          } else {
+            console.warn("Received null or undefined response from getAllProduit");
+          }
         },
         error: (e) => console.error(e, "error getAllProduit")
       });
